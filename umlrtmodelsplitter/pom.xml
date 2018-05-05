@@ -1,0 +1,99 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>ca.jahed.papyrusrt.mm</groupId>
+  <artifactId>papyrusrt-mm</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>papyrusrt-mm</name>
+  <url>http://maven.apache.org</url>
+
+  <repositories>
+    <!--other repositories if any-->
+    <repository>
+        <id>project.local</id>
+        <name>project</name>
+        <url>file:${project.basedir}/repo</url>
+    </repository>
+  </repositories>
+
+  <build>
+      <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>exec-maven-plugin</artifactId>
+            <configuration>
+                <mainClass>ca.jahed.papyrusrt.persistence.ModelSplitter</mainClass>
+            </configuration>
+        </plugin>
+      </plugins>
+  </build>
+
+  <dependencies>
+   <dependency>
+      <groupId>org.eclipse.uml2</groupId>
+      <artifactId>uml</artifactId>
+      <version>5.3.0.v20170605</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.uml2</groupId>
+      <artifactId>common</artifactId>
+      <version>2.1.0.v20170605</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.uml2</groupId>
+      <artifactId>resources</artifactId>
+      <version>5.3.0.v20170605</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.eclipse.uml2</groupId>
+      <artifactId>types</artifactId>
+      <version>2.0.0.v20170605</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.uml2</groupId>
+      <artifactId>profile.standard</artifactId>
+      <version>1.0.100.v20170605</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.emf</groupId>
+      <artifactId>emf</artifactId>
+      <version>2.6.0.v20170609</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.emf</groupId>
+      <artifactId>common</artifactId>
+      <version>2.13.0.v20170609</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.emf</groupId>
+      <artifactId>ecore</artifactId>
+      <version>2.13.0.v20170609</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.emf</groupId>
+      <artifactId>ecore.xmi</artifactId>
+      <version>2.13.0.v20170609</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.emf</groupId>
+      <artifactId>mapping.ecore2xml</artifactId>
+      <version>2.9.0.v20170609</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.eclipse.papyrusrt.umlrt</groupId>
+      <artifactId>profile</artifactId>
+      <version>1.0.0.201707181432</version>
+    </dependency>
+  </dependencies>
+</project>
