@@ -1,0 +1,338 @@
+function getModelName(){
+	var umlModelName = M;
+	var modelName= umlModelName!Package.all.select(c|c.name="ParcelRouter_v0").first();
+	return modelName;
+}
+
+function findClasses(){
+	var modelName = getModelName();
+	var classes = modelName.packagedElement.select(e|e.type.name="Class");
+	return classes;
+}
+
+function findClassIdFromClassName(capsuleName):Set{
+var result: Set;
+	var getCapsuleName: Set;var item;
+	var modelName = getModelName();
+	for(h in capsuleName){
+	var classess = modelName.packagedElement.select(e|e.type.name="Class").select(e|e.name=h);//.select(e|e.name=capsuleID);
+	for(t in classess){
+	 		var item = t.id;
+	 		result.add(item);}}
+	return result;
+}
+
+function findClassNameFromClassID(capsuleID):Set{	
+	var result: Set;var item;
+	var modelName = getModelName();
+		for(h in capsuleID){
+			var classess = modelName.packagedElement.select(e|e.type.name="Class").select(e|e.id=h);//.select(e|e.name=capsuleID);
+				for(t in classess){
+	 				var item = t.name;
+	 				result.add(item);}}
+	return result;
+}
+
+/*function findPackageNameFromPackageIDforRoverModel(packageID):Set{	
+	var result: Set;var item;
+	var modelName = getModelName();
+	for(h in packageID){	
+	//For Rover model
+		var package1 = modelName.packagedElement.select(e|e.type.name="Package");	
+		var package = package1.packagedElement.select(e|e.type.name="Package").select(e|e.id=h);
+			
+	//	var package = modelName.packagedElement.select(e|e.type.name="Package").select(e|e.id=h);	
+			for(t in package){
+	 			var item = t.name;	 		
+	 			result.add(item);}}
+	return result;
+}
+
+
+function findPackageNameFromPackageID(packageID):Set{	
+	var result: Set;var item;
+	var modelName = getModelName();
+	var packages = findPackageNameFromPackageIDforRoverModel();
+	for(h in packageID){	
+	//For Rover model
+		var package1 = modelName.packagedElement.select(e|e.type.name="Package");	
+		var package = package1.packagedElement.select(e|e.type.name="Package").select(e|e.id=h);
+			
+	//	var package = modelName.packagedElement.select(e|e.type.name="Package").select(e|e.id=h);	
+			for(t in package){
+	 			var item = t.name;	 		
+	 			result.add(item);}}
+	return result;
+}*/
+
+function findPackageNameFromPackageID(packageID):Set{	
+	var result: Set;var item;
+	var modelName = getModelName();
+	for(h in packageID){	
+		var package = modelName.packagedElement.select(e|e.type.name="Package").select(e|e.id=h);	
+			for(t in package){
+	 			var item = t.name;	 		
+	 			result.add(item);}}
+	return result;
+}
+
+function findPackageElements(packageName){	
+var result;var item;
+	var modelName = getModelName();
+	for(h in packageName){
+		var package = modelName.packagedElement.select(e|e.type.name="Package").select(e|e.name=h);
+			for(t in package){
+	 			var item = t.id;	 		
+	 			result = item;}}	 			
+	return result;
+}
+
+function findPackageFromPackageID(capsuleID){	
+	var getPackageName: Set;var item;
+	var modelName = getModelName();
+	var package = modelName.packagedElement.select(e|e.type.name="Package");
+	for (s in package){
+	var t = s.id;
+	if(t == capsuleID){	
+		item = s.name;
+		getPackageName.add(item);}}
+	return getPackageName;
+}
+
+function findPackage(){
+	var modelName = getModelName();
+	var package = modelName.packagedElement.select(e|e.type.name="Package");
+	return package;
+}
+
+function findSelectedItemInClass(item){
+	var modelName = getModelName();
+	var resultItem = modelName.packagedElement.select(e|e.type.name="Class").select(e|e.name=item);
+	return resultItem;
+}
+
+function AddToCollection(items):Set{
+	var collectedItems:Set;
+	collectedItems.addAll(items);
+	return collectedItems;
+}
+
+function findPort():Set{
+    var getClass = findClasses();
+	var getProtocolName: Set;
+	for(loopClass in getClass){
+		var getAttribute = loopClass.ownedAttribute.select(c|c.isTypeOf(Port));
+		for(item in getAttribute){
+		getProtocolName.add(item);}
+	}
+	return getProtocolName;
+}
+function findPortForSibling(classNameForInput):Set{
+    var getClass = findClasses();
+	var getProtocolName: Set;	
+	for(loopClass in classNameForInput){
+		var getAttribute = loopClass.ownedAttribute.select(c|c.isTypeOf(Port));
+		for(item in getAttribute){
+		getProtocolName.add(item);}
+	}
+	
+	return getProtocolName;
+}
+
+function attributeInClasses():Set{
+	var attribute:Set; var attributeTypeId:Set; var typeId;
+	var modelName = getModelName();
+	var classes = modelName.packagedElement.select(e|e.type.name="Class");	
+	for(i in classes){
+	
+		attribute = i.ownedAttribute;//.select(c|c.isTypeOf(Property));		
+			for(j in attribute){
+				var isOrdered=true;
+				if(j.isOrdered.isDefined){
+		 		isOrdered=j.isOrdered;}
+		 		if(isOrdered= false){
+		 		}else{
+				typeId = j;	
+				attributeTypeId.add(typeId);				
+			}
+	}}
+	return attributeTypeId;
+}
+
+function portInClasses():Set{
+	var attribute:Set; var attributeTypeId:Set; var typeId;
+	var modelName = getModelName();
+	portWithServiceInClasses();
+	var classes = modelName.packagedElement.select(e|e.type.name="Class");	
+	for(i in classes){
+		attribute = i.ownedAttribute.select(c|c.isTypeOf(Port));	
+			for(j in attribute){
+				typeId = j;	
+				attributeTypeId.add(typeId);				
+			}
+	}	
+	return attributeTypeId;
+}
+
+function portWithServiceInClasses():Set{
+	var attribute:Set; var attributeTypeId:Set; var typeId;
+	var modelName = getModelName();
+	var classes = modelName.packagedElement.select(e|e.type.name="Class");	
+	for(i in classes){
+		attribute = i.ownedAttribute.select(c|c.isTypeOf(Port));	
+			for(j in attribute){
+				typeId = j.isService;	
+				attributeTypeId.add(typeId);				
+			}
+	}	
+	return attributeTypeId;
+}
+
+function attributeInPackage():Set{
+	var attribute:Set; var attributeTypeId:Set; var typeId;
+	var modelName = getModelName();
+	var classes = modelName.packagedElement.select(e|e.type.name="Package");	
+	for(i in classes){
+		attribute = i.packagedElement.select(c|c.isTypeOf(Dependency));		
+			for(j in attribute){
+				typeId = j;	
+				attributeTypeId.add(typeId);		
+			}
+	}
+	return attributeTypeId;
+}
+
+//Containment 
+function findImpactedCapsules(capsuleName): Set{
+    var result:Set;var capsuleTypeId;var capsuleId:Set;
+	var attribute:Set; var type; var element;
+	var modelName = getModelName();
+	var attributeinClasses :Set;
+	attributeinClasses = attributeInClasses();
+	result = containment(capsuleName, attributeinClasses);	
+  return result;
+}
+
+//Function to Recursilvely find the subsequent owner of particular element
+function containment(capsuleName, capsuleAttribute):Set{
+	var cap :Set; cap = capsuleAttribute; var element; var result:Set;
+	for(d in capsuleAttribute){
+ 				for(i in capsuleName) {
+ 					if(d.type.id==i) {
+ 					 	element = d.owner.name; 	
+ 					 	if(element <> i)	
+ 					 	{result.add(element);
+ 					 	result.addAll(containment(element, cap)); //Recursion to know subsequent owners		 	
+					}
+				}
+			}
+		}
+  return result;
+}
+
+function findImpactedProtocols(capsuleName): Set{
+    var result:Set;var capsuleTypeId;var capsuleId:Set;
+	var attribute:Set; var type; var element;
+	var modelName = getModelName();
+	var attributeinPackage :Set;
+	attributeinPackage = attributeInPackage();
+	result = containmentProcol(capsuleName, attributeinPackage);	
+  return result;
+}
+
+function containmentProcol(capsuleName, packageAttribute):Set{
+	var cap :Set; cap = packageAttribute; var element; var result:Set;
+	for(d in packageAttribute){
+ 				for(i in capsuleName) {
+ 					if(d.type.id==i) {
+ 					 	element = d.owner.name; 	
+ 					 	if(element <> i)	
+ 					 	{result.add(element);
+ 					 	result.addAll(findImpacted(element, cap)); //Recursion to know subsequent owners		 	
+					}
+				}
+			}
+	}
+  return result;
+}
+
+function findImpactedCapsulesWithProtocolChange(protocolName):Set{
+var result:Set;
+	var classesName= findClasses();	
+	var collaborationResult:Set;
+	var getPackage = findPackage();
+	var getIntoPackage = getPackage.packagedElement;
+	var getCol:Set; var getAttribute:Set; var bool;
+	getCol = getCollaborationResult(protocolName);
+//	("getCol " + getCol).println();
+	getAttribute = portInClasses();	
+		 for(a in getAttribute){
+		 	for(item in getCol){		
+		 		var isService=false;
+		 		if(a.isService.isDefined){isService=a.isService;}
+		 			if(isService= false){
+		 			}else{
+					 if (item == a.type.id)
+						{result.add(a.owner.name);}
+						}}
+					}
+	return result;
+}
+
+function getCollaborationResult(packageName):Set{
+	var collaborationResult:Set;
+	var modelName = getModelName();
+	//	("modelName " + modelName).println();
+	//			("packageName " + packageName).println();
+		
+	
+	for(h in packageName){
+		var package = modelName.packagedElement.select(e|e.type.name="Package").select(e|e.name=h);	
+		//	("package " + package).println();
+		
+		for(loopPackage in package){ //To get Protocol names	
+			var getProtocol = loopPackage.packagedElement.select(c|c.isTypeOf(Collaboration));
+		//		("getProtocol " + getProtocol).println();
+			
+			if(getProtocol.notEmpty()){
+			var pack = getProtocol.first().id;
+			//	("pack " + pack).println();
+			
+			collaborationResult.add(pack);
+	 	}}
+	}
+	return collaborationResult;
+}
+
+
+
+function findImpactedSiblingCapsules(capsuleName): Set
+{	var result:Set;
+	var item; var classNameForInput:Set;
+	var modelName = getModelName();
+	var className= findClasses();
+	var getPackage = findPackage(); var a:Set;
+	var getIntoPackage = getPackage.packagedElement;
+	var getProtocolName;
+	var resultPortName;
+	var port :Set; var allPort:Set;
+	
+	for (item in capsuleName){
+		a = findSelectedItemInClass(item);	
+		classNameForInput.addAll(a);					
+	}
+		port = findPortForSibling(classNameForInput);		
+		allPort= findPort();
+		for(i in allPort)
+		{
+			for(j in port){
+				if(i.type.name==j.type.name)
+				{
+					if(allPort.owner.name <> item){
+							result.addAll(allPort.owner.name);							
+					}
+				}
+			}
+		}
+return result;
+}

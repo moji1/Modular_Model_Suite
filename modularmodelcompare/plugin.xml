@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.actionSets">
+         <actionSet
+            label="Papyrus-RT Optimization Action Set"
+            visible="true"
+            id="ca.queensu.cs.papyrus.rt.optimization.actionSet">
+         <menu
+               label="Papyrus-RT &amp;Optimization"
+               id="optimization">
+            <separator
+                  name="OptimizationGroup">
+            </separator>
+         </menu>
+         <action
+               label="&amp;Git Action"
+               icon="icons/optimizeButton.png"
+               class="ca.queensu.cs.papyrus.rt.optimization.actions.GitAction"
+               tooltip="Click me !!"
+               menubarPath="Papyrus-RTOptimization/OptimizationGroup"
+               toolbarPath="OptimizationGroup"
+               id="ca.queensu.cs.papyrus.rt.optimization.actions.GitAction">
+         </action>
+      </actionSet>
+   </extension>
+</plugin>
