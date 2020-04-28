@@ -1,0 +1,364 @@
+/*******************************************************************************
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2015 Camilo Sanchez (Camiloasc1)
+ * Copyright (c) 2018 Mojtaba Bagherzadeh (Camiloasc1)
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ ******************************************************************************/
+
+
+
+grammar Expr;
+prog: stat+;  
+stat: expr NEWLINE # printExpr
+| ID '=' expr NEWLINE # assign
+| NEWLINE # blank
+;
+
+expr: expr op=('*'|'/') expr # MulDiv
+| expr op=('+'|'-') expr # AddSub
+| INT # int
+| ID # id
+| '(' expr ')' # parens
+;
+
+// assigns token name to '*' used above in grammar
+MUL : '*' ; 
+DIV : '/' ;
+ADD : '+' ;
+SUB : '-' ;
+
+// common rules
+ID : [a-zA-Z]+ ; // match identifiers
+INT : [0-9]+ ; // match integers
+NEWLINE:'\r'? '\n' ; // return newlines to parser (end-statement signal)
+WS : [ \t]+ -> skip ; // toss out whitespace
+
+
+
+Identifier
+:
+/*
+	Identifiernondigit
+	| Identifier Identifiernondigit
+	| Identifier DIGIT
+	*/
+	Identifiernondigit
+	(
+		Identifiernondigit
+		| DIGIT
+	)*
+;
+
+fragment
+Identifiernondigit
+:
+	NONDIGIT
+
+	/* other implementation defined characters*/
+;
+
+fragment
+NONDIGIT
+:
+	[a-zA-Z_]
+;
+
+fragment
+DIGIT
+:
+	[0-9]
+;
+
+literal
+:
+	Integerliteral
+	| Characterliteral
+	| Floatingliteral
+	| Stringliteral
+	| booleanliteral
+	| pointerliteral
+	| userdefinedliteral
+;
+
+Integerliteral
+:
+	Decimalliteral Integersuffix?
+	| Octalliteral Integersuffix?
+	| Hexadecimalliteral Integersuffix?
+	| Binaryliteral Integersuffix?
+;
+
+Decimalliteral
+:
+	NONZERODIGIT
+	(
+		'\''? DIGIT
+	)*
+;
+
+Octalliteral
+:
+	'0'
+	(
+		'\''? OCTALDIGIT
+	)*
+;
+
+Hexadecimalliteral
+:
+	(
+		'0x'
+		| '0X'
+	) HEXADECIMALDIGIT
+	(
+		'\''? HEXADECIMALDIGIT
+	)*
+;
+
+Binaryliteral
+:
+	(
+		'0b'
+		| '0B'
+	) BINARYDIGIT
+	(
+		'\''? BINARYDIGIT
+	)*
+;
+
+fragment
+NONZERODIGIT
+:
+	[1-9]
+;
+
+fragment
+OCTALDIGIT
+:
+	[0-7]
+;
+
+fragment
+HEXADECIMALDIGIT
+:
+	[0-9a-fA-F]
+;
+
+fragment
+BINARYDIGIT
+:
+	[01]
+;
+
+Integersuffix
+:
+	Unsignedsuffix Longsuffix?
+	| Unsignedsuffix Longlongsuffix?
+	| Longsuffix Unsignedsuffix?
+	| Longlongsuffix Unsignedsuffix?
+;
+
+fragment
+Unsignedsuffix
+:
+	[uU]
+;
+
+fragment
+Longsuffix
+:
+	[lL]
+;
+
+fragment
+Longlongsuffix
+:
+	'll'
+	| 'LL'
+;
+
+Characterliteral
+:
+	~['\\\r\n]
+	| Escapesequence
+;
+
+
+fragment
+Escapesequence
+:
+	Simpleescapesequence
+	| Octalescapesequence
+	| Hexadecimalescapesequence
+;
+fragment
+Simpleescapesequence
+:
+	'\\\''
+	| '\\"'
+	| '\\?'
+	| '\\\\'
+	| '\\a'
+	| '\\b'
+	| '\\f'
+	| '\\n'
+	| '\\r'
+	| '\\t'
+	| '\\v'
+;
+
+fragment
+Octalescapesequence
+:
+	'\\' OCTALDIGIT
+	| '\\' OCTALDIGIT OCTALDIGIT
+	| '\\' OCTALDIGIT OCTALDIGIT OCTALDIGIT
+;
+
+fragment
+Hexadecimalescapesequence
+:
+	'\\x' HEXADECIMALDIGIT+
+;
+
+Floatingliteral
+:
+	Fractionalconstant Exponentpart? Floatingsuffix?
+	| Digitsequence Exponentpart Floatingsuffix?
+;
+
+fragment
+Fractionalconstant
+:
+	Digitsequence? '.' Digitsequence
+	| Digitsequence '.'
+;
+
+fragment
+Exponentpart
+:
+	'e' SIGN? Digitsequence
+	| 'E' SIGN? Digitsequence
+;
+
+fragment
+SIGN
+:
+	[+-]
+;
+
+fragment
+Digitsequence
+:
+	DIGIT
+	(
+		'\''? DIGIT
+	)*
+;
+
+fragment
+Floatingsuffix
+:
+	[flFL]
+;
+
+Stringliteral
+:
+	 Encodingprefix? 'R' Rawstring
+;
+
+fragment
+Encodingprefix
+:
+	'u8'
+	| 'u'
+	| 'U'
+	| 'L'
+;
+
+
+
+
+fragment
+Rawstring /* '"' dcharsequence? '(' rcharsequence? ')' dcharsequence? '"' */
+:
+	'"' .*? '(' .*? ')' .*? '"'
+;
+booleanliteral
+:
+	'False'
+	| 'True'
+;
+pointerliteral
+:
+	'Nullptr'
+;
+userdefinedliteral
+:
+	Userdefinedintegerliteral
+	| Userdefinedfloatingliteral
+	| Userdefinedstringliteral
+	| Userdefinedcharacterliteral
+;
+Userdefinedintegerliteral
+:
+	Decimalliteral Udsuffix
+	| Octalliteral Udsuffix
+	| Hexadecimalliteral Udsuffix
+	| Binaryliteral Udsuffix
+;
+Userdefinedfloatingliteral
+:
+	Fractionalconstant Exponentpart? Udsuffix
+	| Digitsequence Exponentpart Udsuffix
+;
+Userdefinedstringliteral
+:
+	Stringliteral Udsuffix
+;
+Userdefinedcharacterliteral
+:
+	Characterliteral Udsuffix
+;
+fragment
+Udsuffix
+:
+	Identifier
+;
+Whitespace
+:
+	[ \t]+ -> skip
+;
+Newline
+:
+	(
+		'\r' '\n'?
+		| '\n'
+	) -> skip
+;
+BlockComment
+:
+	'/*' .*? '*/' -> skip
+;
+LineComment
+:
+	'//' ~[\r\n]* -> skip
+;
+

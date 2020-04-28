@@ -1,0 +1,195 @@
+
+
+operation UMLRTModel!State isChildLess() :Boolean{
+	if (self.region.isDefined() and self.region.subvertex.first().select(s|s.kind()="N").isEmpty())
+		return true;
+	else
+		return false;
+}
+
+operation UMLRTModel!StateMachine isChildLess() :Boolean{
+	if (self.region.isDefined() and self.region.subvertex.first().select(s|s.kind()="N").isEmpty())
+		return true;
+	else
+		return false;
+}
+
+
+
+//No Initial State (NIS).
+operation UMLRTModel!StateMachine hasNoInitialState():Boolean{
+	if (self.region.isDefined() and self.sts().select(s|s.pkind()="In").isEmpty())
+		return true;
+	else
+		return false;
+}
+
+operation UMLRTModel!State hasNoInitialState():Boolean{
+	if (self.region.isDefined() and self.sts().select(s|s.pkind()="In").isEmpty())
+		return true;
+	else
+		return false;
+}
+operation UMLRTModel!StateMachine hasNoInitialTransition():Boolean{
+	if (self.hasIntialStates()){
+		if (not self.trs().select(t|t.src().pkind()="In").isEmpty())
+			return true;
+	}
+	return false;
+	
+}
+
+operation UMLRTModel!StateMachine noIntialStates() : Set {
+	var noIntialStates=Set{};
+	if (self.sts().select(s|s.pkind()="In").isEmpty())
+		noIntialStates.add(self);
+	for (c in self.alphaSts().select(s|s.kind()=="C")){
+		if (c.sts().select(s|s.pkind="In").isEmpty())
+			noIntialStates.add(c);	
+	}
+	return NoIntialStates;
+}
+
+//Dead State (DS).
+operation UMLRTModel!StateMachine deadStates() : Set {
+	return self.stateWithUnhandledMessage().select(s| s.kind="N");
+}
+
+operation UMLRTModel!State deadStates() : Set {
+	return self.stateWithUnhandledMessage().select(s| s.kind="N");
+}
+
+/// Isolated States (IS).
+operation UMLRTModel!StateMachine isolatedStates() : Set {
+	var IsolatedStates=Set{};
+	var tempTrans=self.alphaTrs();
+	var tempCompositeState=Set{};
+	for (s in self.alphaSts().select(s|s.pKind()<>"In" and s.kind()<>"C"))
+		if (tempTrans.select(t|t.target==s).isEmpty()){
+			IsolatedStates.add(self);
+		}
+	return IsolatedStates;
+}
+
+
+
+operation UMLRTModel!State isolatedStates() : Set {
+	var IsolatedStates=Set{};
+	var tempTrans=self.alphaTrs();
+	var tempCompositeState=Set{};
+	for (s in self.alphaSts().select(s|s.pKind()<>"In" and s.kind()<>"C"))
+		if (tempTrans.select(t|t.target==s).isEmpty()){
+			IsolatedStates.add(self);
+		}
+	return IsolatedStates;
+}
+
+// broken chain 
+
+operation UMLRTModel!State brokenChains() : Set {
+	var brokenChains=Set{};
+	var tempTrans=self.trs();
+	//self.sts().println("States of "+self.name+" ");
+	for (s in self.sts().select(s|s.kind()="P"))
+		if (tempTrans.select(t|t.src()==s).isEmpty()){
+			brokenChains.add(s);
+		}
+	//brokenChains.println("Broken Chain of "+ self + " ");
+	return brokenChains;
+}
+
+operation UMLRTModel!StateMachine brokenChains() : Set {
+	var brokenChains=Set{};
+	var tempTrans=self.trs();
+	for (s in self.sts().select(s|s.kind()="P"))
+		if (tempTrans.select(t|t.src()==s).isEmpty()){
+			brokenChains.add(s);
+		}
+	//brokenChains.println("Broken Chain of "+ self.name + " ");
+	return brokenChains;
+}
+
+// 
+
+operation UMLRTModel!PseduState junctionOfGurad(){
+	var guardExp:String ;
+	var firstGuard:Boolean=true;
+	if (s.Ch=="Ch"){
+		var tempTrans=self.alphaTrs();
+		for (t in tempTrans)
+			if (t.guard.isDefined() and firstGuard){
+					guardExp=t.guard;
+					firstGuard=false;
+			} else if (t.guard.isDefined())
+				guardExp=t.guard;
+	}				
+}
+
+
+// collect states with unhandled message
+operation UMLRTModel!StateMachine stateWithUnhandledMessage():Set{
+	var stateWithUnhandledMessage:Set;
+	var logContext="PartialityFixer:stateWithUnhandledMessage";
+	Trace.log(logContext, "get state with unhandled message of statemachine " + self.name );
+	for (s in self.sts()){
+		Trace.log(logContext, "check state " + s.name +" with type "+ s.stateType() );
+		if (s.stateType() =="Composite" or s.stateType() =="Simple"){
+			Trace.log(logContext, "check state " + s.name );
+			var usedEvents=s.handledEvents();
+			Trace.log(logContext, "handled event of  state " + s.name +usedEvents );
+			var possibleEvents=self.ownerCapsule().messageIn();
+			Trace.log(logContext, "possible events of   state " + s.name +possibleEvents );
+			if (possibleEvents.excludingAll(usedEvents).isEmpty())
+				continue;
+			stateWithUnhandledMessage.add(s);
+		}
+	}
+	return stateWithUnhandledMessage;
+}
+
+// collect states with unhandled message
+operation UMLRTModel!State stateWithUnhandledMessage():Set{
+	var stateWithUnhandledMessage:Set;
+	var logContext="PartialityFixer:stateWithUnhandledMessage";
+	Trace.log(logContext, "get state with unhandled message of statemachine " + self.name );
+	for (s in self.sts()){
+		Trace.log(logContext, "check state " + s.name +" with type "+ s.stateType() );
+		if (s.stateType() =="Composite" or s.stateType() =="Simple"){
+			Trace.log(logContext, "check state " + s.name );
+			var usedEvents=s.handledEvents();
+			Trace.log(logContext, "handled event of  state " + s.name +usedEvents );
+			var possibleEvents=self.ownerCapsule().messageIn();
+			Trace.log(logContext, "possible events of   state " + s.name +possibleEvents );
+			if (possibleEvents.excludingAll(usedEvents).isEmpty())
+				continue;
+			stateWithUnhandledMessage.add(s);
+		}
+	}
+	return stateWithUnhandledMessage;
+}
+
+
+operation UMLRTModel!StateMachine pStateWithUnhandledMessage():Set{
+	var stateWithUnhandledMessage:Set;
+	for (s in self.sts()){
+		if (s.type() =="Composite" or s.type() =="Simple"){
+			var usedEvents=s.handledEvents();
+			var possibleEvents=self.ownerCapsule().messageIn();
+			if (possibleEvents.excludingAll(usedEvents).isEmpty())
+				continue;
+			stateWithUnhandledMessage.add(s);
+		}
+	}
+	return stateWithUnhandledMessage;
+}
+
+
+operation UMLRTModel!StateMachine notTakeableTransition() : Set {
+	//var NoEffectSet=Set{};
+	return self.trs().select(t|t.typ()=="N2x" and (t.trig().isEmpty()));
+}
+
+operation UMLRTModel!State notTakeableTransition() : Set {
+	//var NoEffectSet=Set{};
+	return self.trs().select(t|t.typ()=="N2x" and (t.trig().isEmpty()));
+}

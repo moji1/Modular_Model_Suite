@@ -1,0 +1,931 @@
+/*
+    Copyright (c) 2016 Queen's University.
+    
+    Developers:
+	Mojtaba Bagherzadeh(mojtaba@cs.queensu.ca)
+	Nafiseh Kahani(kahani@cs.queensu.ca)
+
+*/
+
+
+
+////// return trigger of a transition
+operation UMLRTModel!Transition trig() : Set {
+	var logContext="UMLRTQuery:trig";
+	Trace.log(logContext,"Getting trigger of transtion "+self.name);
+	var trigSet=Set{};
+	var msgName;
+	for (trig in self.trigger){
+		if (not trig.event.isDefined())
+			return Set{};
+		else if (trig.event.name=="*")
+			msgName=trig.event.name;
+		else 
+			msgName=trig.event.Operation.name;
+		for (p in trig.port)
+			trigSet.add(p.name+"."+msgName);
+	}
+	return trigSet;
+	//var triggerSet=Set{};
+	//triggerSet.add(self.trigger.event);
+	//return triggerSet;
+}
+
+
+
+//// return source of a transition
+operation UMLRTModel!Transition src(): Any{
+	//var sourceTran=self.source;
+	return self.source;		
+}
+
+////  return the action of transtion t 
+operation  UMLRTModel!Transition act() : String{
+	//var bodyRet=Set{};
+	if (self.effect.isDefined())
+		return self.effect.body.first();
+	else 
+		return "None";
+	//return bodyRet;
+}
+////////// outmessage in action body
+operation String actOutMsg(): Set{
+	var actOutMsg=Set{};
+	var lines=self.split(";|\n\r|\r");
+	//var s='\p';
+	for (line in lines){
+		if (line.match(".*..*.send(At)?(.*)")){
+		 	actOutMsg.add(line.split(".send").first());
+		}
+	}
+} 
+////////// return target of a transition
+operation  UMLRTModel!Transition targ() : Any{
+	//var targetTran=self.target;
+	return self.target;		
+}
+
+////////// return guard of a transition
+operation  UMLRTModel!Transition guard() : String{
+	//var gaurdTran=self.guard;
+	if (self.guard.isDefined())
+		return self.guard.specification.body.first();	
+	else 
+		return "None";
+}
+
+//// {N}if s is abasic state, {C}if s is acomposite state, {P}if s is a pseudo-state
+operation  UMLRTModel!State kind() : String{
+	//if (self.type.name=="State"){ // the passed variable is a state, we do not need to check it anymore
+	//self.println();
+	if (self.region.isUndefined())
+		return N;
+	if (self.region.isDefined() and not self.region.isEmpty()) { // composite state
+		//self.name.println(" Is a composite state");
+		return "C";
+	}
+	else
+		return "N";
+}
+
+operation  UMLRTModel!StateMachine kind() : String{
+	//if (self.type.name=="State"){ // the passed variable is a state, we do not need to check it anymore
+		return "C";
+
+}
+
+operation  UMLRTModel!Pseudostate kind() : String{
+	return "P";
+}
+
+// typ(t) {N 2x } if kind(sr c(t)) ∈ {N, C } , otherwise {P2x } A state s
+operation  UMLRTModel!Transition typ() : String{
+	//self.println();
+	if ((self.src()).kind()=="C" or (self.src()).kind()=="N")
+		return "N2x";
+	else 
+		return "P2x";
+}
+
+////{In} if s is an initial state, {Ch} if s is a choice point, {En} if s is an entry point state,
+//// {Ex } if s is an exit point state, {H } if s is a history state, ∅ if s is not a pseudo-state
+operation  UMLRTModel!State pkind() : String{
+	return "0";			
+}
+
+////{In} if s is an initial state, {Ch} if s is a choice point, {En} if s is an entry point state,
+//// {Ex } if s is an exit point state, {H } if s is a history state, ∅ if s is not a pseudo-state
+//please add the history state 
+operation  UMLRTModel!Pseudostate pkind() : String{
+	switch (self.kind) {
+		case UMLRTModel!PseudostateKind#`choice` : return "Ch";
+		case UMLRTModel!PseudostateKind#`entryPoint` : return "En";
+		case UMLRTModel!PseudostateKind#`exitPoint`  : return "Ex";
+		case UMLRTModel!PseudostateKind#`initial` : return  "In";
+		case UMLRTModel!PseudostateKind#`junction` : return  "Jc";
+		default : return "Unkown";		
+	}
+}
+////par(s) a state machine SM1 such that s ∈ sts(SM1)
+operation  UMLRTModel!State par() : Any{
+	return self.owner.ownerState(); // why owner of owner , beacuse we do not see region as parent
+}
+
+operation  UMLRTModel!Pseudostate par() : Any{
+	//var p:UMLRTModel!Pseudostate;
+	//if (count(p.sts ())>0) 
+	return self.owner.ownerState();
+}
+///lvl(s) lvl(par(s)) + 1 if par(s)!=, otherwise 0
+operation  UMLRTModel!State lvl() : Integer{
+	//if (self.par()==modelroot)//
+	if (self.par().isTypeOf(UMLRTModel!StateMachine)) // it is to make code generic
+		return 1; 
+	else 
+		return (self.par().lvl())+1;
+}
+///lvl(s) lvl(par(s)) + 1 if par(s)!=, otherwise 0
+operation  UMLRTModel!Pseudostate lvl() : Integer{
+	//if (self.par()==modelroot)//
+	if (self.par().isTypeOf(UMLRTModel!StateMachine)) // it is to make code generic
+		return 1; 
+	else 
+		return (self.par().lvl())+1;
+}
+/////all ancestors of the state s
+operation  UMLRTModel!State alphaPar() : Set{
+	var ancestorsSet=Set{};
+	if (not self.par().isTypeOf(UMLRTModel!StateMachine)){
+		ancestorsSet.add(self.par()); // add the current parent it self
+		ancestorsSet.addAll(self.par().alphaPar());
+	}
+	else 
+		//return modelroot;
+		ancestorsSet.add(self.par());
+	return ancestorsSet;
+}
+
+operation  UMLRTModel!Pseudostate alphaPar() : Set{
+	var ancestorsSet=Set{};
+	if (not self.par().isTypeOf(UMLRTModel!StateMachine)){
+		ancestorsSet.add(self.par()); // add the current parent it self
+		ancestorsSet.addAll(self.par().alphaPar());
+	}
+	else 
+		//return modelroot;
+		ancestorsSet.add(self.par());
+	return ancestorsSet;
+}
+
+///neighbors states of state s///////////////////ask
+operation  UMLRTModel!State alphaAdj() : Set{
+	// only return 
+	return self.par().sts().excluding(self);
+	/*var neighborSet=Set{};
+	
+	for (s in (self.par()).sts()){
+		if (self.par()==s.par())
+		neighborSet.add(s);
+	}
+	return neighborSet;*/
+}
+
+operation  UMLRTModel!Pseudostate alphaAdj() : Set{
+	return self.par().sts().excluding(self);
+}
+
+////  return all transitions of a statemachine
+operation  UMLRTModel!StateMachine trs() : Set{
+	var transactionSet=Set{};
+	for (r in self.region){
+		transactionSet.addall(r.transition);
+	}
+	return transactionSet;	
+}
+
+operation  UMLRTModel!State trs() : Set{
+	var transactionSet=Set{};
+	for (r in self.region){
+		transactionSet.addall(r.transition);
+	}
+	return transactionSet;	
+}
+
+operation  UMLRTModel!Pseudostate trs() : Set{
+	return Set{};
+}
+
+////////// return all states of a statemachine 
+
+
+operation  UMLRTModel!StateMachine sts() : Set{
+	var stateSet=Set{};
+	for (r in self.region){
+		stateSet.addall(r.subvertex);
+	}
+	if (self.kind()="C"){
+		stateSet.addAll(self.connectionPoint);
+		//self.connectionPoint.println("Connection point of "+ self.name+ " ");
+	}
+	return stateSet;		
+}
+
+operation  UMLRTModel!Pseudostate sts() : Set{
+	return Set{};	
+}
+
+////////// return all states of a composite states 
+operation  UMLRTModel!State sts () : Set{	
+	var stateSet=Set{};
+	for (r in self.region){
+		stateSet.addall(r.subvertex);
+	}
+	if (self.kind()="C"){
+		stateSet.addAll(self.connectionPoint);
+		//self.connectionPoint.println("Connection point of "+ self.name+ " ");
+	}
+	return stateSet;		
+}
+////////// return all states of a statemachine including the ones inside composite states
+operation  UMLRTModel!StateMachine alphaSts() : Set{
+	var stateSet:Set;
+	var conectionPoints:Set;
+	for (r in self.getAllRegions()){
+		stateSet.addall(r.subvertex);
+	for (s in stateSet)	
+		if (s.kind()=="C" and s.connectionPoint.isDefined())
+			conectionPoints.addall(s.connectionPoint);
+	}	
+	stateSet.addall(conectionPoints);
+	return stateSet;
+}
+	
+operation  UMLRTModel!State alphaSts() : Set{
+	var stateSet:Set;
+	for (r in self.getAllRegions()){
+		stateSet.addall(r.subvertex);	
+	}	
+	return stateSet;
+}
+operation  UMLRTModel!Pseudostate alphaSts() : Set{
+	return Set{};	
+}
+	
+/////all transitions of the state machine sm including ones inside composite states
+operation  UMLRTModel!StateMachine alphaTrs() : Set{
+	var transSet:Set;
+	for (r in self.getAllRegions()){
+		transSet.addall(r.transition);	
+	}	
+	return transSet;
+}
+
+operation  UMLRTModel!State alphaTrs() : Set{
+	var transSet:Set;
+	for (r in self.getAllRegions()){
+		transSet.addall(r.transition);	
+	}	
+	return transSet;
+}
+
+
+operation  UMLRTModel!Pseudostate alphaTrs() : Set{
+	return Set{};
+}
+
+
+
+///// set of execution steps started from a normal states 
+operation  Any execSteps(transtions:Set) : Set{
+	var allSteps=Set{};
+	for (t in transtions.select(t|t.src()==self)){
+		var path=Sequence{};
+		path.add(t);
+		if (t.targ().kind()=="N" or t.targ().kind()=="C"){
+			allSteps.add(path);
+		} else if (t.targ().kind()=="P"){
+			for (p in  t.targ().execSteps(transtions)){
+				var newPath:Sequence;
+				// this next two line concat path togheter
+				newPath.addAll(path); 
+				newPath.addAll(p);
+				allSteps.add(newPath);
+			}
+		}
+			
+	}
+	return allSteps;
+}
+
+
+////// A set of possible execution steps of sm
+operation  UMLRTModel!StateMachine alphaStps() : Set{
+	var execSteps=Set{};
+    var transitions=self.alphaTrs();
+	//if (self.isTypeOf(UMLRTModel!StateMachine)){   
+	for (s in self.alphaSts().select(s|s.kind()=="N" or s.pkind()=="In")){
+		execSteps.addAll(s.execSteps(transitions));
+	}
+	//executionList.println("executionList");
+	return execSteps;
+}
+
+
+
+/////
+operation  UMLRTModel!Pseudostate checkPseudostate(): Set{
+		var target_Pseudostate=Set{};
+		var target;
+		target_Pseudostate=self.transitionPseudostate(allTrans);
+		for (t in target_Pseudostate){
+			if (t.targ().kind()=="P")
+	     		t.targ().transitionPseudostate(allTrans);
+	     	else if (t.targ().kind()=="N")
+	     		t.targ().alphaStps();
+		}
+
+}
+operation  UMLRTModel!Pseudostate transitionPseudostate(allTrans:Set): Set{
+	var transitionP=Set{};
+	//var target=Set{};
+	//transitions=self.trs();
+	for (e in allTrans){
+	  if (self==e.source)
+	  	transitionP.add(e);
+	  	//e.println("transitionPseudostate:  ");
+	  //target.add(e.targ());
+	}
+	return transitionP;
+}
+
+///////a set of possible messages that can be produced by p to other processes
+operation  UMLRTModel!Class messageOut() : Set{
+	var ports : Set =self.ownedAttributes.select(e|e.isTypeOf(UMLRTModel!Port));
+	var interfaces=Set{};
+	var package;
+	var outputMsgs=Set{};
+	var newMsgs=Set{};
+	for (port in ports ){
+		package=port.type.owner;
+		var isPortConjugated=false;
+		if (port.isConjugated.isDefined) 
+			isPortConjugated=port.isConjugated;
+		newMsgs=Set{};
+		interfaces=package.packagedElement.select(p|p.type.name="Interface");
+		for (interface in interfaces){
+			if (not isPortConjugated){
+				if (interface.name.endsWith('IO'))
+			 		newMsgs.addAll(interface.ownedOperation.name.asSet);
+			 	else if (interface.name.endsWith('~') )
+					newMsgs.addAll(interface.ownedOperation.name.asSet);
+			} else{
+				if (interface.name.endsWith('IO'))
+			 		newMsgs.addAll(interface.ownedOperation.name.asSet);
+			 	else if (not interface.name.endsWith('~') )
+					newMsgs.addAll(interface.ownedOperation.name.asSet);
+			}
+		}
+		
+		outputMsgs.addAll(newMsgs.collect(msg|port.name+'.'+msg));
+		//input.println("input: ");
+	}
+	return outputMsgs;
+}
+/// get all port for a capusle
+operation UMLRTModel!Class getAllPorts():Set{
+	return self.ownedAttributes.select(e|e.isTypeOf(UMLRTModel!Port));
+}
+////// serialize operation  to sequence 
+operation UMLRTModel!Operation serializeToSeq():Sequence{
+	var msg:Sequence;
+	msg.add(self.name);
+	for (p in self.ownedParameter){
+		msg.add(p.name+":"+p.type.name);
+		//msg.add(p.type);
+	}
+	return msg;
+}
+///////a set of outputmessages of a  port along with their parametres
+operation  UMLRTModel!Port messageDetailOut() : Set{
+	var interfaces=Set{};
+	var logContext="UMLRTQuery:messageDetailOut";
+	Trace.log(logContext,"extracting messageDetailOut of port "+ self.name);
+	if (self.type.owner.isDefined()) // this is not defined for timers and log ports
+		interfaces=self.type.owner.packagedElement.select(p|p.type.name="Interface");
+	var outputMsgs=Set{};
+	var isPortConjugated=false;
+	if (self.isConjugated.isDefined) 
+		isPortConjugated=self.isConjugated;
+	for (interface in interfaces){
+		if (not isPortConjugated){
+			if (interface.name.endsWith('IO'))
+				for (m in interface.ownedOperation)
+					outputMsgs.add(m.serializeToSeq());
+			 else if (interface.name.endsWith('~') ){
+				for (m in interface.ownedOperation)
+					outputMsgs.add(m.serializeToSeq());
+			}
+		} else{
+			if (interface.name.endsWith('IO')){
+				for (m in interface.ownedOperation)
+					outputMsgs.add(m.serializeToSeq());
+			 }
+			 else if (not interface.name.endsWith('~') ){
+				for (m in interface.ownedOperation)
+					outputMsgs.add(m.serializeToSeq());
+			}
+		}
+	}	
+	return outputMsgs;
+}
+///// a set of input messages of a  port along with their parametres
+operation  UMLRTModel!Port messageDetailIn() : Set{
+	var interfaces=Set{};
+	if (self.type.owner.isDefined()) // this is not defined for timers and log ports
+		interfaces=self.type.owner.packagedElement.select(p|p.type.name="Interface");
+	var inputMsg=Set{};
+	var isPortConjugated=false;
+	if (self.isConjugated.isDefined) 
+		isPortConjugated=self.isConjugated;
+	for (interface in interfaces){
+		if (not self.isConjugated){
+			if (interface.name.endsWith('IO'))
+				for (m in interface.ownedOperation)
+					inputMsg.add(m.serializeToSeq());
+			 else if (not interface.name.endsWith('~') ){
+				for (m in interface.ownedOperation)
+					inputMsg.add(m.serializeToSeq());
+			}
+		} else{
+			if (interface.name.endsWith('IO')){
+				for (m in interface.ownedOperation)
+					inputMsg.add(m.serializeToSeq());
+			 }
+			 else if (interface.name.endsWith('~') ){
+				for (m in interface.ownedOperation)
+					inputMsg.add(m.serializeToSeq());
+			}
+		}
+	}	
+	return inputMsg;
+}
+///////a set of possible messages that can be provided by other processes to the process 
+operation  UMLRTModel!Class messageIn() : Set{
+	var ports : Set =self.ownedAttributes.select(e|e.isTypeOf(UMLRTModel!Port));
+	//ports.name.println();
+	var interfaces=Set{};
+	var package;
+	var inputMsgs=Set{};
+	var newMsgs=Set{};
+	var allMessage=Set{};
+	for (port in ports ){
+		package=port.type.owner;
+		var isPortConjugated=false;
+		if (port.isConjugated.isDefined) 
+			isPortConjugated=port.isConjugated;
+		newMsgs=Set{};
+		interfaces=package.packagedElement.select(p|p.type.name="Interface");
+		
+		for (interface in interfaces){
+			if (not isPortConjugated){
+				if (interface.name.endsWith('IO'))
+			 		newMsgs.addAll(interface.ownedOperation.name.asSet);
+			 	else if (not interface.name.endsWith('~') )
+					newMsgs.addAll(interface.ownedOperation.name.asSet);
+			} else{
+				if (interface.name.endsWith('IO'))
+			 		newMsgs.addAll(interface.ownedOperation.name.asSet);
+			 	else if (interface.name.endsWith('~') )
+					newMsgs.addAll(interface.ownedOperation.name.asSet);
+			}
+		}
+		inputMsgs.addAll(newMsgs.collect(msg|port.name+'.'+msg));
+	}
+	return inputMsgs;
+}
+/// //// all handled messages
+operation  UMLRTModel!Class handledInMessages() : Set{
+	var handledInMessages=Set{};
+	if (self.alphaStm().isUndefined())
+		return handledInMessages;
+	//self.println();
+	for ( t in self.alphaStm().alphaTrs().select(t|t.typ()=="N2x")){
+		handledInMessages.addall(t.trig());
+	}
+	return handledInMessages;
+}
+/// addressed out message 
+operation  UMLRTModel!Class handledOutMessages() : Set{
+	var handledOutMessages=Set{};
+	if (self.alphaStm().isUndefined())
+		return handledOutMessages;
+	//self.println();
+	for ( t in self.alphaStm().alphaTrs()){
+		handledOutMessages.addall(t.act().actOutMsg());
+		handledOutMessages.addall(t.src().entry().actOutMsg());
+		handledOutMessages.addall(t.src().exit().actOutMsg());
+		handledOutMessages.addall(t.trg().entry().actOutMsg());
+		handledOutMessages.addall(t.trg().exit().actOutMsg());
+	}
+	return handledOutMessages;
+}
+
+/////state machine of the process p
+operation  UMLRTModel!Class alphaStm() : UMLRTModel!StateMachine{
+	for (b in self.ownedBehavior)
+    	 if (b.isTypeOf(UMLRTModel!StateMachine)) // make sure to filter the operation from state machine// also assume that each capsule has one main state machine
+    		return b;
+}
+
+
+
+
+
+////////////end of Partial model functions
+
+
+////////// 	getting model root element
+operation Any getRootElement() : UMLRTModel!Package {
+	self.println();
+	return self!Package.all.select(c|c.type.name="Model").first;
+}
+
+//// event(t) return the events and protocol for a  transition
+operation UMLRTModel!Transition  events() : Set {
+ 	var allEvents:Set=Set{};
+ 	for (trig in self.trigger)
+ 		for (e in trig.event)
+ 			if (e.name<>"*")
+ 				allEvents.add(Sequence{e.owner.name,e.`operation`.name});
+ 			else 
+ 				allEvents.add(Sequence{e.owner.name,"*"});
+ 		
+ 	return allEvents;
+}
+
+////  return the  exit  code of state s
+operation  UMLRTModel!State exit() : String{
+	if (self.exit.isDefined())
+			self.exit.body.first();
+	else 
+		return "None";
+}
+////  return the entry code of state s
+operation  UMLRTModel!State entry() : String{
+	if (self.entry.isDefined())
+			self.entry.body.first();
+	else 
+		return "None";
+}
+////  return the entry code of psudostate s
+operation  UMLRTModel!Pseudostate entry() : String{
+		return "None";
+}
+////  return the exit code of psudostate s
+operation  UMLRTModel!Pseudostate exit() : String{
+		return "None";
+}
+
+//// stateType()  function
+operation  UMLRTModel!State stateType() : String{
+	if (self.type.name="State"){
+		if (self.getRegions().size()>0) // composite state
+			return "Composite";
+		else
+			return "Simple";
+		}
+}
+///
+operation UMLRTModel!Pseudostate stateType() : String{
+	return "Pseudo";
+}
+//// add transType() function
+operation  UMLRTModel!Transition transType() : String{
+	//self.println();
+	//self.source.println();
+	var sourceType=self.source.stateType();
+	var targetType=self.target.stateType();
+	return sourceType.characterAt(0).concat("to").concat(targetType.characterAt(0));		
+}
+//// add attributeQuery
+operation UMLRTModel!Class getPrimitiveAttributes() : Set {
+	var attr:Set;
+	for (a in self.ownedAttribute){
+		if (a.type.isDefined())
+		switch (a.type.name){
+		case "Real" :
+			if (a.upper=1)
+				attr.add(a);
+		case "Integer": 
+			if (a.upper=1)
+				attr.add(a);
+		case "Boolean": 
+			if (a.upper=1)
+				attr.add(a);
+		case "String":
+			if (a.upper=1)
+				attr.add(a);
+		}
+	}
+	return attr;
+}
+/// return the attributes that are subclass and their definition is exist in the model
+operation UMLRTModel!Class getSubclassAttributes() : Set {
+	var attr:Set;
+	//allClasses.println();
+	for (a in self.ownedAttribute)
+		if (a.type.isDefined()){
+			if (allClasses.selectOne(c|c.name=a.type.name).isDefined())
+				attr.add(a);
+			}
+	return attr;
+}
+
+
+//// find the main region of the state machine that contain intial state	
+operation UMLRTModel!StateMachine getMainRegion() : UMLRTModel!Region{
+	for (r in self.region)
+		for (s in r.subvertex)
+			if (s.type.name="Pseudostate" and not (r.transition.exists(t|t.target=s))  
+			and (r.transition.exists(t|t.source=s))
+			and  s.kind<>"choice" and s.kind<>"entryPoint" and s.kind<>"exitPoint")
+				return r;
+	self.err("The state doesn't have the region that includes the intial state");			
+}
+//// get main region for composite state
+//// find the main region of the state machine that contain intial state	
+operation UMLRTModel!State getMainRegion() : UMLRTModel!Region{
+	/// later make it more correct
+	for (r in self.region)
+		return r;
+	self.err("The state doesn't have the region that includes the intial state");			
+}
+//// get intail state
+operation UMLRTModel!StateMachine getIntialState() : UMLRTModel!Pseudostate{
+	for (r in self.region)
+		for (s in r.subvertex)
+			if (s.type.name="Pseudostate" and s.kind=UMLRTModel!PseudostateKind#`initial` and r.transition.exists(t|t.source=s))
+				return s;
+	self.println("No Intail state for state machine= ");			
+}
+
+//// get intail transition
+operation UMLRTModel!StateMachine getIntialTransition() : UMLRTModel!Transition{
+	for (r in self.region)
+		for (t in r.transition)
+			if (t.source=self.getIntialState())
+				return t;
+	return null;
+	//self.err("No Intail Transition ----");			
+}
+
+/// get all transitions of the model
+
+/*operation UMLRTModel!Transition printAllTrigger() : Set {
+	for (t in self.trigger){
+		t.println();
+		t.port.name.println();
+		/// event
+		for (ev in t.event)
+			ev.println();
+		//// efect
+	}
+	for (ef in self.effect)
+			ef.println();
+	
+}*/
+//// /// get all transitions for a set of regions
+operation Any getAllTransitions() : Set {
+	var allTransitions : Set ;
+	for (r in self){
+		if (r.subvertex.isDefined())
+			allTransitions.addAll(r.transition);	
+	}
+	return allTransitions;
+}
+////
+/// get all state include intail and normal state
+operation Any getAllStates() : Set {
+	var allStates : Set ;
+	for (r in self){
+		if (r.subvertex.isDefined())
+			allStates.addAll(r.subvertex);	
+	}
+	return allStates;
+}
+/// get All regions for model, the input can be set of statemachine or a statemachine for model
+operation Any getAllRegions() : Set {
+	var allRegions:Set;
+	for (sm in self)
+		allRegions.addAll(sm.getRegions());
+	return allRegions;
+}
+/// all region for StateMachine or State
+operation Any getRegions() : Set {
+	var allRegion:Set;
+	//self.name.println();
+	allRegion.addAll(self.region);
+	var tempAllRegion:Set;
+	for (r in allRegion)
+		{
+			// check if there is any substatemachine
+			for (s in r.subvertex)
+			{
+				if (s.type.name="State")
+				{
+				//s.println("vertext is State");
+				var tempRegion:Set=s.getRegions();
+				if (tempRegion.isDefined())
+					tempAllRegion.addAll(tempRegion);
+				}
+			}
+		}
+	if (tempAllRegion.isDefined())
+		allRegion.addAll(tempAllRegion);
+	return allRegion;
+}
+
+//// get all statemachines in the package and nested packages
+//@cached
+operation UMLRTModel!Package getAllStateMachines() :Set{
+	var tempAllStateMachine:Set;
+	//self.getAllOwnedClasses().println();
+	var childs : Set =self.getAllOwnedClasses(); 
+	for (c in childs){
+		//c.println();
+		var tempStateMachine:UMLRTModel!StateMachine=c.getStateMachine();
+		if (tempStateMachine.isDefined())
+			tempAllStateMachine.add(tempStateMachine);
+	}
+	return tempAllStateMachine;
+}
+//// get statemachine for class
+//@cached
+operation   UMLRTModel!Class getStateMachine() : UMLRTModel!StateMachine {
+
+    for (b in self.ownedBehavior)
+    	 if (b.isTypeOf(UMLRTModel!StateMachine)) // make sure to filter the operation from state machine// also assume that each capsule has one main state machine
+    		return b;
+
+}
+//// get all classes of the model inludes all child from nested packages
+//@cached
+operation   UMLRTModel!Package getAllOwnedClasses ()  :Set{
+	var childs : Set =self.packagedElement.select(e|e.isTypeOf(Class));
+	//for (c in childs)
+	//	 c.getUMLRTStereotype().println();
+	for (p in self.getAllNestedPackage())
+		childs.addAll(p.getAllOwnedClasses());
+	return childs;
+}
+/// get all owned capsules
+operation   UMLRTModel!Package getAllOwnedCapsules()  :Set{
+	var childs : Set =self.packagedElement.select(e|e.isTypeOf(Class) 
+													and e.getUMLRTStereotype().isDefined());
+	for (p in self.getAllNestedPackage())
+		childs.addAll(p.getAllOwnedCapsules());
+	return childs;
+}
+//// get all nested package of model root 
+//@cached 
+operation   UMLRTModel!Package getAllNestedPackage ()  :Set{
+	var firstNestedPackage : Set = self.packagedElement.select(e|e.type.name="Package");
+	var allNestedPackage: Set;
+	for (p in firstNestedPackage)
+	{
+		 var tempResult : Set = p.getAllNestedPackage();
+		 if (tempResult.isDefined())
+		 	allNestedPackage.addAll(tempResult);
+	}
+	allNestedPackage.addAll(firstNestedPackage);
+	return allNestedPackage;
+}
+
+/// get defined artifacts
+operation UMLRTModel!Package getAtrificats(name:String):UMLRTModel!Artifact {
+	return  self.packagedElement.select(e|e.type.name="Artifact" and e.name=name).first;
+}
+
+/// get to class name of the UML_RT model
+operation UMLRTModel!Package getTopCapsule():String {
+	var e=ModelRoot.eAnnotations.select(e|e.source="UMLRT_Default_top");
+	if (e.isDefined() and e.size()>0){
+		//e.details.first().value.println();
+		return  e.details.first().value.first();
+		
+		}
+	else
+		return "";
+}
+
+operation UMLRTModel!Transition transData() : Set {
+	var tempTransData:Set;
+	//var tempTranData:Sequence;
+	//self.println();
+	//tempTransData.add(self.source.qualifiedName);
+	if (self.source.stateType()=="Pseudo"){
+		var tempTranData:Sequence;
+		tempTranData.add(self.source.name);
+		tempTranData.add(self.name);
+		tempTranData.add(self.target.name);
+		tempTranData.add("");
+		tempTranData.add("");
+		tempTransData.add(tempTranData);
+	}
+	else if (self.trigger.isDefined())
+			for (t in self.trigger){
+				for (p in t.port){
+					var tempTranData:Sequence;
+					//p.type.name.println();
+					tempTranData.add(self.source.name);
+					tempTranData.add(self.name);
+					tempTranData.add(self.target.name);
+					//t.event.println("event  is ");
+					//t.event.`operation`.name.println("event name is ");
+					if (t.event.name=="*")
+						tempTranData.add("*");
+					else
+						tempTranData.add(t.event.`operation`.name);
+					tempTranData.add(p.type.name);
+					tempTransData.add(tempTranData);
+					}
+				}
+	//tempTransData.println();
+	return tempTransData;
+}
+/////
+operation Any ownerCapsule() : UMLRTModel!Class{
+	var logContext="UMLRTQuery:ownerCapsule";
+	Trace.log(logContext, "Getting owner of " + self);
+	//Trace.log(logContext, "Getting owner of " + self.getAppliedStereotypes());
+	if (self.isTypeOf(Class) and self.getUMLRTStereotype().isDefined()){
+		return self;
+	}
+	else 
+		return self.owner.ownerCapsule();
+}
+
+operation Any ownerState() : Any{
+	var logContext="UMLRTQuery:ownerState";
+	Trace.log(logContext, "Getting owner of " + self);
+	//Trace.log(logContext, "Getting owner of " + self.getAppliedStereotypes());
+	if (self.isTypeOf(UMLRTModel!State) or self.isTypeOf(UMLRTModel!StateMachine)){
+		return self;
+	}
+	else 
+		return self.owner.ownerState();
+}
+
+///// transition started from a state 
+operation UMLRTModel!State orginatedTrans() : Set{
+	var orginatedTrans=Set{};
+	for (t in self.par().trs()){
+		if (t.src()=self)
+			orginatedTrans.add(t);
+	}
+	return orginatedTrans;
+}
+
+//
+operation UMLRTModel!Pseudostate orginatedTrans() : Set{
+	var orginatedTrans=Set{};
+	for (t in self.par().trs()){
+		if (t.src()=self)
+			orginatedTrans.add(t);
+	}
+	return orginatedTrans;
+}
+
+//
+operation  UMLRTModel!State handledEvents() : Set{
+	var OrginatedTrans=self.orginatedTrans();
+	var handledEvents=Set{};
+	for (t in OrginatedTrans){
+		handledEvents.add(t.trig());
+	}
+	return handledEvents.flatten().asSet();
+}
+
+// 
+operation Any getUniqueID() :Integer{
+	return(UniqueID++);
+}
+/*funtion addGetVarsMetaData(C:Class) : Set {
+	var Boolean:addedFlag=false;
+	for (attr in C.Attribute){
+		if (attr.type in primitive)
+			primitiveMetada(attr);
+		else if (attr.type==Class){
+			ClassMetada(attr);
+			for (oper in attr.Operations)
+				if (oper.name="GetVarsMeta"){
+					addedFlag=true;
+					break;
+				}
+			if (not addedFlag)
+				addGetVarsMetaData(attr);
+		}
+	}
+}*/
+
+

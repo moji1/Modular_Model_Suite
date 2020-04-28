@@ -1,0 +1,5 @@
+[PME]
+## mode can be Interactive or Script or Random
+ExecMode=Interactive
+## Path to a script that contains execution rules
+ExecRulesScript=/Users/mojtababagherzadeh/git/partialmodels/pmd_helper/src/test/test1.pme

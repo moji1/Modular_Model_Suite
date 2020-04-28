@@ -1,0 +1,267 @@
+/*
+    Copyright (c) 2016 Queen's University.
+    
+    Developers:
+	Mojtaba Bagherzadeh(mojtaba@cs.queensu.ca)
+
+*/
+
+//// timer managment of dbgAgent
+
+////
+operation  getRequiredHeadersListForPMD():String{
+	return 
+		  //'#include "ExecRulesAnalyzer.hpp" ' + EndLine +
+		  //'#include "RuleBodyExecutor.hpp" ' + EndLine +
+		  '#include "ExecContext.hpp" ' + EndLine +
+		  '#include "PMDTypes.hpp"'+ EndLine +
+		  '#include "Config.hpp"'+ EndLine +
+          '#include "Heap.hpp"' +  EndLine +
+		  '#include <iostream>' +  EndLine +
+		  '#include <map>' +  EndLine +
+		  '#include <functional>' +  EndLine +
+		  '#include "ExecHelper.hpp"' + EndLine+
+		  '#include <boost/any.hpp>'+EndLine ;
+}
+//////
+operation UMLRTModel!Class  generateInitForPMDMBody(){
+	var logContext="PMDCodeGenUtil:generateInitForPMDMBody";
+	Info.log(logContext,"Generation code of initForPMDM method  of class "+ self.name);
+	var body:String="";
+	body+="execHelper.readExecConfig();"+EndLine +
+          "//this->execHelper.loadExecRules();"+EndLine+
+          "this->execContext.setCapsuleHeap(&this->heap);"+EndLine+
+          "this->execContext.setCapsuleType(this->getTypeName());"+EndLine +
+    	  "this->execContext.setCapsuleInstanceID(this->getIndex());" + EndLine +
+    	  "this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC, this->getCurrentStateString());" + EndLine+
+          "this->execContext.setCallBackMethodSendMessage(std::bind(&Capsule_"+self.name+"::sendMessage, this,std::placeholders::_1));"+EndLine+
+          "this->execContext.setCallBackMethodSendInternalMessage(std::bind(&Capsule_"+self.name+"::sendInternalMessage,this,std::placeholders::_1));"+EndLine+
+          "this->execContext.setCallBackMethodAddState(std::bind(&Capsule_"+self.name+"::addState,this,std::placeholders::_1));"+EndLine+
+		  "this->execContext.setCallBackMethodRemoveState(std::bind(&Capsule_"+self.name+"::removeState,this,std::placeholders::_1));"+EndLine+
+		  "this->execContext.setCallBackMethodAddTransition(std::bind(&Capsule_"+self.name+"::addTransition,this,std::placeholders::_1, std::placeholders::_2, std::placeholders::_3, std::placeholders::_4, std::placeholders::_5));"+EndLine+
+		  "this->execContext.setCallBackMethodRemoveTransition(std::bind(&Capsule_"+self.name+"::removeTransition,this,std::placeholders::_1));"+EndLine+
+  		  "this->execContext.setCallBackMethodRemoveTransitions(std::bind(&Capsule_"+self.name+"::removeTransitions,this,std::placeholders::_1, std::placeholders::_2));"+EndLine+
+		  "this->execContext.setCallBackMethodAddBreakpoint(std::bind(&Capsule_"+self.name+"::addBreakpoint,this,std::placeholders::_1));"+EndLine+
+		  "this->execContext.setCallBackMethodRemoveBreakpoint(std::bind(&Capsule_"+self.name+"::removeBreakpoint,this,std::placeholders::_1));"+EndLine+
+		  "this->execContext.setCallBackMethodReplayMessage(std::bind(&Capsule_"+self.name+"::replayMessage,this));"+EndLine+
+  		  "this->execContext.setCallBackMethodSetTimer(std::bind(&Capsule_"+self.name+"::setTimer,this,std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));"+EndLine;
+		  
+    body+=self.generateMapofOutMessages();
+    body+=self.generateMapofInMessages();
+	return body;
+}
+////
+//////
+operation  getRequiredAttributesListForPMD() :String{
+	return 
+    	  "pmd::Heap  heap;" + EndLine +
+    	  "pmd::ExecHelper execHelper;"+ EndLine +
+    	  //"pmd::RuleBodyExecutor ruleBodyExecutor;" + EndLine +
+   		  "Config config;" + EndLine +
+   		  //"std::function<int(pmd::Message)> pSendMessage;"+ EndLine +
+   		  "UMLRTMessage currentMessage;"+ EndLine +
+   		  "bool runStateCode;" + EndLine + 
+   		  "pmd::ExecContextOfCapsule execContext;" + EndLine 
+   		  //"std::map<std::string,std::map<std::string,map<std::string,std::string>>> inputMessages;" + EndLine +      // list of all input message for a capsule will hold here 
+   		 // "std::map<std::string,std::map<std::string,map<std::string,std::string>>> outputMessages;" + EndLine +    // list of all input message for a capsule will hold here
+   		  //"std::vector<std::function<bool(const UMLRTMessage * msg)>> postponedActionCodes;" + EndLine  // vectopr to save all funtion that may be required to be executed later
+   		  ;
+    
+}
+//////
+operation UMLRTModel!Class generateLoadHeapBody():String {
+	var logContext="PMDCodeGenUtil:generateUnLoadHeapBody";
+	Info.log(logContext,"Generation code of loadHeap method  of class "+ self.name);
+	var primitiveAttributes=self.ownedAttribute.select(a| AllPrimitiveType.includes(a.type) and ( (a.upperValue.isUndefined()) or a.upperValue.value<=1));
+	var body:String="";
+	for (a in primitiveAttributes){
+		if (a.lowerValue.isDefined())
+			a.lowerValue.value.println();
+		Trace.log(logContext,"Generation of loadHeap  code for attribute "+ a.name + " of type " +a.type);
+		if (AllPrimitiveTypeExceptString.includes(a.type)) /*a.cardinality=1*/{
+				body+='heap.setVarValue("this.'+a.name+'",this->'+a.name+");"+EndLine;
+			}
+		else {
+				body+="if (this->"+a.name+")"+EndLine;
+				body=body+'heap.setVarValue("this.'+a.name+'",std::string(this->'+a.name+"));"+EndLine;
+			}
+		//else check for datatype class and array and ...
+	}
+	return body;	
+}
+/////
+operation UMLRTModel!Class generateUnLoadHeapBody():String {
+	var logContext="PMDCodeGenUtil:generateUnLoadHeapBody";
+	Info.log(logContext,"Generation code of unLoadHeap method  of class "+ self.name);
+	var primitiveAttributes=self.ownedAttribute.select(a| AllPrimitiveType.includes(a.type) and  ( (a.upperValue.isUndefined()) or a.upperValue.value<=1));
+	var body:String="";
+	for (a in primitiveAttributes){
+		Trace.log(logContext,"Generation of unLoadHeap  code for attribute "+ a.name + " of type " +a.type);
+		if (AllPrimitiveTypeExceptString.includes(a.type)) /*a.cardinality=1*/
+			body=body+'heap.loadVarFromHeap("this.'+a.name+'",&this->'+a.name+");"+EndLine;
+		else 	{
+			body+="std::string sTemp;"+EndLine;
+			body+='heap.loadVarFromHeap("this.'+a.name+'",&sTemp);'+EndLine;
+			body+="if (this->"+a.name+ ")" + EndLine;// && strlen("+a.name+")>=sTemp.length())"+ EndLine;
+			//body+=strVar=const_cast<char *>(sTemp.c_str());
+        	//body=body+"strcpy(this->"+a.name+",sTemp.c_str());"+EndLine;
+			body=body+"this->"+a.name+"=const_cast<char*>(sTemp.c_str());"+EndLine;
+		}
+		//else check for datatype class and array and ...
+	}
+	return body;	
+}
+////
+operation UMLRTModel!Class generateSendMessageBody():String {
+	var logContext="PMDCodeGenUtil:generateSendMessageBody";
+	Info.log(logContext,"Generation code of sendMessage method  of class "+ self.name);
+	var body:String="int result=-1;"+EndLine;
+	var iforelseif1="if";
+	for (p in self.getAllPorts()){
+	  if (p.messageDetailOut().size()>0){
+		body+=onetab(iforelseif1+ parantez("message.portName=="+quoted(p.name)) + " {"+EndLine);
+		var iforelseif2="if";
+	 	for (m in p.messageDetailOut()){
+	 		body+=twotab(iforelseif2+ parantez("message.signal=="+quoted(m.at(0))) +  " {"+EndLine);
+	 		var messageName=m.removeAt(0);
+	 		body+=threetab("if" + parantez("message.payload.size()==" + ((m.size())).asString)) + "{" + EndLine;
+	 		var sendMessageText=p.name+"."+messageName+"(";
+	 		var tempComma1=" ";
+	 		for (p in m){
+				var tempS=p.split(":");
+				if (tempS.size()<>2)
+					continue;
+				//ponger.pingpong( (Integer)message[intField],(String)message[strField]).sendAt(message.index);
+				//pinger.pingpong(boost::any_cast<int>(message.payload["intField"]),
+				//const_cast<char *>((boost::any_cast<std::string>(message.payload["strField"])).c_str())).sendAt(message.index);
+				if ( tempS.at(1)<>"String")
+					sendMessageText+=tempComma1+"boost::any_cast<"+toCTypeName(tempS.at(1))+">(message.payload["+quoted(tempS.at(0))+"])";
+				else 
+					sendMessageText+=tempComma1+"const_cast<char *>((boost::any_cast<std::string>(message.payload["+quoted(tempS.at(0))+"])).c_str())";
+				tempComma1=",";
+			}
+			sendMessageText+=")"+".sendAt(message.index);"+EndLine;
+			sendMessageText+="result=1;"+EndLine+"}"+EndLine;
+	 		body+=fourtab(sendMessageText);
+	 		body+=twotab("}")+ EndLine;
+	 		iforelseif2="else if";
+	 	}
+	 	body+=onetab("}")+ EndLine;
+	 	iforelseif1="else if";
+	 }
+  }
+  body+="return result;"+EndLine;
+  Trace.logWithoutTrim(logContext,"Code for sendMessage  of capulse "+ self.name + ": " + body);
+  return body;
+}
+//////
+operation UMLRTModel!Class generateMapofOutMessages():String {
+	var logContext="PMDCodeGenUtil:generateMapofOutMessages";
+	Info.log(logContext,"Generation code of MapofOutMessages method  of class "+ self.name);
+	var body:String=" ";
+	for (p in self.getAllPorts()){
+		var tempComma1=" ";
+		for (m in p.messageDetailOut()){
+			var messageName=m.removeAt(0);
+			var messageParams="{" ;
+			var tempComma2=" ";
+			for (p in m){
+				var tempS=p.split(":");
+				if (tempS.size()<>2)
+					continue;
+				messageParams+=tempComma2+"{"+quoted(tempS.at(0))+","+quoted(tempS.at(1))+"}";
+				tempComma2=",";
+			}
+			messageParams+="}" ;	
+			 body+='this->execContext.addOutPutMessages('+quoted(p.name)+","+quoted(messageName)+","+messageParams+');'+EndLine;
+		}
+	}
+	Trace.logWithoutTrim(logContext,"out put message map of capsule "+ self.name + " " +  body);
+	return body;
+}
+//////
+operation UMLRTModel!Class generateMapofInMessages():String {
+	var logContext="PMDCodeGenUtil:generateMapofInMessages";
+	Info.log(logContext,"Generation code of MapofInputMessages method  of class "+ self.name);
+	var body:String=" ";
+	for (p in self.getAllPorts()){
+		var tempComma1=" ";
+		for (m in p.messageDetailIn()){
+			var messageName=m.removeAt(0);
+			var messageParams="{" ;
+			var tempComma2=" ";
+			for (p in m){
+				var tempS=p.split(":");
+				if (tempS.size()<>2)
+					continue;
+				messageParams+=tempComma2+"{"+quoted(tempS.at(0))+","+quoted(tempS.at(1))+"}";
+				tempComma2=",";
+			}
+			messageParams+="}" ;	
+			 body+='this->execContext.addInputMessages('+quoted(p.name)+","+quoted(messageName)+","+messageParams+');'+EndLine;
+		}
+	}
+	Trace.logWithoutTrim(logContext,"input messages map of port "+ self.name + " " +  body);
+	return body;
+}
+
+//// generate code for possible choice that can be made bu users
+operation UMLRTModel!Class generateDecisionTableCode(noTriggerTransitions:Set, src:String):String{
+	//var body="vector<pmd::ExecutionStep> possiblepaths;"+EndLine;
+	var body="this->loadHeap();"+EndLine;
+	body+="this->execContext.clearPossibleExecPath();"+EndLine;
+	for (t in noTriggerTransitions){
+		// this->execContext.addPossibleExecPath("Playing", "State1", "t2",msg->getSignalName());
+		var target:String=t.targ().name;
+		if (t.targ().pkind()= "En" or t.targ().pkind()="Ex")
+			target=t.targ().ownerState().name;
+		//body+="this->execContext.addPossibleExecPath("+quoted(src)+','+quoted(target)+','+quoted(t.name)+",msg->getSignalName());"+EndLine;
+	}
+	body+="this->execContext.setlastMsg(msg);"+EndLine;
+	body+="this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC," + quoted(src)+");"+EndLine;
+    body+="this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);"+EndLine;
+	//body+="pmd::Message message={};"+EndLine;
+	//body+="message.signal=msg->getSignalName();"+EndLine;
+	//body+="execHelper.getUserDecesion("+quoted(self.name)+ ", possiblepaths, message);"+EndLine;
+	body+="execHelper.getUserDecesion(&execContext);"+EndLine;
+	body+="this->unLoadHeap();"+EndLine;
+	return body;
+}
+
+
+
+operation quoted(s:String):String{
+	return '"'+s+'"';
+}
+operation onetab(s:String):String{
+	return "	"+ s;
+}
+
+operation twotab(s:String):String{
+	return "		"+ s;
+}
+
+operation threetab(s:String):String{
+	return "			"+ s;
+}
+operation fourtab(s:String):String{
+	return "				"+ s;
+}
+operation parantez(s:String):String{
+	return  "("+ s+")";
+}
+
+operation  toCTypeName(typeName:String):String{
+	if (typeName=="Integer")
+		return "int";
+	else if (typeName=="Real")
+		return "double";
+	else if (typeName=="Char")
+		return "char";
+	else if (typeName=="Boolean")
+		return "bool";
+	else if (typeName=="Natrual")
+		return "double";
+	else if (typeName=="String")
+		return "std::string";
+}

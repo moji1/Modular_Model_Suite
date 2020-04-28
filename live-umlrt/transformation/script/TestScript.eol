@@ -1,0 +1,278 @@
+//-m  /Users/mojtababagherzadeh/Epsilon_CLI/UMLRTTransformer/samplemodels/ping-pong-partial.uml:UMLRTModel -s  /Users/mojtababagherzadeh/git/partialmodels/src/EpsilonCode/script/TestScript.eol -hm profiles/UMLPrimitiveType.uml:UMLPrimitiveTypeModel,profiles/RTCppProperties.profile.uml:RTCppPropertiesProfile,profiles/uml-rt.profile.uml:UMLRealTimeProfile,profiles/UMLRealTimeSM-addendum.profile.uml:UMLRealTimeStateMachineProfile
+
+
+//import "UMLRTProfileOperations.eol";
+//import "UMLRTQuery.eol";  
+import "PartialDetection.eol";
+import "PartialityFixer.eol";
+import "UMLRTElementOperations.eol";
+//import "test.eol";
+//var s="\\.";
+//"test.test".matches(".*\\.test").println();
+// intialize tests
+
+UMLRTModel!Package.all.println("Model Package: ");
+for (p in UMLRTModel!Package){
+	p.name.println("Package Name: ");
+	p.packagedElement.println("Package in root");
+	}
+var modelroot=UMLRTModel!Package.all.select(c|c.type.name="Model").first();
+modelroot.println("Model root");
+var allClasses=modelroot.getAllOwnedClasses();
+var allRegion:Set=modelroot.getAllStateMachines().getAllRegions();
+var allTrans:Set=allRegion.getAllTransitions();
+var allStates=allRegion.getAllStates();
+var allStateMachine:Set=modelroot.getAllStateMachines();
+var allCapsules:Set=modelroot.getAllOwnedCapsules();
+var UniqueID=0;
+var EndLine="\n";
+//allClasses.size().println("Number of  Classes: ");
+//allCapsules.size().println("Number of  Caspules: ");
+/// some parameter for execution
+//var UMLPrimitiveTypes=UMLRTModel!Package.all.select(c|c.name="PrimitiveTypes").first();
+//UMLPrimitiveTypes.println("UMLPrimitiveTypes");
+
+//var RTCppPropertiesProfileRoot=RTCppPropertiesProfile!Package.all.select(c|c.name="RTCppProperties").first();
+//RTCppPropertiesProfileRoot.println("RTCppPropertiesProfileRoot");
+//RTCppPropertiesProfileRoot.packagedElement.selectOne(s|s.name="AttributeProperties").println("AttributeProperties");
+
+////
+"program is started".println();
+// trig(t) the trigger of transition t which is a set T ⊆ Min(p)
+for (t in allTrans.select(t|t.typ()=="N2x")){
+	//t.name.print("Transtion Triggers ");
+	//t.trig().println();
+	//t.ownerCapsule().println();
+	//t.src().println();
+	//t.src().OrginatedTrans().size().println();
+	//t.src().HandledEvents().println();
+	//t.fixNotFireableTransition();
+}
+// src(t) the source state of transition t
+for (t in allTrans){
+	t.src().println("Source: ");
+}
+
+// act(t) the action of transition t
+for (t in allTrans){
+	//t.act().println("Act: ");
+}
+
+// targ(t) the target state of transition t
+for (t in allTrans){
+	//t.targ().println("Target: ");
+}
+
+// guard(t) the guard of transition t
+for (t in allTrans){
+	//t.guard().println("Guard: ");
+}
+
+
+
+//kind(s) {N } if s is a basic state, {C } if s is a composite state, {P } if s is a pseudo-state
+for (s in allStates){
+	//s.name.print();
+	//s.kind().println("'s Kind: ");
+}
+
+// typ(t) {N 2x } if kind(sr c(t)) ∈ {N, C } , otherwise {P2x } A state s
+for (t in allTrans){
+	//testelement();
+	//t.assignName();
+	//t.typ().println(" Transtion Type: ");
+}
+
+//pkind(s) {I n} ifs is an initial state, {Ch } ifs is a choice point, {En} if s is an entry point state, {Ex } if s is an exit point state,
+//{H } if s is a history state, ∅ if s is not a pseudo-state
+for (s in allStates){
+	//s.name.print();
+	//s.pkind().println("'s Kind: ");
+}
+
+//par(s) a state machine SM1 such that s ∈ st s(SM1)
+for (s in allStates){
+	//s.name.print();
+	//s.par().println("'s parent: ");
+}
+
+//lvl(s) lvl(par(s)) + 1 if par(s) , ∅, otherwise 0
+for (s in allStates){
+	//s.name.print();
+	//s.lvl().println("'s level: ");
+}
+
+//αpar(s) all ancestors of the state s. ,i.e., Ð(par n(s)) wher e 1 ≤n < lvl(s)
+for (s in allStates){
+	//s.name.print();
+	//s.alphaPar().size().println("'s parents: ");
+}
+
+//αadj(s) neighbors states of state s. ,i.e., ∀s1 • (par(s) = par(s1)) A state machine sm
+for (s in allStates){
+	//s.name.print();
+	//s.alphaAdj().size().println("'s adjauncts: ");
+}
+
+//trs(sm) all transitions of the state machine sm
+for (s in allStates){
+	//s.name.print();
+	//s.trs().size().println("'s transtions: ");
+}
+for (sm in allStateMachine){
+	//sm.name.print();
+	//sm.trs().size().println("'s transtions: ");
+}
+
+//sts(sm) all states of the state machine sm
+for (s in allStates){
+	//s.name.print();
+	//s.sts().size().println("'s states: ");
+}
+for (sm in allStateMachine){
+	//sm.name.print();
+	//sm.sts().size().println("'s states: ");
+}
+
+//αsts(sm) all states of the state machine sm including ones inside composite states, i.e., st s(sm) ∪Ð αst s(sm) ∀sm1 ∈
+for (s in allStates){
+	//s.name.print();
+	//s.alphaTrs().size().println("'s state: ");
+}
+for (sm in allStateMachine){
+	//sm.name.print();
+	//sm.alphaTrs().size().println("'s state: ");
+}
+//// //αtrs(sm) all transitions of the state machine sm including ones inside composite states, i.e., t r s(sm) ∪Ðαt r s(sm) ∀sm ∈sts(sm)
+for (s in allStates){
+	//s.name.print();
+	//s.alphaTrs().size().println("'s trans: ");
+}
+for (sm in allStateMachine){
+	//sm.name.print();
+	//sm.alphaTrs().size().println("'s trans: ");
+}
+
+//Min(p) a set of possible messages that can be provided by other processes to the process p
+//Mout (p) a set of possible messages that can be produced by p to other processes
+for (c in allCapsules){
+	// c.name.println("Analysis for capusle:  ");
+	// c.handledInMessages().println("Handled messages: ");
+	// c.messageIn().println("Input Messages: ");
+	 //c.messageOut().println("Output Messages: ");
+	// c.UnhandledInMessage().println("Unhandled messages: ");
+}
+
+
+
+//αstm(p) state machine of the process p
+for (c in allCapsules){
+	//c.name.println();
+	//c.alphaStm().println();
+}
+
+
+
+
+//αstps(sm) A set of possible execution steps of sm A process p
+for (c in allCapsules){
+	//c.name.println("Exec Steps of ");
+	//if (c.alphaStm().isDefined())
+	//	for (stp in c.alphaStm().alphaStps()){
+	//		for (t in stp){
+	//			t.src().name.print();
+	//			t.targ().name.print("->");
+	//		}
+	//		"".println();
+	//	}
+}
+
+// No fireable and effective transition
+//modelroot.applyProfiles();
+
+prepareModelForPMD();
+
+for (sm in allStateMachine){
+	sm.println();
+	//transaction {
+	//var NoTriggerTransitions=sm.NoTriggerTransitions();
+	//sm.fixNoTriggerTransitions(NoTriggerTransitions);
+	//for (t in sm.NoTriggerTransitions()){
+		//t.println();
+	//	t.fixNotFireableTransition();
+	//}
+	//abort;
+	//}
+	//sm.NoEffectExecSteps().println();
+}
+
+
+
+
+
+/*
+
+
+modelroot.println();
+//modelroot.interface().println("interface");
+//modelroot.rootElement();
+//var modelroot=modelroot.getRootElement();
+//modelroot.getAllNestedPackage().println();
+//modelroot.getAllNestedPackage().size().println();
+var e=modelroot.getAllOwnedClasses();
+	for (i in e){
+	//	i.messageIn();
+	//	i.messageOut();
+	}
+
+var allRegion:Set=modelroot.getAllStateMachines().getAllRegions();
+var allTrans:Set=allRegion.getAllTransitions();
+//allRegion.println();
+//allRegion.size().println();
+//allRegion.getAllStates().println();
+//allRegion.getAllStates().size().println();
+//allRegion.getAllTransitions().println();
+//allRegion.getAllTransitions().size().println();
+
+for (s in allRegion.getAllStates()){
+
+}
+for (s in allRegion.getAllStates()){
+    //s.println("states");
+    //s.pkind().println("all kinds of a given state");
+	//s.kind().println("basic or composite state");
+	//s.println("name");
+	//s.par().println("parent of a state");
+	//s.lvl().println("level of a state");
+	//s.alphaPar().println("ancestors of a state"); ///check
+	//s.alphaAdj().println("neighbors");
+}
+/// test  get main region
+for (s in modelroot.getAllStateMachines()){
+	s.alphaStps().println("excetion steps");
+	
+	//s.println();
+	//s.getMainRegion().println();
+	//s.getIntialState().println();
+	//s.sts().println("just main region");
+	//s.alphaSts().println("all regions of a statemachine");
+	//s.trs().println("all transactions of a given state");
+	}
+	
+for (s in allRegion.getAllTransitions()){
+	//s.println("transition");
+	//s.src().println("source");
+	//s.act().println("action");
+	//s.trig().println("trigger");
+	//s.targ().println("target");
+	//s.grd().println("guards");
+	}
+////////////////
+
+//"test for owned class".println();
+var allClass:Set= modelroot.getAllOwnedClasses();
+//allClasses.println();
+//allClasses.first().getPrimitiveAttributes().println();
+
+/////////////////
+*/

@@ -1,0 +1,14 @@
+//-m  /Users/mojtababagherzadeh/Epsilon_CLI/UMLRTTransformer/samplemodels/ping-pong-partial.uml:UMLRTModel -s  /Users/mojtababagherzadeh/git/partialmodels/src/EpsilonCode/script/TestScript.eol -hm profiles/UMLPrimitiveType.uml:UMLPrimitiveTypeModel,profiles/RTCppProperties.profile.uml:RTCppPropertiesProfile,profiles/uml-rt.profile.uml:UMLRealTimeProfile,profiles/UMLRealTimeSM-addendum.profile.uml:UMLRealTimeStateMachineProfile
+
+
+//import "UMLRTProfileOperations.eol";
+//import "UMLRTQuery.eol";
+
+
+
+UMLRTModel!Package.all.println("Model Package: ");
+UMLRTModel!Profile.all.println("Profiles");
+for (p in UMLRTModel!Package.all){
+	p.name.println("Package Name: ");
+	p.packagedElement.println("Package in root");
+	}

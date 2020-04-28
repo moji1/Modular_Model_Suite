@@ -1,0 +1,581 @@
+
+import "UMLRTQuery.eol";
+import "UMLRTProfileOperations.eol";
+import "PMDCodeGenUtil.eol";
+import "PartialDetection.eol";
+import "ExecutionAnalysis.eol";
+//import "UMLRTElementOperations.eol";
+/// fix not-fireable transitions by creating triggers for all possible messages and a choice point to let users decide about them at runtime.
+/// make sure to not make the model un-deterministic
+
+// main loop of refinment{}
+operation Model refineModel(){
+	//  create mocking agent
+	var logContext="PartialityFixer:refineModel";
+	Info.log(logContext, "Refine Model " + self.name +  " for the execution");
+	var dbgAgent=self.createCapsule("dbgAgent");
+	dbgAgent.createStateMachine("dbgAgent StateMachine");
+	var dbgProtocol=self.createProtocol("dbgProtocol");
+	var params:Map;
+	dbgProtocol.owner.addMessage("dbg","IN",Map{});
+	dbgAgent.addPortToCapsules("dbgPort",dbgProtocol,false,1,50,"SPP");
+	dbgAgent.addPortToCapsules("timing",TimingProtocol,false,1,1,"");
+	dbgAgent.addPortToCapsules("tcpServer",TcpProtocol,false,1,1,"SAP");
+	dbgAgent.addPortToCapsules("tcpClient",TcpProtocol,false,1,1,"SAP");
+
+	var topCapsule=self.getAllOwnedCapsules().select(c|c.name=self.getTopCapsule()).first();
+	if (not topCapsule.isDefined()){
+		Error.log(logContext, "Top Capsule of " + self.name +  " is not defined, refinement is terminating");
+		abort;
+	}
+		
+	// add debAgent to top capulse
+	
+	topCapsule.createCapsulePart("dbgAgent",1,1,dbgAgent);
+	// add actions to dbgAgent
+
+	dbgAgent.alphaStm().createRegion("Region");
+
+	var initState = createPseudostate(""+"Init__State__dbgAgent",UMLRTModel!PseudostateKind#`initial`);
+	dbgAgent.alphaStm().region.first().subvertex.add(initState);
+	initState.applyUMLRTStereotype(ModelRoot);
+
+	var listeningState = createState("listeningState");
+	listeningState.addEntry('tcpServer.listen(9696);tcpServer.accept();'+EndLine);
+	dbgAgent.alphaStm().region.first().subvertex.add(listeningState);
+
+	var initTrans = createTransition("Trans__Init_Listening", initState, listeningState, "");
+	dbgAgent.alphaStm().region.first().transitions.add(initTrans);
+
+	var connectedState = createState("connectedState");
+	dbgAgent.alphaStm().region.first().subvertex.add(connectedState);
+
+	var connectedTrans = createTransition("Trans__Listening_Connected", listeningState, connectedState, "");
+	dbgAgent.alphaStm().region.first().transitions.add(connectedTrans);
+	connectedTrans.createTrigger("connected", "tcpServer", "connected");
+	connectedTrans.addEffect('tcpClient.attach(sockfd);', "C++");
+
+	var receivedTrans = createTransition("Trans__Connected_Connected", connectedState, connectedState, "");
+	dbgAgent.alphaStm().region.first().transitions.add(receivedTrans);
+	receivedTrans.createTrigger("received", "tcpClient", "received");
+
+	var receivedTransEffect = '';
+
+	// add action for registration with dbgagent
+	
+	//dbgProtocol.packagedElement.first().println();
+	//mockingAgent.addPortToCapsules("port",TimingProtocol.,true,1,1,"SAP");
+	//mockingAgent.createPort("timing",false,1,1,TimingProtocol);
+
+		var allCapsule=(self.getAllOwnedCapsules()).select(c|c.name<>self.getTopCapsule());
+	for (capsule in allCapsule){ // capsule with an HSM is ignored, we have to make sure the capulse supposed to include behaviour
+		if (capsule.alphaStm().isDefined())
+			if (clevel(capsule.name)=="full-partial"){
+				Info.log(logContext, "Refine Capsule " + capsule.name +  " as full-partial capsule");
+				capsule.alphaStm().clear();
+				capsule.prepareCapsuleForPMD();
+				PossibleEvents=capsule.messageIn();
+				capsule.alphaStm().refineHSM();
+				capsule.alphaStm().addConfigCode();
+			}
+			else if (clevel(capsule.name)=="partial"){
+				Info.log(logContext, "Refine Capsule " + capsule.name +  " as partial capsule");
+				if (capsule<>dbgAgent){
+					receivedTransEffect += 'if(strcmp("'+capsule.name+'", payload) == 0) { dbgPortFor'+capsule.name+'.dbg().send(); }\n';
+					capsule.addPortToCapsules("dbgPortFor"+capsule.name,dbgProtocol,false,1,1,"SAP");
+					dbgAgent.addPortToCapsules("dbgPortFor"+capsule.name,dbgProtocol,true,1,1,"SPP"); // later do it based on capsule pars inside top capusle
+				}
+				capsule.prepareCapsuleForPMD();
+				PossibleEvents=capsule.messageIn();
+				capsule.alphaStm().refineHSM();
+				capsule.alphaStm().addConfigCode();
+			}
+			else{ //complete
+				capsule.addPortToCapsules("dbgPort",dbgProtocol,true,1,1,"SAP");
+			}
+	
+	}	
+
+	receivedTrans.addEffect(receivedTransEffect, "C++");
+}
+
+/////
+// refine the state machine
+operation Any refineHSM(){
+	var logContext="PartialityFixer:refineHSM";
+	Info.log(logContext, "Refine State  " + self.name +  " for the execution");
+	var possibleEvents:Set=PossibleEvents;
+	//if (possibleEvents.isEmpty())
+	//	possibleEvents=self.ownerCapsule().messageIn();
+	var notTakeableTransition:Set;
+	var P3BrokenChain:Set;
+	var P6StateWithNonExahastiveGuard:Set;
+	//create region if not exist
+	if (self.region.isEmpty())
+		self.createRegion("mainRegion");
+	///// create decesion points 
+	var decesionPoint=createPseudostate(""+"DecesionPoint__"+self.getUniqueID(),UMLRTModel!PseudostateKind#`choice`);
+	self.region.first().subvertex.add(decesionPoint);
+	decesionPoint.applyUMLRTStereotype(ModelRoot);
+	// fix childless states
+	if (self.isChildLess()){
+		// add a placeholder state inside state machine
+		var statePlaceHolder=createState("New__State__"+self.getUniqueID());
+		self.region.first().subvertex.add(statePlaceHolder);
+		statePlaceHolder.applyUMLRTStereotype(ModelRoot);
+	}
+	// add missing intial states
+	if (self.hasNoInitialState()){
+		var initState=createPseudostate(""+"Init__State__"+self.getUniqueID(),UMLRTModel!PseudostateKind#`initial`);// add intial state)
+		self.region.first().subvertex.add(initState);
+		initState.applyUMLRTStereotype(ModelRoot);
+	}
+	// fix broken chain
+	P3BrokenChain=self.brokenChains().excluding(decesionPoint).select(s|not (s.name.matches(".*__Substates__.*") or s.name.matches(".*__Parent__.*")));
+	//P3BrokenChain.name.println("broken chains");
+	for (sP in P3BrokenChain){
+		//sP.println("broken chain");
+		var tempTrans=createTransition("Trans__"+sP.name+self.getUniqueID(),sP,decesionPoint,"");
+		//tempTrans.println("added transtion");
+		self.region.first().transitions.add(tempTrans);
+	}
+	// fx nottakable transtion
+	notTakeableTransition=self.notTakeableTransition();
+	for (t in notTakeableTransition){
+		t.source=decesionPoint;
+	}
+	
+	// fix choice point problem
+	P6StateWithNonExahastiveGuard=self.sts().select(s| s.kind()="P" and s.pkind()="Ch" and s<>decesionPoint);
+	for (sCH in P6StateWithNonExahastiveGuard){
+		var tempTrans=createTransition(""+self.getUniqueID(),sCH,decesionPoint,"");
+		self.getMainRegion().transitions.add(tempTrans);
+		
+	}
+	// fix dead states and unexpcetd message
+	for (state in self.sts().select(s|s.kind()=="N")){
+		var tempTrans=createTransition("From__"+state.name+"__"+self.getUniqueID(),state,decesionPoint,"");
+		//triggrableTrans.add(tempTrans);
+		self.getMainRegion().transitions.add(tempTrans);
+		var usedEvents=state.handledEvents();
+		for (event in possibleEvents.excludingAll(usedEvents)){
+			if(event == "dbgPortFor"+self.ownerCapsule().name+".dbg")
+				tempTrans.createTrigger("PME_Trig"+self.getUniqueID(),event);
+		}
+	}
+	////// fix isolated state and reachbility
+	for (state in self.sts().select(s|s.kind()<>"C" and s.kind()=="N" and s.pkind()<>"Ch" and s.pkind()<>"In")){
+		var tempTrans=createTransition("To__"+state.name+"__"+self.getUniqueID(),decesionPoint,state,"");
+		self.getMainRegion().transitions.add(tempTrans);
+	}
+	
+	/// add connection to substates and refine composite states
+	for (cs in self.sts().select(s|s.kind()=="C")){
+		
+		var brokenExit=cs.brokenChains().select(s|s.pkind()="Ex");
+		//brokenExit.println("Broken exit: ");
+		for (sP in brokenExit){
+			//sP.println("broken chain");
+			var tempTrans=createTransition("Trans__"+sP.name+self.getUniqueID(),sP,decesionPoint,"");
+			self.region.first().transitions.add(tempTrans);
+		}
+		var fromParnet=createPseudostate(""+"From__Parent__"+self.getUniqueID(),UMLRTModel!PseudostateKind#`entryPoint`);
+		cs.connectionPoint.add(fromParnet);
+		fromParnet.applyUMLRTStereotype(ModelRoot);
+		var tempTrans=createTransition("To__Substates__"+cs.name+"__"+self.getUniqueID(),decesionPoint,fromParnet,"");
+		self.getMainRegion().transitions.add(tempTrans);
+		var toParnet=createPseudostate(""+"To__Parent__"+self.getUniqueID(),UMLRTModel!PseudostateKind#`exitPoint`);
+		cs.connectionPoint.add(toParnet);
+		toParnet.applyUMLRTStereotype(ModelRoot);
+		tempTrans=createTransition("From__Substates__"+cs.name+"__"+self.getUniqueID(),toParnet,decesionPoint,"");
+		self.getMainRegion().transitions.add(tempTrans);
+		cs.refineHSM();
+		var decesionPointOfCS=cs.sts().select(s|s.name.isDefined() and s.name.matches(".*DecesionPoint.*")).first();
+		tempTrans=createTransition("From__Parnet__"+self.name+"__"+self.getUniqueID(),fromParnet,decesionPointOfCS,"");
+		cs.getMainRegion().transitions.add(tempTrans);
+		tempTrans=createTransition("To__Parent__"+self.name+"__"+self.getUniqueID(),decesionPointOfCS,toParnet,"");
+		cs.getMainRegion().transitions.add(tempTrans);
+		cs.refineAction(decesionPointOfCS);
+	}
+	// do it only for root, it is called for composite state in the above loop
+	if (self.isTypeOf(UMLRTModel!StateMachine)){
+		self.refineAction(decesionPoint);
+	}
+}
+////// refine actions in models 
+operation Any refineAction(decesionPoint:UMLRTModel!Pseudostate){
+	// add guard and action to added transion
+	for (t in self.trs().select(t|t.targ()==decesionPoint)){
+		var source:String=t.src().name;
+		if (t.src().pkind()=="En" or t.src().pkind()=="Ex")
+			source=t.src().ownerState().name;
+		t.addEffect(self.ownerCapsule().
+			generateDecisionTableCode(self.trs().select(t|t.src()==decesionPoint),source), "C++");
+	}//////
+	for (t in self.trs().select(t|t.src()==decesionPoint)){ 
+		var target:String=t.targ().name;
+		if (t.targ().pkind()=="En" or t.targ().pkind()=="Ex"){
+			target=t.target.ownerState().name;
+		}
+		var guard="return execContext.checkUserDecesion({";
+		guard+=quoted(t.name)+"," + quoted(target)+ "," + " execContext.getExecLocation().locName});"+EndLine;
+		t.addGuard("PME_checkDecesion"+self.getUniqueID(),guard);
+	}
+	/////
+	
+}
+
+
+
+
+// create a super state machine  of a statemachine 
+operation UMLRTModel!StateMachine createSuperSM(){
+	var logContext="PartialityFixer:createSuperSM";
+	Trace.log(logContext, "Refine State machine " + self.name +  " for the execution");
+	var possibleEvents=self.ownerCapsule().messageIn();
+	var triggrableTrans:Set;
+	var guardedTrans:Set;
+	var transFromChoice:Set;
+	var initTrans;
+	/////
+	var choicePoint=createPseudostate(""+"Choicepoint__"+self.getUniqueID(),UMLRTModel!PseudostateKind#`choice`);
+	// add missing intial states
+	if (self.hasIntialStates()==false){
+		var initState=createPseudostate(""+"InitialState__"+self.getUniqueID(),UMLRTModel!PseudostateKind#`initial`);// add intial state)
+		self.getMainRegion().subvertex.add(initState);
+		initState.applyUMLRTStereotype();
+		initState.applyUMLRTStereotype(ModelRoot);
+		createTransition("INIT_TRANS"+self.getUniqueID(),choicePoint,initState,"");
+		initTrans=createTransition("From__"+initState.name+"__"+self.getUniqueID(),initState,choicePoint,"");
+		self.getMainRegion().transitions.add(initTrans);
+	}
+	// add missing intail transtions
+	if (not self.hasIntialTransition()){
+		var initState=self.sts().select(s|s.pkind()="In").first();
+		initTrans=createTransition("From__"+initState.name+"__"+self.getUniqueID(),initState,choicePoint,"");
+		initState.owner.transitions.add(initTrans);
+	}
+	self.getMainRegion().subvertex.add(choicePoint);
+	choicePoint.applyUMLRTStereotype(ModelRoot);
+	// add a placeholder state inside state machine
+	var statePlaceHolder=createState("New__State__"+self.getUniqueID());
+	self.getMainRegion().subvertex.add(statePlaceHolder);
+	statePlaceHolder.applyUMLRTStereotype(ModelRoot);
+	// refine choice point in the same level
+	//ToDo
+	// collect all states if a message is not handled on them
+	var statesWithUnExpectedMsg=self.stateWithUnhandledMessage();
+	// add choicepoint for getting choices from users
+	//// create transtion from psudue state to the choice point// for now only choice points and 
+	///s.pkind()<>"In" and s.pkind()<>"Ex" and s.pkind()<>"En"
+	for (state in self.sts().select(s|s<>choicePoint and s.kind()=="P" and s.pkind()=="Ch")){
+		var tempTrans=createTransition("From__"+state.name+"__"+self.getUniqueID(),state,choicePoint,"");
+		transFromChoice.add(tempTrans);
+		self.getMainRegion().transitions.add(tempTrans);
+	}
+	//// create transtion  from choice point to state (gurded states)
+	for (state in self.sts().select(s|s<>choicePoint and s.pkind()<>"In" and s.pkind()<>"Ex" and s.pkind()<>"En" and s.pkind()<>"Jc")){
+		var tempTrans=createTransition("To__"+state.name+"__"+self.getUniqueID(),choicePoint,state,"");
+		guardedTrans.add(tempTrans);
+		self.getMainRegion().transitions.add(tempTrans);
+	}
+	//// create transition from states to choicepoint (triggerable states)
+	for (state in self.sts().select(s|s<>choicePoint and s.kind()<>"P")){
+		if (statesWithUnExpectedMsg.includes(state)){
+			var tempTrans=createTransition("From__"+state.name+"__"+self.getUniqueID(),state,choicePoint,"");
+			triggrableTrans.add(tempTrans);
+			self.getMainRegion().transitions.add(tempTrans);
+			var usedEvents=state.handledEvents();
+			for (event in possibleEvents.excludingAll(usedEvents)){
+				tempTrans.createTrigger("PME_Trig"+self.getUniqueID(),event);
+			}
+			tempTrans.addEffect(self.owner.generateDecisionTableCode(guardedTrans,state.name), "C++");
+		}
+	}
+	/// add choice point to init trans too	
+	if (initTrans.isDefined())
+		initTrans.addEffect(self.owner.generateDecisionTableCode(guardedTrans,self.sts().select(s|s.pkind()="In").first().name), "C++");
+	//////
+	for (t in guardedTrans){ 
+		var guard="return execContext.checkUserDecesion({";
+		guard+=quoted(t.name)+"," + quoted(t.targ().name)+ "," + " execContext.getExecLocation().locName});"+EndLine;
+		t.addGuard("PME_checkDecesion"+self.getUniqueID(),guard);
+	}
+	/// fix the guard of the choice point (transFromChoice)
+	//// repeat the same process for composite states
+
+}
+
+
+//// fix partilities for a model
+operation Model fixPartialities(){
+	var logContext="PartialityFixer:fixPartialities";
+	Trace.log(logContext, "Fix partialities " + self.name +  " for the execution");
+	self.fixSimplePartialities();
+	//self.fixComplexPartialities();
+}
+operation Model fixSimplePartialities(){
+	var logContext="PartialityFixer:fixSimplePartialities";
+	Trace.log(logContext, "Fix simple partialities " + self.name +  " for the execution");
+	var noTriggerableTrans:Set;
+	var deadStates:Set;
+	var isolatedStates:Set;
+	var noIntialStates:Set;
+	var wrongGuardStates:Set;
+	for (capsule in AllCapsules){
+		var sm=capsule.alphaStm();
+		if (sm.isDefined()){
+			Trace.log(logContext, "Fix partialities of capsule " + capsule.name +  " for the execution");
+			//deadStates=sm.DeadStates();
+			//isolatedStates=sm.isolatedStates();
+			//noIntialStates=sm.noIntialStates();
+			//fixnoIntialStates(noIntialStates);
+			//fixDeadStates(deadStates);
+			//fixIsolatedStates(isolatedStates);
+			sm.createSuperSM();
+			sm.addConfigCode();
+			//sm.guardActionCodes();
+			//sm.addTrace();
+			//noTriggerableTrans=sm.fixnoTriggerableTrans();	
+		}
+	}
+
+}
+/// add configuration to init transtion
+operation UMLRTModel!StateMachine addConfigCode(){
+	var initTrans=self.getIntialTransition();	
+	var logContext="PartialityFixer:addConfigCode";
+	Trace.log(logContext, "Add config code into intial transition of " + self.owner.name );
+	if (not initTrans.effect.isDefined()){
+		Trace.log(logContext, "No effect for initial transition of " + self.owner.name );
+		var initMethod:UMLRTModel!OpaqueBehavior= new UMLRTModel!OpaqueBehavior;
+		initMethod.name=initTrans.name+("__")+self.getUniqueID();
+		initMethod.language.add("C++");
+		initMethod.body.add("initForPMD();"+EndLine);
+		initTrans.effect=initMethod;	
+		Trace.log(logContext,"New Init code: "+ initMethod.body.first());	
+	}
+	else {
+		var tempEffect=initTrans.effect.body.first();
+		Trace.log(logContext,"Init code before change: "+tempEffect);
+		tempEffect="initForPMD();"+EndLine+tempEffect;
+		Trace.log(logContext,"Init code after change: "+ tempEffect);
+		initTrans.effect.body.clear();
+		initTrans.effect.body.add(tempEffect);
+	}
+}
+
+// create a super state machine  of a statemachine 
+operation UMLRTModel!StateMachine createSuperSM(){
+	var logContext="PartialityFixer:createSuperSM";
+	Trace.log(logContext, "Refine State machine " + self.name +  " for the execution");
+	var possibleEvents=self.ownerCapsule().messageIn();
+	var triggrableTrans:Set;
+	var guardedTrans:Set;
+	var transFromChoice:Set;
+	var initTrans;
+	/////
+	var choicePoint=createPseudostate(""+"Choicepoint__"+self.getUniqueID(),UMLRTModel!PseudostateKind#`choice`);
+	// add missing intial states
+	if (self.hasIntialStates()==false){
+		var initState=createPseudostate(""+"InitialState__"+self.getUniqueID(),UMLRTModel!PseudostateKind#`initial`);// add intial state)
+		self.getMainRegion().subvertex.add(initState);
+		initState.applyUMLRTStereotype();
+		initState.applyUMLRTStereotype(ModelRoot);
+		createTransition("INIT_TRANS"+self.getUniqueID(),choicePoint,initState,"");
+		initTrans=createTransition("From__"+initState.name+"__"+self.getUniqueID(),initState,choicePoint,"");
+		self.getMainRegion().transitions.add(initTrans);
+	}
+	// add missing intail transtions
+	if (not self.hasIntialTransition()){
+		var initState=self.sts().select(s|s.pkind()="In").first();
+		initTrans=createTransition("From__"+initState.name+"__"+self.getUniqueID(),initState,choicePoint,"");
+		initState.owner.transitions.add(initTrans);
+	}
+	self.getMainRegion().subvertex.add(choicePoint);
+	choicePoint.applyUMLRTStereotype(ModelRoot);
+	// add a placeholder state inside state machine
+	var statePlaceHolder=createState("New__State__"+self.getUniqueID());
+	self.getMainRegion().subvertex.add(statePlaceHolder);
+	statePlaceHolder.applyUMLRTStereotype(ModelRoot);
+	// refine choice point in the same level
+	//ToDo
+	// collect all states if a message is not handled on them
+	var statesWithUnExpectedMsg=self.stateWithUnhandledMessage();
+	// add choicepoint for getting choices from users
+	//// create transtion from psudue state to the choice point// for now only choice points and 
+	///s.pkind()<>"In" and s.pkind()<>"Ex" and s.pkind()<>"En"
+	for (state in self.sts().select(s|s<>choicePoint and s.kind()=="P" and s.pkind()=="Ch")){
+		var tempTrans=createTransition("From__"+state.name+"__"+self.getUniqueID(),state,choicePoint,"");
+		transFromChoice.add(tempTrans);
+		self.getMainRegion().transitions.add(tempTrans);
+	}
+	//// create transtion  from choice point to state (gurded states)
+	for (state in self.sts().select(s|s<>choicePoint and s.pkind()<>"In" and s.pkind()<>"Ex" and s.pkind()<>"En" and s.pkind()<>"Jc")){
+		var tempTrans=createTransition("To__"+state.name+"__"+self.getUniqueID(),choicePoint,state,"");
+		guardedTrans.add(tempTrans);
+		self.getMainRegion().transitions.add(tempTrans);
+	}
+	//// create transition from states to choicepoint (triggerable states)
+	for (state in self.sts().select(s|s<>choicePoint and s.kind()<>"P")){
+		if (statesWithUnExpectedMsg.includes(state)){
+			var tempTrans=createTransition("From__"+state.name+"__"+self.getUniqueID(),state,choicePoint,"");
+			triggrableTrans.add(tempTrans);
+			self.getMainRegion().transitions.add(tempTrans);
+			var usedEvents=state.handledEvents();
+			for (event in possibleEvents.excludingAll(usedEvents)){
+				tempTrans.createTrigger("PME_Trig"+self.getUniqueID(),event);
+			}
+			tempTrans.addEffect(self.owner.generateDecisionTableCode(guardedTrans,state.name), "C++");
+		}
+	}
+	/// add choice point to init trans too	
+	if (initTrans.isDefined())
+		initTrans.addEffect(self.owner.generateDecisionTableCode(guardedTrans,self.sts().select(s|s.pkind()="In").first().name), "C++");
+	//////
+	for (t in guardedTrans){ 
+		var guard="return execContext.checkUserDecesion({";
+		guard+=quoted(t.name)+"," + quoted(t.targ().name)+ "," + " execContext.getExecLocation().locName});"+EndLine;
+		t.addGuard("PME_checkDecesion"+self.getUniqueID(),guard);
+	}
+	/// finx the guard of the choice point (transFromChoice)
+	//// repeat the same process for composite states
+
+}
+///
+
+
+
+
+// fix no triggerable state and return their list
+operation UMLRTModel!StateMachine fixnoTriggerableTrans():Set{
+  // ... lets test with code genration. then focus on finishing exec helper, and adding syntax for commands
+	var logContext="PartialityFixer:fixnoTriggerableTrans";
+	Trace.log(logContext, "Fix NoTriggerable Transtion for capsule " + self.owner.name +  " for the execution");
+	var noTriggerableTrans=self.findNoTriggerTrans();
+	Trace.log(logContext, "Number of NoTriggerable of capsule " + self.owner.name +  noTriggerableTrans.size());
+	var fixednoTriggerableTrans:Set;
+	//for (noTrigTrans in noTriggerableTrans){
+	while (not noTriggerableTrans.isEmpty()){
+		var noTrigTrans=noTriggerableTrans.first();
+		Trace.log(logContext, "Fix NoTriggerable transtion " + noTrigTrans.name);
+		var srcState=noTrigTrans.src();
+		var allNoTriggerableTransForSameSource=noTriggerableTrans.select(t|t.src()==srcState);
+	    var usedEvents=srcState.handledEvents();
+		var possibleEvents=noTrigTrans.ownerCapsule().messageIn();
+		if (possibleEvents.excludingAll(usedEvents).isEmpty())
+				break;
+		var container=noTrigTrans.owner;
+		//var noTrigTransfromSatet=noTriggerTransitions.including(srcState.orginatedTrans());
+		var choice=createPseudostate("NoTrig_Choice"+self.getUniqueID(),UMLRTModel!PseudostateKind#`choice`);
+		var trigTransHandle=createTransition("NoTrig__Handle"+self.getUniqueID(),noTrigTrans.src(),choice,"");
+		var rejectTrans=createTransition("NoTrig_Rejected"+self.getUniqueID(),choice,noTrigTrans.src(),"");
+		var guard="return execHelper.checkUserDecesion({});".concat(EndLine);
+		rejectTrans.addGuard("isRejected",guard);
+		container.subvertex.add(choice);
+		choice.applyUMLRTStereotype(ModelRoot);
+		container.transition.add(rejectTrans);
+		container.transition.add(trigTransHandle);
+		// add effect for trigTrans=
+		for (event in possibleEvents.excludingAll(usedEvents))
+			trigTransHandle.createTrigger("PME_NoTrig_Trig"+self.getUniqueID(),event);
+			// create effect code for trigTrans	
+		trigTransHandle.addEffect(self.owner.generateDecisionTableCode(allNoTriggerableTransForSameSource,srcState.name), "C++");
+			//??
+		for (trans in allNoTriggerableTransForSameSource.flatten()){
+			trans.source=choice;  
+			var guard="return execHelper.checkUserDecesion({";
+			guard+=quoted(trans.name)+"," + quoted(trans.targ().name)+ "," + quoted(srcState.name)+"});"+EndLine;
+			trans.addGuard("PME_checkDecesion"+self.getUniqueID(),guard);
+			noTriggerableTrans.remove(trans); // no need the handling trans include this line of code
+		}
+	}
+
+}
+// fix partilities for a model
+operation Model fixComplexPartialities(){
+	var logContext="PartialityFixer:fixComplexPartialities";
+	Trace.log(logContext, "Fix complex partialities " + self.name +  " for the execution");
+	var unhandledInMessages:Set;
+	var missingOutMessage:Set;
+	var envPartialCapsules:Set;
+	var fullPartailSM:Set;
+	for (capsule in AllCapsules){
+		var sm=capsule.alphaStm();
+		if (sm.isDefined()){
+			
+		}
+	}
+
+}
+
+
+
+operation UMLRTModel!StateMachine fixNoTriggerTransitions(noTriggerTransitions:Set){
+	for (s in self.alphaSts()){
+		var noTriggerFromState=noTriggerTransitions.select(t|t.src()==s);
+		if (noTriggerFromState.notEmpty())
+			s.fixNoTriggerTransitions(noTriggerFromState);
+	}
+}
+
+
+operation UMLRTModel!State fixNoTriggerTransitions(noTriggerTransitions:Set){
+	//while (true){
+		//if (noTriggerTransitions.isEmpty())
+		//	break;
+		//else{
+			var noTrigTrans=noTriggerTransitions.first();
+			var usedEvents=noTrigTrans.src().handledEvents();
+			var possibleEvents=noTrigTrans.ownerCapsule().messageIn();
+			if (possibleEvents.excludingAll(usedEvents).isEmpty())
+				break;
+			var srcState=noTrigTrans.src();
+			var container=noTrigTrans.owner;
+			//var noTrigTransfromSatet=noTriggerTransitions.including(srcState.orginatedTrans());
+			var choice=createPseudostate("ChoiceByUser"+self.getUniqueID(),UMLRTModel!PseudostateKind#`choice`);
+			var trigTrans=createTransition("TrigTrans"+self.getUniqueID(),noTrigTrans.src(),choice,"");
+			var rejectTrans=createTransition("Rejected"+self.getUniqueID(),choice,noTrigTrans.src(),"");
+			var guard="return execHelper.CheckUserDecesion({});".concat(EndLine);
+			rejectTrans.addGuard("isRejected",guard);
+			container.subvertex.add(choice);
+			choice.applyUMLRTStereotype(modelroot);
+			container.transition.add(rejectTrans);
+			container.transition.add(trigTrans);
+			// add effect for trigTrans=
+			for (event in possibleEvents.excludingAll(usedEvents))
+				trigTrans.createTrigger("NotFireableTransition"+self.getUniqueID(),event);
+			// create effect code for trigTrans	
+			trigTrans.addEffect(self.generateDecisionTableCode(noTriggerTransitions,srcState.name), "C++");
+			//??
+			for (trans in noTriggerTransitions.flatten()){
+				trans.source=choice;  
+				var guard="return execHelper.CheckUserDecesion({";
+				guard=guard.concat("\"").concat(trans.name).concat("\"").concat(",").concat("\"").concat(trans.targ().name).concat("\"").concat("};").concat(EndLine);
+				trans.addGuard("checkDecesion"+self.getUniqueID(),guard);
+				//noTriggerTransitions.remove(trans);
+			}
+		//}
+	//}
+}
+
+operation loadConfig(configStr:String): Map{
+	var logContext="PartialityFixer:loadConfig";
+	var paramsSeq:Sequence=configStr.split(";");
+	var configMap:Map;
+	for (param in paramsSeq){
+		var tempSeq:Sequence:=param.split(":");
+		if (tempSeq.size()=2 and clevels.contains(tempSeq.get(1).toLowerCase()))
+			configMap.put(tempSeq.get(0),tempSeq.get(1).toLowerCase());
+		else
+			Trace.log(logContext, "Passed parameter is ignored due to worng format, Detail " + tempSeq +  " use paramname:value");
+	}
+	return configMap;
+}
+
+operation clevel(capsule:String){
+	if (configMap.containsKey(capsule.toLowerCase()))
+		return configMap.get(capsule);
+	else
+		return "partial";
+}

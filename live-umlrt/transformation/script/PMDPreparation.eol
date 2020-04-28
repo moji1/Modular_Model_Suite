@@ -1,0 +1,267 @@
+/*
+    Copyright (c) 2016 Queen's University.
+    
+    Developers:
+	Mojtaba Bagherzadeh(mojtaba@cs.queensu.ca)
+
+*/
+
+import "UMLRTElementOperations.eol";
+
+operation Model prepareModelForPMD(){
+	var logContext="PMDPreparation:prepareModelForPMD";
+	Trace.log(logContext, "Prepare model " + self.name +  " for PMD");
+	for (capsule in AllCapsules){
+		if (capsule.alphaStm().isDefined()){
+			Trace.log(logContext, "Prepare Capsule " + capsule.name +  " for PMD");
+			capsule.nameAllElements();
+			capsule.addRequiredHeaderForPMD();
+			capsule.addRequiredAttributeForPMD();
+			capsule.addRequiredMethods();
+			//checkDecesion // to check if there is any rule map to the current context or 
+			// if there is any partaility exist and mode is interctive
+			//capsule.finadPartialElements();
+			// add checkDeceison method
+			/*var params:Set;
+			var param:Sequence;
+			param.add("lastDecision");
+			param.add("Boolean");
+			param.add(ParameterDirectionKind#`return`);
+			params.add(param);
+			capsule.createMethod("checkUserDecision","return lastDecision;",params);*/
+					
+		}
+	}
+
+}
+
+////
+operation Class prepareCapsuleForPMD(){
+	var logContext="PMDPreparation:prepareCapsuleForPMD";
+	Trace.log(logContext, "Prepare capsule " + self.name +  " for PMD");
+	self.nameAllElements();
+	self.addRequiredHeaderForPMD();
+	self.addRequiredAttributeForPMD();
+	self.addRequiredMethods();
+}
+////
+operation UMLRTModel!Class addRequiredMethods(){
+	var logContext="PMDPreparation:addRequiredMethods";
+	Trace.log(logContext,"Add required method into class "+ self.name);
+	self.createLoadHeapMethod();
+	self.createUnLoadHeapMethod();
+	self.createSendMessageMethod();
+	self.createSendInternalMessageMethod();
+	self.createInitForPMDMethod();
+	self.createDefaultParitialityMethod();
+	self.createReplayMessageMethod();
+	self.createSetTimerMethod();
+	// implement  send message method body 
+	// add a method to check  decison , get the conext and decide if a rule need to be applied
+}
+
+////
+
+
+//////
+operation UMLRTModel!Class  createSendInternalMessageMethod(){ // save all variables in the heap
+	var logContext="PMDPreparation:createSendMessagesMethod";
+	Trace.log(logContext,"Add sendInternalMessage method into class "+ self.name);
+	var params:Set;
+	var param1:Sequence;
+	var param2:Sequence;
+	param1.add("message");
+	param1.add("int");
+	param1.add(ParameterDirectionKind#`in`);
+	param1.add("pmd::Message");
+	params.add(param1);
+	param2.add("result");
+	param2.add("int");
+	param2.add(ParameterDirectionKind#`return`);
+	params.add(param2);
+	var methodCode="// will do it as next work";
+	self.createMethod("sendInternalMessage",methodCode,params);
+}
+///// 
+operation UMLRTModel!Class createInitForPMDMethod(){
+	var logContext="PMDPreparation:createInitForPMDMethod";
+	Trace.log(logContext,"Add initForPMD method into class "+ self.name);
+	var params:Set;
+	var methodCode=self.generateInitForPMDMBody();
+	self.createMethod("initForPMD",methodCode,params);
+}
+
+////
+operation UMLRTModel!Class  createSendMessageMethod(){ // save all variables in the heap
+	var logContext="PMDPreparation:createSendMessagesMethod";
+	Trace.log(logContext,"Add sendMessage method into class "+ self.name);
+	var params:Set;
+	var param1:Sequence;
+	var param2:Sequence;
+	param1.add("message");
+	param1.add("int");
+	param1.add(ParameterDirectionKind#`in`);
+	param1.add("pmd::Message");
+	params.add(param1);
+	param2.add("result");
+	param2.add("int");
+	param2.add(ParameterDirectionKind#`return`);
+	params.add(param2);
+	var methodCode=self.generateSendMessageBody();
+	self.createMethod("sendMessage",methodCode,params);
+}
+
+/////
+operation UMLRTModel!Class  createLoadHeapMethod(){ // save all variables in the heap
+	var logContext="PMDPreparation:createLoadHeapMethod";
+	Trace.log(logContext,"Add loadHeamp method into class "+ self.name);
+	var params:Set;
+	var methodCode:String=self.generateLoadHeapBody();
+	self.createMethod("loadHeap",methodCode,params);
+}
+/////
+operation UMLRTModel!Class  createUnLoadHeapMethod(){ // save all variables in the heap
+	var logContext="PMDPreparation:createUnLoadHeapMethod";
+	Trace.log(logContext,"Add unLoadHeamp method into class "+ self.name);
+	var params:Set;
+	var methodCode:String=self.generateUnLoadHeapBody();
+	self.createMethod("unLoadHeap",methodCode,params);
+}
+////
+operation UMLRTModel!Class addRequiredAttributeForPMD(){
+	var logContext="PMDPreparation:addRequiredAttributeForPMD";
+	Trace.log(logContext,"Adding required attributes  to capsule "+ self.name);
+	var s:UMLRTModel!Stereotype=self.applyUMLRTCapsuleProperties(ModelRoot);
+	if (self.getUMLRTCapsuleProperties().isUndefined()){
+		Fatal.log(logContext, "Can not apply CapsuleProperties on capsule " + self.name);
+		throw "Error! in  applying CapsuleProperties streotype on capsule " + self.name;
+	}else{
+		var tempPrivateDeclarations=self.getUMLRTCapsuleProperties().privateDeclarations;
+		if (tempPrivateDeclarations.isDefined()){
+			self.getUMLRTCapsuleProperties().privateDeclarations=tempPrivateDeclarations.concat(EndLine).concat(getRequiredAttributesListForPMD());
+		}
+		else{
+			self.getUMLRTCapsuleProperties().privateDeclarations=getRequiredAttributesListForPMD();
+		}
+	} 
+}
+////
+operation UMLRTModel!Class addRequiredHeaderForPMD(){
+	var logContext="PMDPreparation:addRequiredHeaderForPMD";
+	Trace.log(logContext,"Adding required headers to capsule "+ self.name);
+	var s:UMLRTModel!Stereotype=self.applyUMLRTCapsuleProperties(ModelRoot);
+	if (self.getUMLRTCapsuleProperties().isUndefined()){
+		Fatal.log(logContext, "Can not apply CapsuleProperties on capsule " + self.name);
+		throw "Error! in  applying CapsuleProperties streotype on capsule " + self.name;
+	}
+	else{
+		var tempHeader=self.getUMLRTCapsuleProperties().headerPreface;
+		if (tempHeader.isDefined()){
+			self.getUMLRTCapsuleProperties().headerPreface=tempHeader.concat(EndLine).concat(getRequiredHeadersListForPMD());
+		}
+		else{
+			self.getUMLRTCapsuleProperties().headerPreface=getRequiredHeadersListForPMD();
+		}
+	} 
+}
+
+
+
+///
+operation UMLRTModel!Class nameAllElements(){
+	var logContext="PMDPreparation:nameAllElements";
+	Trace.log(logContext,"Assign name to all unnamed states and transitions for capsule " + self.name);
+	var sm=self.alphaStm();
+	if (sm.isDefined()){
+		for (s in sm.alphaSts())
+			if (s.name.isUndefined())
+				s.assignName();
+		for (t in sm.alphaTrs())
+			if (t.name.isUndefined())
+				t.assignName();
+	}
+}
+
+/////
+operation UMLRTModel!Class createDefaultParitialityMethod() {
+	var logContext="PMDPreparation:createDefaultParitialityMethod";
+	var params:Set;
+	var param1:Sequence;
+	param1.add("shouldBreak");
+	param1.add("bool");
+	param1.add(ParameterDirectionKind#`in`);
+	params.add(param1);
+
+	var body="this->loadHeap();"+EndLine;
+	body+="this->execContext.clearPossibleExecPath();"+EndLine;
+
+	body+="currentState->triggerTable->lock();"+EndLine;
+	body+="UMLRTHashMap::Iterator iter = currentState->triggerTable->getIterator();"+EndLine;
+	body+="while (iter != iter.end())"+EndLine;
+	body+="{"+EndLine;
+	body+="	const char  * triggerName = (const char *)iter.getKey();"+EndLine;
+	body+="	UMLRTTransition * transition = (UMLRTTransition *)iter.getObject();"+EndLine;
+	body+=" if(transition->choice == NULL)"+EndLine;
+	body+=" 	this->execContext.addPossibleExecPath(transition->from->name, transition->to->name, transition->name, this->msg->getSignalName());"+EndLine;
+	body+="	iter = iter.next();"+EndLine;
+	body+="}"+EndLine;
+	body+="currentState->triggerTable->unlock();"+EndLine;
+	body+=""+EndLine;
+	body+="this->execContext.setlastMsg(this->msg);"+EndLine;
+	body+="this->execContext.setLastTransition(this->lastTransition);"+EndLine;
+	body+="this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC, currentState->name);"+EndLine;
+    body+="if(shouldBreak)"+EndLine;
+    body+="    this->execContext.setPartialityPattern(pmd::PartialityPattern::BREAKPOINT);"+EndLine;
+    body+="else"+EndLine;
+    body+="    this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);"+EndLine;
+	body+="execHelper.getUserDecesion(&execContext);"+EndLine;
+	body+="this->execTransition(this->execContext.getSelectedPath().transName.c_str());"+EndLine;
+	body+="this->unLoadHeap();"+EndLine;
+
+	self.createMethod("defaultPartialityFunction", body, params);
+}
+
+/////
+operation UMLRTModel!Class createReplayMessageMethod() {
+	var logContext="PMDPreparation:createDefaultParitialityMethod";
+	var params:Set;
+	
+	var body="this->msg->defer();"+EndLine;
+	body+="this->msg->destPort->recall(-1, true, true);"+EndLine;
+
+	self.createMethod("replayMessage", body, params);
+}
+
+//////
+operation UMLRTModel!Class  createSetTimerMethod(){
+	var logContext="PMDPreparation:createSetTimerMethod";
+	Trace.log(logContext,"Add createSetTimerMethod method into class "+ self.name);
+	var params:Set;
+	var param1:Sequence;
+	var param2:Sequence;
+	var param3:Sequence;
+
+	param1.add("portName");
+	param1.add("String");
+	param1.add(ParameterDirectionKind#`in`);
+	params.add(param1);
+	
+	param2.add("sec");
+	param2.add("int");
+	param2.add(ParameterDirectionKind#`in`);
+	params.add(param2);
+
+	param3.add("nsec");
+	param3.add("int");
+	param3.add(ParameterDirectionKind#`in`);
+	params.add(param3);
+
+	var body="";
+
+	for (port in self.getAllPorts().select(p|p.name=="timer")) {
+		body+="timer.informIn(UMLRTTimespec(sec,nsec));"+EndLine;
+		break;
+	}
+
+	self.createMethod("setTimer", body, params);
+}

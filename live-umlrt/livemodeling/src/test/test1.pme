@@ -1,0 +1,60 @@
+rule test applies (capsule *) 
+begin
+jkghk
+t=7
+fdgkoieruo;
+{}
+end
+
+rule test1 applies (capsule capsulegg1::test) 
+begin
+jkghk
+t=7
+fdgkoieruo;
+{}
+end 
+rule test5 applies (state capsulegg1::test::s1) 
+when(NoTrigger)
+begin
+end
+
+rule test4 applies (state capsulegg::test::*) 
+when(NoTrigger)
+begin
+end
+
+rule test3 applies (state capsulegg::test::s21) 
+when(NoTrigger)
+begin
+end
+
+rule test2 applies (state capsulegg::test::s1) 
+when(NoInitialState)
+begin
+end
+
+rule testt1 applies (transition capsulegg1::test) 
+begin
+jkghk
+t=7
+fdgkoieruo;
+{}
+end 
+rule testt5 applies (transition capsulegg::test::s1) 
+begin
+end
+
+rule testt4 applies (transition capsulegg::test::*) 
+when(NoTrigger)
+begin
+end
+
+rule testt3 applies (transition capsulegg::test::s21) 
+when(NoTrigger)
+begin
+end
+
+rule testt1 applies (transition capsulegg::test::s1) 
+when(NoInitialState)
+begin
+end

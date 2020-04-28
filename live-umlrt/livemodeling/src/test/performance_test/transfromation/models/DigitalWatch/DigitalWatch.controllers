@@ -1,0 +1,8 @@
+DigitalWatch = Main
+DigitalWatch.buttonsReader = Second
+DigitalWatch.watchCore = Third
+DigitalWatch.displayGateKeeper = Forth
+DigitalWatch.stopWatchController = Fifth
+DigitalWatch.display = Sixth
+DigitalWatch.timeTracker = Seventh
+DigitalWatch.alarmsCapsule = Eighth

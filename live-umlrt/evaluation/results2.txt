@@ -1,0 +1,10 @@
+                                      Standard                              Our
+                                --------------------                --------------------
+Case                            LOC             Size                LOC             Size (bytes)
+--------------------------------------------------------------------------------------------------
+Digital Watch                   930             306564              852             323896
+Parcel Router                   6389            390684              6043            411208   
+Rover                           3936            can't build         3527            can't build
+Car Door Central Lock           2230            343900              2015            358036
+FailOver                        6314            475988              5746            493396
+Debuggable FailOver             53122           4004601             38518           4151058

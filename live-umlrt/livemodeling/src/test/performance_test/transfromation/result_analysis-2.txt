@@ -1,0 +1,1400 @@
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 53867 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 19796 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 18967 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 22926 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 17782 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 17039 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 8781 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 9471 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 7622 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 4232 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 24257 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 17075 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 15885 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 15179 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 16570 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 16542 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 14235 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 12084 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 12723 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 7996 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 24589 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 21424 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 15192 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 14557 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 15740 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 16180 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 10796 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 11324 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 5871 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 5635 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 16215 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 18913 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 15309 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 13684 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 18614 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 19259 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 16751 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 10442 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 7219 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 4164 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 18802 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 17609 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 15764 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 14203 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 15100 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 17543 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 10305 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 8906 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 6279 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 5005 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 18164 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 17423 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 14172 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 15559 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 15766 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 16222 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 15391 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 9454 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 5613 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 5890 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 20579 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 19611 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 10869 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 14251 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 17899 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 13265 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 12000 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 9688 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 6599 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 4515 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 22790 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 16669 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 14241 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 12938 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 16218 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 14008 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 9515 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 11649 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 6328 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 4605 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 16629 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 16912 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 14810 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 15591 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 13783 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 13173 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 13954 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 10320 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 5862 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 5069 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 18985 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 19831 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 13466 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 15367 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 16169 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 15642 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 10940 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 9166 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 7260 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 5414 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 15197 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 16850 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 14153 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 13728 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 17930 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 17066 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 15581 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 11612 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 7047 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 6309 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 16943 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 15519 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 18971 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 12649 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 11793 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 15213 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 14637 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 14619 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 8389 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 5688 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 20830 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 23950 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 21551 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 15413 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 13128 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 15690 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 14149 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 9943 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 5672 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 4645 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 24802 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 21601 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 16702 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 15555 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 15537 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 16625 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 20416 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 11311 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 5977 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 4893 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 20130 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 17149 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 16926 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 20162 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 24459 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 19913 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 15072 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 11652 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 6293 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 5849 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 17078 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 15639 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 14999 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 19952 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 16788 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 18619 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 16352 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 11667 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 5811 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 6513 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 14721 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 18842 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 15981 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 14765 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 15698 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 16123 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 9572 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 12075 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 7584 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 4968 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 19444 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 16863 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 17567 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 12545 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 12705 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 13523 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 12971 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 9932 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 6528 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 5095 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 17987 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 14237 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 15415 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 14798 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 15844 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 16948 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 10207 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 12166 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 6588 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 4557 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Replication.uml is done in 19798 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_10_Replication.uml is done in 15471 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_20_Replication.uml is done in 15293 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_30_Replication.uml is done in 16382 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_40_Replication.uml is done in 18988 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_50_Replication.uml is done in 17505 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_60_Replication.uml is done in 19674 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_70_Replication.uml is done in 15660 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_80_Replication.uml is done in 7189 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialDetection.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+------End of the script result--------
+Transromation of model: Partial_90_Replication.uml is done in 6151 ms

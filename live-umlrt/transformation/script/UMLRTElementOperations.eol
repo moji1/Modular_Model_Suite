@@ -1,0 +1,523 @@
+/*
+    Copyright (c) 2016 Queen's University.
+    
+    Developers:
+	Mojtaba Bagherzadeh(mojtaba@cs.queensu.ca)
+	Nafiseh Kahani(kahani@cs.queensu.ca)
+
+*/
+
+
+import "UMLRTProfileOperations.eol";
+
+
+/////add gaurd to transition
+operation UMLRTModel!Transition addGuard(name:String,condition:String){
+	var g:UMLRTModel!OpaqueExpression= new UMLRTModel!OpaqueExpression; // transition to guard
+	var constraintG:UMLRTModel!Constraint= new UMLRTModel!Constraint;
+	constraintG.name=name;
+	g.language.add("C++");
+	g.body.add(condition);
+	g.name=name;
+	constraintG.specification=g;
+	self.ownedRule.add(constraintG);
+	self.guard=constraintG;
+}
+///// create entry of state
+operation UMLRTModel!State addEntry(body:String){
+	var entryMethod:UMLRTModel!OpaqueBehavior=createMethod(self.name, "C++");
+	entryMethod.body.add(body);
+	self.entry=entryMethod;
+}
+
+
+
+/////
+operation  UMLRTModel!Transition createTrigger(name:String, portName: String, messageName:String) : UMLRTModel!Trigger {
+	var t:UMLRTModel!Trigger= new UMLRTModel!Trigger();
+	t.name=name;
+	var port=self.ownerCapsule().ownedAttributes.select(a|a.name=portName).first();
+	t.port.add(port);
+	t.event=port.type.owner.packagedElement.selectOne(e|e.type.name="CallEvent" and e.`operation`.name=messageName);
+	//t.port.packagedElement.first().selectOne(e|e.type.name="CallEvent" and e.`operation`.name=messageName);
+	self.trigger.add(t);
+	return t;
+}
+
+/////
+operation  UMLRTModel!Transition createTrigger(name:String,message:String) : UMLRTModel!Trigger {
+	var t:UMLRTModel!Trigger= new UMLRTModel!Trigger();
+	t.name=name;
+	//port.println();
+	var portName=message.split("\\.").at(0);
+	var messageName=message.split("\\.").at(1);
+	var port=self.ownerCapsule().ownedAttributes.select(a|a.name=portName).first();
+	t.port.add(port);
+	t.event=port.type.owner.packagedElement.selectOne(e|e.type.name="CallEvent" and e.`operation`.name=messageName);
+	//t.port.packagedElement.first().selectOne(e|e.type.name="CallEvent" and e.`operation`.name=messageName);
+	self.trigger.add(t);
+	return t;
+}
+
+
+/// set port kind
+operation  UMLRTModel!Port setPortKind(kind:String){ // any should be set of capsules
+	if (kind=="SAP"){
+			self.isService=false;
+			self.getUMLRTStereotype().isWired=false;
+			//self.wired=false;
+			self.isBehavior=true;
+			self.getUMLRTStereotype().isNotification=false;
+			}
+	else if (kind=="SPP"){
+			self.isService=true;
+			self.getUMLRTStereotype().isWired=false;
+			//self.wired=false;
+			self.visibility=VisibilityKind#public;
+			self.getUMLRTStereotype().isPublish=true;
+			self.isBehavior=true;
+			}
+		//case "Relay": // for relay port, not requiered for now
+		//case "Ext": // external behaviour, not requiered for now
+		//case "Int": // internal behaviour, not requiered for now
+}
+
+/// add port to set of capsule
+operation  UMLRTModel!Class addPortToCapsules(name:String,portType:Any,conj:Boolean,lower:Integer,upper:Integer,kind:String){ // any should be set of capsules
+		var p:UMLRTModel!Port=self.createPort(name, conj, lower, upper, portType);
+		self.ownedAttributes.add(p);
+		//self.println("adding debugging port to capsule :");
+		p.applyUMLRTStereotype(ModelRoot);
+		p.setPortKind(kind);
+}
+/// create a region
+operation UMLRTModel!StateMachine createRegion(name:String){
+	var r:UMLRTModel!Region= new UMLRTModel!Region;
+	r.name=name;
+	self.region.add(r);
+	r.applyUMLRTStereotype(ModelRoot);
+	return r;
+}
+operation UMLRTModel!State createRegion(name:String){
+	var r:UMLRTModel!Region= new UMLRTModel!Region;
+	r.name=name;
+	self.region.add(r);
+	r.applyUMLRTStereotype(ModelRoot);
+	return r;
+}
+/// create composite  state 
+operation   createCompositeState(name:String,addEntryPoint:Boolean,addExitPoint:Boolean,entryName:String,exitName:String) : UMLRTModel!State {
+	var s:UMLRTModel!State= new UMLRTModel!State;
+	//s.applyUMLRTState();
+	var r:UMLRTModel!Region= new UMLRTModel!Region;
+	s.region.add(r);
+	//r.applyUMLRTRegion();
+	s.name=name;
+	r.name="Region1";
+	if (addEntryPoint){
+		var entry:UMLRTModel!Pseudostate=createPseudostate(entryName,UMLRTModel!PseudostateKind#`entryPoint`);
+		s.connectionPoint.add(entry);
+		entry.applyUMLRTPseudostate(ModelRoot);
+	}
+	if (addExitPoint){
+		var exit:UMLRTModel!Pseudostate=createPseudostate(exitName,UMLRTModel!PseudostateKind#`exitPoint`);
+		s.connectionPoint.add(exit);
+		exit.applyUMLRTPseudostate(ModelRoot);
+	}
+	//s.connectionPoint.println();
+	return s;
+}
+
+//create a state 
+operation   createState(name:String) : UMLRTModel!State {
+	var s:UMLRTModel!State= new UMLRTModel!State;
+	//s.applyUMLRTState();
+	s.name=name;
+	return s;
+}
+/// create psudostate 
+operation    createPseudostate(name:String,kind:Any) : UMLRTModel!Pseudostate {
+	var p:UMLRTModel!Pseudostate=new UMLRTModel!Pseudostate;
+	//p.applyUMLRTPseudostate();
+	p.kind=kind;
+	p.name=name;
+	return p;
+}
+/// create a transition, sourec or target can be Pseudostate or state
+operation    createTransition(name:String,source:Any,target:Any,type:String) : UMLRTModel!Transition {
+	var t:UMLRTModel!Transition=new UMLRTModel!Transition;
+	t.name=name;
+	t.source=source;
+	t.target=target;
+	if (type=="internal")
+		t.kind=TransitionKind#internal;
+	return t;
+
+}
+///// create parametr
+operation  UMLRTModel!Operation addParametr (name:String, type:String, direction:Any,type2:String )  {
+	var param:UMLRTModel!Parameter= new UMLRTModel!Parameter();
+	param.name=name;
+	param.direction=direction;
+	if (type='bool')
+		type="Boolean";
+	if (type='int')
+		type='Integer';
+		
+	param.type=UMLPrimitiveTypes.packagedElement.selectOne(t|t.name.toUpperCase()=type.toUpperCase());
+	self.ownedParameter.add(param);
+	if (type2<>""){
+		param.applyUMLRTStereotype(ModelRoot);
+		param.getUMLRTStereotype().type=type2;
+	}
+	
+}
+
+///// create attribute
+
+operation  Any createProperty (name:String, type:String,type2:String ) : UMLRTModel!Property {
+	
+	if (self.ownedAttribute.select(o| o.name=name).notEmpty())
+		return self.ownedAttribute.select(o|o.name=name).first();
+	var attr:UMLRTModel!Property= new UMLRTModel!Property();
+	attr.name=name;
+	if (type='bool')
+		type="Boolean";
+	if (type='int')
+		type='Integer';
+	attr.type=UMLPrimitiveTypes.packagedElement.selectOne(t|t.name=type);
+	self.println("capsule name");
+	self.ownedAttribute.add(attr);
+	if (type2<>""){
+		attr.applyRTCPPStereotype(ModelRoot);
+		attr.getAppliedRTCPPStereotype().type=type2;
+	}
+	return attr;
+}
+
+/// add artifact to the package
+
+operation  UMLRTModel!Package addArtifact (name:String) : UMLRTModel!Artifact{
+	var artifact:UMLRTModel!Artifact= new UMLRTModel!Artifact();
+	artifact.name=name;
+	self.packagedElement.add(artifact);
+	return artifact;	
+}
+
+
+//// import model
+operation  UMLRTModel!Package importPackage (m:Any) : UMLRTModel!PackageImport{
+	var t:UMLRTModel!PackageImport= new UMLRTModel!PackageImport() ;	
+	t.importedPackage=m;
+	self.packageImport.add(t);
+	return t;	
+}
+
+//// add capsule
+operation  Any createCapsule(name:String) : UMLRTModel!Class {
+	var c:UMLRTModel!Class= new UMLRTModel!Class;
+	c.name=name;
+	self.packagedElement.add(c);
+	c.applyUMLRTStereotype(ModelRoot);
+	return c;
+}
+/// add port
+operation UMLRTModel!Class createPort(name:String,conj:Boolean,lowerValue:Integer,upperValue:Integer,type:Any): UMLRTModel!Port {
+	var p:UMLRTModel!Port= new UMLRTModel!Port;
+	p.name=name;
+	self.ownedAttributes.add(p);
+	//p.applyUMLRTStereotype(ModelRoot);
+	p.isConjugated=conj;
+	p.type=type;
+	//p.visibility.println();
+	p.visibility=VisibilityKind#protected; // protected otherwise it will not work properly
+	p.lowerValue=new UMLRTModel!LiteralInteger;
+	p.lowerValue.value=lowerValue;
+	p.upperValue=new UMLRTModel!LiteralInteger;
+	p.upperValue.value=upperValue;
+	return p;
+}
+/// create  property
+operation UMLRTModel!Class createCapsulePart(name:String,lowerValue:Integer,upperValue:Integer,type:Any): UMLRTModel!Property {
+	var p:UMLRTModel!Property= new UMLRTModel!Property;
+	p.name=name;
+	self.ownedAttributes.add(p);
+	p.applyUMLRTStereotypePart(ModelRoot);
+	p.type=type;
+	p.lowerValue=new UMLRTModel!LiteralInteger;
+	p.lowerValue.value=lowerValue;
+	//p.kind=1; // means fixed
+	p.upperValue=new UMLRTModel!LiteralInteger;
+	p.upperValue.value=upperValue;
+	return p;
+}
+
+operation UMLRTModel!Package setTopCapsule(value:String):Boolean {
+	var e=ModelRoot.eAnnotations.selectOne(e|e.source="UMLRT_Default_top");
+	if (e.isDefined()){
+		// e.details.println();
+		 //e.details.first().value.println();
+		 e.details.first().value=value;
+		 //ModelRoot.eAnnotations.first().details.first().value="t3";
+		 return true;
+		 }
+	else
+		return false;
+}
+operation UMLRTModel!Package setModelLanguage(value:String):Boolean {
+	var e=ModelRoot.eAnnotations.selectOne(e|e.source="http://www.eclipse.org/papyrus-rt/language/1.0.0");
+	if (e.isDefined()){
+		 e.details.first().value=value;
+		 return true;
+		 }
+	else{
+		 var annotation:UMLRTModel!EAnnotation=new UMLRTModel!EAnnotation();
+		 annotation.source="http://www.eclipse.org/papyrus-rt/language/1.0.0";
+		 annotation.details.put("language",value);
+		 self.eAnnotations.add(annotation);
+		 return true;
+		}
+
+}
+//// create  method
+operation createMethod(name:String,language:String): UMLRTModel!OpaqueBehavior{
+	var method:UMLRTModel!OpaqueBehavior= new UMLRTModel!OpaqueBehavior;
+	method.name=name;
+	method.language.add("C++");
+	return method;
+}
+
+/// create a state machine
+operation UMLRTModel!Class createStateMachine(name:String)  : UMLRTModel!StateMachine{
+     var sm:UMLRTModel!StateMachine= new UMLRTModel!StateMachine;
+     sm.name=name;
+     self.ownedBehavior.add(sm);
+     sm.applyUMLRTStereotype(ModelRoot);
+     return sm;
+}
+/// create a package
+operation UMLRTModel!Package createPackage(name:String)  : UMLRTModel!Package{
+     var pm:UMLRTModel!Package= new UMLRTModel!Package;
+     pm.name=name;
+     //sm.applyUMLRTStereotypes();
+     self.packagedElement.add(pm);
+     return pm;
+}
+/// create a protocol and add it on the model
+operation  UMLRTModel!Package createProtocol (name:String) : Any {
+	var pm:UMLRTModel!Package=self.createPackage(name);
+	pm.applyUMLRTProtocolContainerStereotype(ModelRoot);
+	var protocol=pm.createCollaboration(name);
+	var baseInterface=pm.createInterface(name);
+	var conjugateInterface=pm.createInterface(name.concat("~"));
+	var binaryInterface=pm.createInterface(name.concat("IO"));
+	//pm.createUsage(protocol,baseInterface);
+	pm.createUsage(protocol,conjugateInterface);
+	pm.createUsage(protocol,binaryInterface);
+	baseInterface.applyUMLRTStereotype(ModelRoot);
+	baseInterface.getAppliedUMLRTMessageSetStereotype().rtMsgKind=UMLRTModel!RTMessageKind#`in`;
+	conjugateInterface.applyUMLRTStereotype(ModelRoot);
+	conjugateInterface.getAppliedUMLRTMessageSetStereotype().rtMsgKind=UMLRTModel!RTMessageKind#`out`;
+	binaryInterface.applyUMLRTStereotype(ModelRoot);
+	binaryInterface.getAppliedUMLRTMessageSetStereotype().rtMsgKind=UMLRTModel!RTMessageKind#`inOut`;
+	protocol.createRealization(baseInterface);
+	//protocol.createRealization(conjugateInterface);
+	protocol.createRealization(binaryInterface);
+	return protocol;
+}
+//// create collaboration
+operation  UMLRTModel!Package createCollaboration (name:String) : UMLRTModel!Collaboration {
+	var cn:UMLRTModel!Collaboration=new UMLRTModel!Collaboration;
+	cn.name=name;
+	self.packagedElement.add(cn);
+	cn.applyUMLRTStereotype(ModelRoot);
+	//self.packagedElement.add(cn);
+	return cn;
+}
+
+// create interface 
+operation  UMLRTModel!Package createInterface (name:String) : UMLRTModel!Interface {
+	var interface:UMLRTModel!Interface=new UMLRTModel!Interface;
+	interface.name=name;
+	self.packagedElement.add(interface);
+	//interface.applyUMLRTMessageSetStereotype(); // comment it beacuse we can use it directly using ETL.
+	
+	//self.packagedElement.add(cn);
+	return interface;
+}
+
+/// create a usage relationship
+operation  UMLRTModel!Package createUsage(client:Any,supplier:Any) : UMLRTModel!Usage {
+	var usage:UMLRTModel!Usage=new UMLRTModel!Usage;
+	//interface.name=name;
+	self.packagedElement.add(usage);
+	usage.client.add(client);
+	usage.supplier.add(supplier);
+	//interface.applyUMLRTMessageSetStereotype();
+	//self.packagedElement.add(cn);
+	return usage;
+}
+//// create interface realixation for protocol
+operation  UMLRTModel!Collaboration createRealization(supplier:Any) : UMLRTModel!InterfaceRealization {
+	var realization:UMLRTModel!InterfaceRealization=new UMLRTModel!InterfaceRealization;
+	//interface.name=name;
+	//self.packagedElement.add(usage);
+	realization.client.add(self);
+	realization.supplier.add(supplier);
+	realization.contract=supplier;
+	self.interfaceRealization.add(realization);
+	//self.packagedElement.add(cn);
+	return realization;
+}
+//// create operation
+operation  Any createOperation(name:String) : UMLRTModel!Operation {
+	var op:UMLRTModel!Operation=new UMLRTModel!Operation;
+	//interface.name=name;
+	//self.packagedElement.add(usage);
+	op.name=name;
+	self.ownedOperation.add(op);
+	//self.packagedElement.add(cn);
+	return op;
+}
+
+/// create a message with params type can be IN|OUT|INOUT. 
+operation UMLRTModel!Package  addMessage(name:String,type:String,params:Map){
+	var interface:UMLRTModel!Interface;
+	if (type=="IN")
+		interface=self.packagedElement.select(p|p.name==self.name and p.type.name="Interface").first;
+	else if (type=="OUT")
+		interface=self.packagedElement.select(p|p.name==self.name.concat("~")).first;
+	else if (type=="INOUT")
+		interface=self.packagedElement.select(p|p.name==self.name.concat("IO")).first;
+
+	var op=interface.createOperation(name);
+	for (param in params.keySet())
+		op.addParametr(param, params.get(param), UMLRTModel!ParameterDirectionKind#`in`,"");
+		//params.get(param).println(param);
+	interface.owner.addEvent(op);
+	
+}
+
+/// create an event  
+operation UMLRTModel!Package  addEvent(op:UMLRTModel!Operation){
+	var event:UMLRTModel!CallEvent= new UMLRTModel!CallEvent;
+	event.Operation=op;
+	self.packagedElement.add(event);
+	return event;
+	
+}
+
+///... create method
+operation Class createMethod(methodName:String,methodBody:String, params:Set){
+	var logContext="UMLRTElementOperations:createMethod";
+	Trace.log(logContext, "Add method "+ methodName +" into class " + self );
+	if (not self.ownedBehavior.select(m|m.name==methodName).isEmpty())
+		delete self.ownedBehavior.select(m|m.name==methodName).first();
+	if (not self.ownedBehavior.select(m|m.name==methodName).isEmpty())
+		delete self.ownedBehavior.select(m|m.name==methodName).first();
+	if (self.ownedBehavior.select(m|m.name==methodName).isEmpty() and
+	 self.ownedOperation.select(o|o.name==methodName).isEmpty()){
+		var methodOperation:UMLRTModel!Operation= new UMLRTModel!Operation;
+		methodOperation.name=methodName;
+		methodOperation.visibility=VisibilityKind#private;
+		///
+		var methodBehavior:UMLRTModel!OpaqueBehavior= new UMLRTModel!OpaqueBehavior;
+		methodBehavior.name=methodName;
+		methodBehavior.specification=methodOperation;
+		methodOperation.method.add(methodBehavior);
+		methodBehavior.language.add("C++");
+		methodBehavior.body.add(methodBody);
+		self.ownedBehavior.add(methodBehavior);
+		self.ownedOperation.add(methodOperation);
+		for (param in params){
+		if (param.size()==4)
+				methodOperation.addParametr(param.at(0),param.at(1),param.at(2),param.at(3));
+			else
+				methodOperation.addParametr(param.at(0),param.at(1),param.at(2),"");
+		}
+	}
+}
+
+
+
+operation Transition addEffect(body:String, language:String){
+	if (self.effect.isUndefined()){
+		var effect:UMLRTModel!OpaqueBehavior= new UMLRTModel!OpaqueBehavior;
+		effect.language.add(language);
+		effect.body.add(body);
+		self.effect=effect;
+	}else {
+		var tempEffect=self.effect.body.first();
+		tempEffect=body+EndLine+tempEffect;
+		self.effect.body.clear();
+		self.effect.body.add(tempEffect);
+	}
+	
+}
+
+ operation UMLRTModel!Transition assignName()  {
+	var uniqueId=self.getUniqueID();
+	var tempS:String="";
+	if (self.source.name.isDefined())
+		tempS=self.source.name;
+	else 
+		tempS="none";
+	if (self.target.name.isDefined())
+		tempS=tempS.concat("__").concat(self.target.name);
+	else 
+		tempS=tempS.concat("__none");
+	self.name=tempS.concat("__").concat(uniqueId.asString());
+}
+/// assign name to state that don't have name 
+ operation UMLRTModel!State assignName()  {
+	var uniqueId=self.getUniqueID();
+	var tempS:String="";
+	if ((not (self.name.isDefined())) or (self.name.trim()="")){
+		tempS=self.stateType().concat(uniqueId.asString);
+		self.name=tempS;
+		}
+}
+
+/// assign name to state that don't have name 
+ operation UMLRTModel!Pseudostate assignName()  {
+	var uniqueId=self.getUniqueID();
+	var tempS:String="";
+	if ((not (self.name.isDefined())) or (self.name.trim()="")){
+		tempS=self.stateType().concat(uniqueId.asString);
+		self.name=tempS;
+		}
+}
+//// 
+operation UMLRTModel!StateMachine clear(){
+	if (not self.region.isEmpty()){
+		for (s in  self.alphaSts()){
+			if (s.isTypeOf(UMLRTModel!State) and  s.region.isDefined())
+				delete s.region;
+			delete s;
+		}
+		delete self.region;
+	}
+}
+
+operation UMLRTModel!State clear(){
+	if (not self.region.isEmpty()){
+		for (s in  self.alphaSts()){
+			if (s.isTypeOf(UMLRTModel!State) and  not s.region.isUndefined())
+				delete s.region;
+			if (s.isTypeOf(UMLRTModel!State) and not s.connectionPoint.isUndefined())
+				delete s.connectionPoint;
+			delete s;
+		}
+		delete self.region;
+	}
+}
+
+//// create operation
+/// add parameter to the operation
+/// add method 
+/// add property
+///
+/// create a message
+
+/// create a connection
+

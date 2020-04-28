@@ -1,0 +1,10 @@
+include_directories("../util")
+include_directories(${ANTLR4CPP_RUNTIME})
+include_directories(${ANTLR4CPP_GENERATED_SRC_DIR})
+
+file(GLOB SRCS *.cpp)
+add_library(pmecore ${SRCS})
+target_link_libraries(pmecore ${UMLRTS_LIB})
+target_link_libraries(pmecore util)
+target_link_libraries(pmecore PMEExecRules)
+target_link_libraries(pmecore PMEExpr)

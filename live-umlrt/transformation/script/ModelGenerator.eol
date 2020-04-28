@@ -1,0 +1,175 @@
+import "UMLRTElementOperations.eol";
+var modelroot=UMLRTModel!Package.all.select(c|c.type.name="Model").first();
+modelroot.println();
+var UMLPrimitiveTypes=HelperModel!Package.all.select(c|c.name="PrimitiveTypes").first();
+//modelroot.applyProfiles();
+//var changeMode=1 // 1 few chnages 1  percent / 5 percent / 10 percent / 3
+
+var numberofPackage=11;
+var packages:Sequence;
+var numberofCapsule=110;
+var capsules:Sequence;
+var numberofPorotol=10;
+var porotocols:Sequence;
+var numberofmethod=1000;
+var numberofPort=400;
+var numberofAttributes=2000;
+var mode=2000;
+if (mode==1){
+	numberofPackage=5;
+	numberofCapsule=41;
+	numberofPorotol=5;
+	numberofmethod=400;
+	numberofPort=60;
+	numberofAttributes=400;
+}
+else if (mode==10){
+	numberofPackage=5*10;
+	numberofCapsule=41*10;
+	numberofPorotol=5*10;
+	numberofmethod=400*10;
+	numberofPort=60*10;
+	numberofAttributes=400*10;
+}
+else if (mode==50){
+	numberofPackage=5*50;
+	numberofCapsule=41*50;
+	numberofPorotol=5*50;
+	numberofmethod=400*50;
+	numberofPort=60*50;
+	numberofAttributes=400*50;
+}
+else if (mode==100){
+	numberofPackage=5*100;
+	numberofCapsule=41*100;
+	numberofPorotol=5*100;
+	numberofmethod=400*100;
+	numberofPort=60*100;
+	numberofAttributes=400*100;
+}
+else if (mode==250){
+	numberofPackage=5*250;
+	numberofCapsule=41*250;
+	numberofPorotol=5*250;
+	numberofmethod=400*250;
+	numberofPort=60*250;
+	numberofAttributes=400*250;
+}
+
+else if (mode==500){
+	numberofPackage=5*500;
+	numberofCapsule=41*500;
+	numberofPorotol=5*500;
+	numberofmethod=400*500;
+	numberofPort=60*500;
+	numberofAttributes=400*500;
+}
+
+else if (mode==1000){
+	numberofPackage=5*1000;
+	numberofCapsule=41*1000;
+	numberofPorotol=5*1000;
+	numberofmethod=400*1000;
+	numberofPort=60*1000;
+	numberofAttributes=400*1000;
+}
+else if (mode==2000){
+	numberofPackage=5*2000;
+	numberofCapsule=41*2000;
+	numberofPorotol=5*2000;
+	numberofmethod=400*2000;
+	numberofPort=60*2000;
+	numberofAttributes=400*2000;
+}
+var templine="//sample body----------------------------------------------------------------------------";
+// create packages
+packages.add(modelroot);
+for (i in Sequence{1..numberofPackage}){
+	var r=packages.random();
+	var p=r.createPackage("Packae".concat(i.asString()));
+	packages.add(p);
+	
+}
+"Packages are done".println();
+// create protocols
+
+// create capsules 
+for (i in Sequence{1..numberofCapsule}){
+	var p=packages.random();
+	var c=p.createCapsule("Capsule".concat(i.asString()));
+	var sm=c.createStateMachine("StateMachine".concat("Capsule").concat(i.asString()));
+	var r=sm.createRegion("region1");
+	var init=createState("State1");
+	var s1=createPseudostate("init", PseudostateKind#initial);
+	r.subvertex.add(init);
+	r.subvertex.add(s1);
+	r.transition.add(createTransition("initTrans",init,s1,""));
+	r.transition.add(createTransition("initTrans",s1,s1,""));
+	capsules.add(c);
+
+}
+"Capsules are done".println();	
+var sampleBody="";
+for (j in Sequence{1..20}){
+	sampleBody=sampleBody.concat("\n").concat(templine);
+}
+for (j in Sequence{1..numberofmethod}){
+		var s:Set;
+		var r=capsules.random();
+		r.createMethod("method".concat(j.asString()),sampleBody, s);
+}
+
+"Methods are done".println();
+	
+for (j in Sequence{1..numberofPorotol}){
+	var r=packages.random();
+	var p=r.createProtocol("Protocol".concat(j.asString()));
+	//uml:Collaboration
+	porotocols.add(p);
+}
+
+"Porotocols are done".println();	
+
+for (j in Sequence{1..numberofPort}){
+	var c=capsules.random();
+	var p=porotocols.random();
+	var collab=p.packagedElement.selectOne(c|c.isTypeOf(UMLRTModel!Collaboration));
+	c.createPort("port".concat(j.asString()),Set{true,false}.random(),1,1,collab);
+	
+}
+
+"Ports are done".println();	
+
+var types=Set{"int","bool"};
+for (j in Sequence{1..numberofAttributes}){
+	var r=capsules.random();
+	r.createProperty("attribute".concat(j.asString),types.random(), "");
+		
+		//r.createAttribute(i.asString().concat(j.asString()),"//some bodydlsk", s);
+}
+"Attributes are done".println();	
+
+// create top capusle and assign verything inside that
+var top=capsules.random();
+capsules.remove(top);
+var parents:Set;
+parents.add(top);
+modelroot.setTopCapsule(top.name);
+for (c in capsules){
+	var parent=parents.random();
+	parent.createCapsulePart(c.name.toLowerCase(),1,1,c);
+	parents.add(c);
+	//createCapsulePart
+	
+}
+
+"All is done".println();	
+
+
+
+
+
+
+
+
+

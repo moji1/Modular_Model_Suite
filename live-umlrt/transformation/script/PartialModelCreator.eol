@@ -1,0 +1,70 @@
+import "UMLRTElementOperations.eol";
+import "UMLRTQuery.eol";
+
+var ModelRooT=UMLRTModel!Package.all.select(c|c.type.name="Model").first();
+ModelRooT.println();
+
+
+args.println("Percentage of elements to remove: ");
+if (args==""){
+	"Please pass the percentage as args to the script".println();
+	abort;
+}
+
+var percent:Integer=args.asInteger();
+var allCapsule=(ModelRooT.getAllOwnedCapsules());
+for (capsule in allCapsule){ // capsule with an HSM is ignored, we have to make sure the capulse supposed to include behaviour
+	if (capsule.alphaStm().isDefined()){
+		var trans=capsule.alphaStm().alphaTrs();
+		var states=capsule.alphaStm().alphaSts();
+		capsule.name.println("Making partial version of capsule ");
+		var allElements=(states.size()+trans.size());
+		allElements.println("Number of elements: ");
+		var numberToRemove:Integer=allElements*percent/100;
+		numberToRemove.println("Number of elements to remove: ");
+		while (numberToRemove>0){
+			if ((states.select(s|s.kind()<>"C" )).isEmpty())
+				break;
+			//states.name.println();
+			var stateToRemove=(states.select(s|s.kind()<>"C")).random();
+			var transToRemove=trans.select(t| t.src()=stateToRemove or t.targ()=stateToRemove);
+			numberToRemove=numberToRemove-(transToRemove.size())-1;
+			//numberToRemove.println("number to remove: ");
+			for (t in transToRemove){
+				//t.name.println();
+				trans.remove(t);
+				delete t;
+			}
+			states.remove(stateToRemove);
+			delete stateToRemove;	
+		}
+		var compsiteStateToRemove=capsule.alphaStm().alphaSts().select(s|s.kind()="C" and s.alphaSts().isEmpty());//.println("Composite states without child: ");
+		for (cs in compsiteStateToRemove){
+			if (cs.connectionPoint.isDefined()){
+				//cs.connectionPoint.println();
+				while (not cs.connectionPoint.isEmpty()){
+					var cp=cs.connectionPoint.first();
+					//cp.println("deleting : ");
+					var transToRemove=trans.select(t| t.src()=cp or t.targ()=cp);
+					for (t in transToRemove){
+						//t.name.println();
+						trans.remove(t);
+						delete t;
+					}
+					delete cp;
+				}
+			}
+			
+			var transToRemove=trans.select(t| t.src()=cs or t.targ()=cs);
+			for (t in transToRemove){
+					//t.name.println();
+					trans.remove(t);
+					delete t;
+			}
+			delete cs.region;
+			delete cs;
+		}
+		allElements=(capsule.alphaStm().alphaTrs()).size()+capsule.alphaStm().alphaSts().size();
+		allElements.println("Number of elements at the end of script: ");
+	}
+}

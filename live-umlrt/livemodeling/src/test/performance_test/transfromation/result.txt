@@ -1,0 +1,216 @@
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_10_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 10
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 168
+Number of elements at the end of script: 1514
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 150
+Number of elements at the end of script: 1354
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 35
+Number of elements at the end of script: 315
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 326
+Number of elements at the end of script: 2942
+------End of the script result--------
+Transromation of model: Replication.uml is done in 501203 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_20_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 20
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 336
+Number of elements at the end of script: 1346
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 301
+Number of elements at the end of script: 1203
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 70
+Number of elements at the end of script: 279
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 653
+Number of elements at the end of script: 2610
+------End of the script result--------
+Transromation of model: Replication.uml is done in 1316172 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_30_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 30
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 504
+Number of elements at the end of script: 1178
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 451
+Number of elements at the end of script: 1055
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 105
+Number of elements at the end of script: 245
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 980
+Number of elements at the end of script: 2287
+------End of the script result--------
+Transromation of model: Replication.uml is done in 3337053 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_40_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 40
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 673
+Number of elements at the end of script: 1010
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 602
+Number of elements at the end of script: 903
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 140
+Number of elements at the end of script: 208
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 1307
+Number of elements at the end of script: 1961
+------End of the script result--------
+Transromation of model: Replication.uml is done in 3527865 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_50_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 50
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 841
+Number of elements at the end of script: 842
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 753
+Number of elements at the end of script: 753
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 175
+Number of elements at the end of script: 175
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 1634
+Number of elements at the end of script: 1633
+------End of the script result--------
+Transromation of model: Replication.uml is done in 8994878 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_60_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 60
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 1009
+Number of elements at the end of script: 672
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 903
+Number of elements at the end of script: 603
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 210
+Number of elements at the end of script: 140
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 1960
+Number of elements at the end of script: 1306
+------End of the script result--------
+Transromation of model: Replication.uml is done in 6623309 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_70_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 70
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 1178
+Number of elements at the end of script: 504
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 1054
+Number of elements at the end of script: 451
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 245
+Number of elements at the end of script: 105
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 2287
+Number of elements at the end of script: 981
+------End of the script result--------
+Transromation of model: Replication.uml is done in 3858854 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_80_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 80
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 1346
+Number of elements at the end of script: 337
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 1204
+Number of elements at the end of script: 301
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 280
+Number of elements at the end of script: 70
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 2614
+Number of elements at the end of script: 654
+------End of the script result--------
+Transromation of model: Replication.uml is done in 3284638 ms
+Metamodels and profiles loaded successfully for UMLRT models
+Model 'UMLRTModel' is loaded from 'models/Refined-Replication/Partial_90_Replication.uml'
+Executing EOL Scripts '../../../../../src/EpsilonCode/script/PartialModelCreator.eol' .....
+------Beginning of the script result--------
+org.eclipse.uml2.uml.internal.impl.ModelImpl@4ea5b703 (name: Replication, visibility: <unset>) (URI: null) (viewpoint: <unset>)
+Percentage of elements to remove: 90
+Making partial version of capsule Client
+Number of elements: 1683
+Number of elements to remove: 1514
+Number of elements at the end of script: 204
+Making partial version of capsule ENV
+Number of elements: 1506
+Number of elements to remove: 1355
+Number of elements at the end of script: 183
+Making partial version of capsule EchoCapsule
+Number of elements: 350
+Number of elements to remove: 315
+Number of elements at the end of script: 42
+Making partial version of capsule Server
+Number of elements: 3268
+Number of elements to remove: 2941
+Number of elements at the end of script: 407
+------End of the script result--------
+Transromation of model: Replication.uml is done in 2409531 ms

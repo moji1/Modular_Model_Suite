@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:RTCppProperties="http://www.eclipse.org/papyrus/umlrt/cppproperties" xmlns:UMLRTStateMachines="http://www.eclipse.org/papyrus/umlrt/statemachine" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_0vhJYNq9EeahI77Vg4Dl9Q" name="CarDoorLock">
+    <eAnnotations xmi:id="_R8398NrKEeahI77Vg4Dl9Q" source="UMLRT_Default_top">
+      <details xmi:id="_R84lANrKEeahI77Vg4Dl9Q" key="top_name" value="Car"/>
+    </eAnnotations>
+    <eAnnotations xmi:id="_HVoXgErPEemT8-1lXGtJWw" source="dummy"/>
+    <eAnnotations xmi:id="_jcO10ErPEem-q_FzNEfRXQ" source="dummy"/>
+    <eAnnotations xmi:id="_rvSzAErhEemz0efs7sy6Sw" source="dummy"/>
+    <eAnnotations xmi:id="__lBs4EsZEemoyfYqOv5u1A" source="dummy"/>
+    <eAnnotations xmi:id="_i9oT8EvwEemALKX7tJMSbw" source="dummy"/>
+    <eAnnotations xmi:id="_NJxtoEwSEemVavC_LlYyqQ" source="dummy"/>
+    <eAnnotations xmi:id="_3cowUExUEemPfJg9iQsFCA" source="dummy"/>
+    <eAnnotations xmi:id="_7yhSAEyBEemDBp4L3ab3RA" source="dummy"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_iSbRENq_EeahI77Vg4Dl9Q" name="Car" isActive="true">
+      <ownedAttribute xmi:id="_GVbv0NrBEeahI77Vg4Dl9Q" name="door1" visibility="protected" type="_ls0UUNq_EeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_SnJA8NrgEeal5dJZNvUqew" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Sm8zsNrgEeal5dJZNvUqew" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_LNSPkNrBEeahI77Vg4Dl9Q" name="centralLock" visibility="protected" type="_s7aB8Nq_EeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:id="_V8mg4NrgEeal5dJZNvUqew" name="door2" visibility="protected" type="_ls0UUNq_EeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:id="_5AKKQNrgEeal5dJZNvUqew" name="door3" visibility="protected" type="_ls0UUNq_EeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:id="_AVcVwNrhEeal5dJZNvUqew" name="door4" visibility="protected" type="_ls0UUNq_EeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite"/>
+      <ownedAttribute xmi:id="_oRsBsEr3EemwNsf3GzmTOg" name="dbgAgent" type="_n9xAIEr3EemwNsf3GzmTOg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oRud8Er3EemwNsf3GzmTOg" value="1"/>
+        <upperValue xmi:type="uml:LiteralInteger" xmi:id="_oRvsEEr3EemwNsf3GzmTOg" value="1"/>
+      </ownedAttribute>
+      <ownedConnector xmi:id="_U4X_YNrCEeahI77Vg4Dl9Q" name="RTConnector1">
+        <end xmi:id="_U4YmcNrCEeahI77Vg4Dl9Q" partWithPort="_LNSPkNrBEeahI77Vg4Dl9Q" role="_k3gyENrBEeahI77Vg4Dl9Q"/>
+        <end xmi:id="_U4ZNgNrCEeahI77Vg4Dl9Q" partWithPort="_GVbv0NrBEeahI77Vg4Dl9Q" role="_-jLfANrBEeahI77Vg4Dl9Q"/>
+      </ownedConnector>
+      <ownedConnector xmi:id="_bwP6gNrgEeal5dJZNvUqew" name="RTConnector2">
+        <end xmi:id="_bwRvsNrgEeal5dJZNvUqew" partWithPort="_LNSPkNrBEeahI77Vg4Dl9Q" role="_k3gyENrBEeahI77Vg4Dl9Q"/>
+        <end xmi:id="_bwRvsdrgEeal5dJZNvUqew" partWithPort="_V8mg4NrgEeal5dJZNvUqew" role="_-jLfANrBEeahI77Vg4Dl9Q"/>
+      </ownedConnector>
+      <ownedConnector xmi:id="_-3w20NrgEeal5dJZNvUqew" name="RTConnector3">
+        <end xmi:id="_-3ysANrgEeal5dJZNvUqew" partWithPort="_LNSPkNrBEeahI77Vg4Dl9Q" role="_k3gyENrBEeahI77Vg4Dl9Q"/>
+        <end xmi:id="_-3zTENrgEeal5dJZNvUqew" partWithPort="_5AKKQNrgEeal5dJZNvUqew" role="_-jLfANrBEeahI77Vg4Dl9Q"/>
+      </ownedConnector>
+      <ownedConnector xmi:id="_EUhacNrhEeal5dJZNvUqew" name="RTConnector4">
+        <end xmi:id="_EUjPoNrhEeal5dJZNvUqew" partWithPort="_LNSPkNrBEeahI77Vg4Dl9Q" role="_k3gyENrBEeahI77Vg4Dl9Q"/>
+        <end xmi:id="_EUjPodrhEeal5dJZNvUqew" partWithPort="_AVcVwNrhEeal5dJZNvUqew" role="_-jLfANrBEeahI77Vg4Dl9Q"/>
+      </ownedConnector>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_ls0UUNq_EeahI77Vg4Dl9Q" name="Door" isActive="true">
+      <ownedAttribute xmi:id="_yAJcQNrBEeahI77Vg4Dl9Q" name="lock" visibility="protected" type="_xS9RANq_EeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_zv8SANrZEeal5dJZNvUqew" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_zvPucNrZEeal5dJZNvUqew" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_-jLfANrBEeahI77Vg4Dl9Q" name="lockPort" visibility="public" type="_LXKZwNrAEeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_f3zGENrdEeal5dJZNvUqew" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_f3ouANrdEeal5dJZNvUqew" value="1"/>
+      </ownedAttribute>
+      <ownedConnector xmi:id="_-n9H8NraEeal5dJZNvUqew" name="RTConnector1">
+        <end xmi:id="_-oCngNraEeal5dJZNvUqew" role="_-jLfANrBEeahI77Vg4Dl9Q"/>
+        <end xmi:id="_-oCngdraEeal5dJZNvUqew" partWithPort="_yAJcQNrBEeahI77Vg4Dl9Q" role="_WvH7ENrBEeahI77Vg4Dl9Q"/>
+      </ownedConnector>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_xS9RANq_EeahI77Vg4Dl9Q" name="Lock" classifierBehavior="__KYzgNrCEeahI77Vg4Dl9Q" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_WvH7ENrBEeahI77Vg4Dl9Q" name="lockPort" visibility="public" type="_LXKZwNrAEeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite" isBehavior="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-JnYYNrVEeaBAosuR3tfxw" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-JjG8NrVEeaBAosuR3tfxw" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_oL7X8Er3EemwNsf3GzmTOg" name="dbgPortForLock" visibility="protected" type="_n-upcEr3EemwNsf3GzmTOg" isBehavior="true" isService="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oL7_AEr3EemwNsf3GzmTOg" value="1"/>
+        <upperValue xmi:type="uml:LiteralInteger" xmi:id="_oL7_AUr3EemwNsf3GzmTOg" value="1"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="__KYzgNrCEeahI77Vg4Dl9Q" name="lockSM">
+        <region xmi:id="_BAOTwNrDEeahI77Vg4Dl9Q" name="Region1">
+          <transition xmi:id="_J75OQNrDEeahI77Vg4Dl9Q" name="lock" source="_D7MQENrDEeahI77Vg4Dl9Q" target="_FLMfYNrDEeahI77Vg4Dl9Q">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_Io77INrPEeay9vzLxQrrvQ" name="replyLock">
+              <language>C++</language>
+              <body>    std::cout&lt;&lt;&quot;The Lock &quot;&lt;&lt;this->borderPorts[0]->slotName()&lt;&lt;&quot;  is locked&quot;&lt;&lt;std::endl;
+    lockPort.lockStatus(true).send();
+</body>
+            </effect>
+            <trigger xmi:id="__mJ4wNreEeal5dJZNvUqew" name="lock" event="_XN1s0NrAEeahI77Vg4Dl9Q" port="_WvH7ENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_WQqykNrDEeahI77Vg4Dl9Q" name="init" source="_Cz87MNrDEeahI77Vg4Dl9Q" target="_D7MQENrDEeahI77Vg4Dl9Q">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_XjCGcNrQEeaBAosuR3tfxw" name="init">
+              <language>C++</language>
+              <body>initForPMD();
+    std::cout&lt;&lt;&quot;The Lock &quot;&lt;&lt;this->borderPorts[0]->slotName()&lt;&lt;&quot;  is unlocked&quot;&lt;&lt;std::endl;
+</body>
+            </effect>
+          </transition>
+          <transition xmi:id="_hi8_INrDEeahI77Vg4Dl9Q" name="unlock" source="_FLMfYNrDEeahI77Vg4Dl9Q" target="_D7MQENrDEeahI77Vg4Dl9Q">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_bx_0sNrlEeal5dJZNvUqew" name="replyUnlock">
+              <language>C++</language>
+              <body>    std::cout&lt;&lt;&quot;The Lock &quot;&lt;&lt;this->borderPorts[0]->slotName()&lt;&lt;&quot;  is unlocked&quot;&lt;&lt;std::endl;
+    lockPort.lockStatus(false).send();
+</body>
+            </effect>
+            <trigger xmi:id="_ggdK4NrEEeahI77Vg4Dl9Q" name="unlock" event="_Zlrt8NrAEeahI77Vg4Dl9Q" port="_WvH7ENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_v7FiUNrDEeahI77Vg4Dl9Q" name="twiceLock" source="_FLMfYNrDEeahI77Vg4Dl9Q" target="_FLMfYNrDEeahI77Vg4Dl9Q">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_D3ixQNrmEeal5dJZNvUqew" name="replyTwiceUnlock">
+              <language>C++</language>
+              <body>    std::cout&lt;&lt;&quot;The Lock   &quot;&lt;&lt;this->borderPorts[0]->slotName()&lt;&lt;&quot;  is already unlocked&quot;&lt;&lt;std::endl;
+    lockPort.lockStatus(false).send();
+</body>
+            </effect>
+            <trigger xmi:id="_GTLJMNrFEeahI77Vg4Dl9Q" name="twiceLock" event="_XN1s0NrAEeahI77Vg4Dl9Q" port="_WvH7ENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_5iMmgNrDEeahI77Vg4Dl9Q" name="twiceUnlock" source="_D7MQENrDEeahI77Vg4Dl9Q" target="_D7MQENrDEeahI77Vg4Dl9Q">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_-X__YNrlEeal5dJZNvUqew" name="replyTwiceLock">
+              <language>C++</language>
+              <body>    std::cout&lt;&lt;&quot;The Lock   &quot;&lt;&lt;this->borderPorts[0]->slotName()&lt;&lt;&quot;  is already unlocked&quot;&lt;&lt;std::endl;
+    lockPort.lockStatus(true).send();
+</body>
+            </effect>
+            <trigger xmi:id="_Wjd-gNreEeal5dJZNvUqew" event="_Zlrt8NrAEeahI77Vg4Dl9Q" port="_WvH7ENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_oOVywEr3EemwNsf3GzmTOg" name="From__unlocked__41" source="_D7MQENrDEeahI77Vg4Dl9Q" target="_oOEtAEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oPH14Er3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;unlocked&quot;,&quot;unlocked&quot;,&quot;To__unlocked__45&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;unlocked&quot;,&quot;locked&quot;,&quot;To__locked__46&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;unlocked&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+            <trigger xmi:id="_oOdHgEr3EemwNsf3GzmTOg" name="PME_Trig42" event="_n_bNAEr3EemwNsf3GzmTOg" port="_oL7X8Er3EemwNsf3GzmTOg"/>
+          </transition>
+          <transition xmi:id="_oOlqYEr3EemwNsf3GzmTOg" name="From__locked__43" source="_FLMfYNrDEeahI77Vg4Dl9Q" target="_oOEtAEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oPN8gEr3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;locked&quot;,&quot;unlocked&quot;,&quot;To__unlocked__45&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;locked&quot;,&quot;locked&quot;,&quot;To__locked__46&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;locked&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+            <trigger xmi:id="_oOtmMEr3EemwNsf3GzmTOg" name="PME_Trig44" event="_n_bNAEr3EemwNsf3GzmTOg" port="_oL7X8Er3EemwNsf3GzmTOg"/>
+          </transition>
+          <transition xmi:id="_oO82wEr3EemwNsf3GzmTOg" name="To__unlocked__45" guard="_oPRm4Ur3EemwNsf3GzmTOg" source="_oOEtAEr3EemwNsf3GzmTOg" target="_D7MQENrDEeahI77Vg4Dl9Q">
+            <ownedRule xmi:id="_oPRm4Ur3EemwNsf3GzmTOg" name="PME_checkDecesion47">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_oPRm4Er3EemwNsf3GzmTOg" name="PME_checkDecesion47">
+                <language>C++</language>
+                <body>return execContext.checkUserDecesion({&quot;To__unlocked__45&quot;,&quot;unlocked&quot;, execContext.getExecLocation().locName});
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:id="_oO9d0Er3EemwNsf3GzmTOg" name="To__locked__46" guard="_oPS1AUr3EemwNsf3GzmTOg" source="_oOEtAEr3EemwNsf3GzmTOg" target="_FLMfYNrDEeahI77Vg4Dl9Q">
+            <ownedRule xmi:id="_oPS1AUr3EemwNsf3GzmTOg" name="PME_checkDecesion48">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_oPS1AEr3EemwNsf3GzmTOg" name="PME_checkDecesion48">
+                <language>C++</language>
+                <body>return execContext.checkUserDecesion({&quot;To__locked__46&quot;,&quot;locked&quot;, execContext.getExecLocation().locName});
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_Cz87MNrDEeahI77Vg4Dl9Q" name="Initial1"/>
+          <subvertex xmi:type="uml:State" xmi:id="_D7MQENrDEeahI77Vg4Dl9Q" name="unlocked"/>
+          <subvertex xmi:type="uml:State" xmi:id="_FLMfYNrDEeahI77Vg4Dl9Q" name="locked"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_oOEtAEr3EemwNsf3GzmTOg" name="DecesionPoint__40" kind="choice"/>
+        </region>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oMweYUr3EemwNsf3GzmTOg" name="loadHeap" specification="_oMweYEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body></body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oM4aMUr3EemwNsf3GzmTOg" name="unLoadHeap" specification="_oM4aMEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body></body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oNO_gUr3EemwNsf3GzmTOg" name="sendMessage" specification="_oNO_gEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>int result=-1;
+ if(message.portName==&quot;lockPort&quot;) {
+  if(message.signal==&quot;lockStatus&quot;) {
+   if(message.payload.size()==1){
+    lockPort.lockStatus( boost::any_cast&lt;bool>(message.payload[&quot;locked&quot;])).sendAt(message.index);
+result=1;
+}
+  }
+ }
+return result;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oNca4Ur3EemwNsf3GzmTOg" name="sendInternalMessage" specification="_oNca4Er3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>// will do it as next work</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oN34sUr3EemwNsf3GzmTOg" name="initForPMD" specification="_oN34sEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>execHelper.readExecConfig();
+//this->execHelper.loadExecRules();
+this->execContext.setCapsuleHeap(&amp;this->heap);
+this->execContext.setCapsuleType(this->getTypeName());
+this->execContext.setCapsuleInstanceID(this->getIndex());
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC, this->getCurrentStateString());
+this->execContext.setCallBackMethodSendMessage(std::bind(&amp;Capsule_Lock::sendMessage, this,std::placeholders::_1));
+this->execContext.setCallBackMethodSendInternalMessage(std::bind(&amp;Capsule_Lock::sendInternalMessage,this,std::placeholders::_1));
+ this->execContext.addOutPutMessages(&quot;lockPort&quot;,&quot;lockStatus&quot;,{ {&quot;locked&quot;,&quot;Boolean&quot;}});
+ this->execContext.addInputMessages(&quot;lockPort&quot;,&quot;unlock&quot;,{});
+this->execContext.addInputMessages(&quot;lockPort&quot;,&quot;lock&quot;,{});
+this->execContext.addInputMessages(&quot;dbgPortForLock&quot;,&quot;dbg&quot;,{});
+</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_oMweYEr3EemwNsf3GzmTOg" name="loadHeap" visibility="private" method="_oMweYUr3EemwNsf3GzmTOg"/>
+      <ownedOperation xmi:id="_oM4aMEr3EemwNsf3GzmTOg" name="unLoadHeap" visibility="private" method="_oM4aMUr3EemwNsf3GzmTOg"/>
+      <ownedOperation xmi:id="_oNO_gEr3EemwNsf3GzmTOg" name="sendMessage" visibility="private" method="_oNO_gUr3EemwNsf3GzmTOg">
+        <ownedParameter xmi:id="_oNW7UEr3EemwNsf3GzmTOg" name="message">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_oNZXkEr3EemwNsf3GzmTOg" name="result" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_oNca4Er3EemwNsf3GzmTOg" name="sendInternalMessage" visibility="private" method="_oNca4Ur3EemwNsf3GzmTOg">
+        <ownedParameter xmi:id="_oNihgEr3EemwNsf3GzmTOg" name="message">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_oNmL4Er3EemwNsf3GzmTOg" name="result" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_oN34sEr3EemwNsf3GzmTOg" name="initForPMD" visibility="private" method="_oN34sUr3EemwNsf3GzmTOg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_s7aB8Nq_EeahI77Vg4Dl9Q" name="CentralLock" classifierBehavior="_mTK68NrFEeahI77Vg4Dl9Q" isActive="true">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_k3gyENrBEeahI77Vg4Dl9Q" name="lockPort" visibility="public" type="_LXKZwNrAEeahI77Vg4Dl9Q" isOrdered="true" aggregation="composite" isBehavior="true" isConjugated="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_fVbt8NrfEeal5dJZNvUqew" value="4"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_fVTyINrfEeal5dJZNvUqew" value="4"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_Cey60NrUEeaBAosuR3tfxw" name="startupTimer" visibility="protected" isOrdered="true" aggregation="composite" isBehavior="true" isService="false">
+        <type xmi:type="uml:Collaboration" href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.common.rts.library_1.0.0.201707181445.jar!/libraries/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_pzTr8NroEeal5dJZNvUqew" name="tmpInt">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_t1vmoNroEeal5dJZNvUqew" value="0"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_u29zENroEeal5dJZNvUqew" name="locksCount">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_zKDY4NroEeal5dJZNvUqew" value="4"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_oBJrUEr3EemwNsf3GzmTOg" name="dbgPortForCentralLock" visibility="protected" type="_n-upcEr3EemwNsf3GzmTOg" isBehavior="true" isService="false">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oBLggEr3EemwNsf3GzmTOg" value="1"/>
+        <upperValue xmi:type="uml:LiteralInteger" xmi:id="_oBMuoEr3EemwNsf3GzmTOg" value="1"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_mTK68NrFEeahI77Vg4Dl9Q" name="centralLockSM">
+        <region xmi:id="_oPcaYNrFEeahI77Vg4Dl9Q" name="Region1">
+          <transition xmi:id="_HV4RcNrHEeahI77Vg4Dl9Q" name="Initial1__StartingUp__5" source="_64F7ENrGEeahI77Vg4Dl9Q" target="_0JLVkNrSEeaBAosuR3tfxw">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oL1RUEr3EemwNsf3GzmTOg" name="Initial1__StartingUp__5__39">
+              <language>C++</language>
+              <body>initForPMD();
+</body>
+            </effect>
+          </transition>
+          <transition xmi:id="_mrtE0NrHEeahI77Vg4Dl9Q" name="doorsOpen__WaitAllDoorBeClosed__9" source="_7a5GINrGEeahI77Vg4Dl9Q" target="_IcetINrHEeahI77Vg4Dl9Q">
+            <trigger xmi:id="_ZbNNMNrJEeahI77Vg4Dl9Q" event="_NUfP0NrFEeahI77Vg4Dl9Q" port="_k3gyENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_dJOzkNrIEeahI77Vg4Dl9Q" name="WaitAllDoorBeOpened__Choice1__7" source="_cd7pQNrHEeahI77Vg4Dl9Q" target="_bRbzYNrnEeal5dJZNvUqew">
+            <trigger xmi:id="_v44UINrJEeahI77Vg4Dl9Q" event="_NUfP0NrFEeahI77Vg4Dl9Q" port="_k3gyENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_5LhOENrSEeaBAosuR3tfxw" name="StartingUp__doorsOpen__2" source="_0JLVkNrSEeaBAosuR3tfxw" target="_7a5GINrGEeahI77Vg4Dl9Q">
+            <trigger xmi:id="_HlMpYNrTEeaBAosuR3tfxw" port="_Cey60NrUEeaBAosuR3tfxw">
+              <event xmi:type="uml:CallEvent" href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.common.rts.library_1.0.0.201707181445.jar!/libraries/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:id="_EgRIsNrnEeal5dJZNvUqew" name="WaitAllDoorBeClosed__AllDoorClosed__6" source="_IcetINrHEeahI77Vg4Dl9Q" target="_9fM5sNrmEeal5dJZNvUqew">
+            <trigger xmi:id="_8nPPkNrpEeal5dJZNvUqew" event="_NUfP0NrFEeahI77Vg4Dl9Q" port="_k3gyENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_KEVOMNrnEeal5dJZNvUqew" name="AllDoorClosed__doorsClosed__1" guard="_IUNCcNrpEeal5dJZNvUqew" source="_9fM5sNrmEeal5dJZNvUqew" target="_BIWYMNrHEeahI77Vg4Dl9Q">
+            <ownedRule xmi:id="_IUNCcNrpEeal5dJZNvUqew">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_IUNCcdrpEeal5dJZNvUqew">
+                <language>C++</language>
+                <body>    return tmpInt==locksCount;
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:id="_MAD7ENrnEeal5dJZNvUqew" name="AllDoorClosed__WaitAllDoorBeClosed__10" source="_9fM5sNrmEeal5dJZNvUqew" target="_IcetINrHEeahI77Vg4Dl9Q"/>
+          <transition xmi:id="_ZcttcNrnEeal5dJZNvUqew" name="doorsClosed__WaitAllDoorBeOpened__3" source="_BIWYMNrHEeahI77Vg4Dl9Q" target="_cd7pQNrHEeahI77Vg4Dl9Q">
+            <trigger xmi:id="_31v2gNrpEeal5dJZNvUqew" event="_NUfP0NrFEeahI77Vg4Dl9Q" port="_k3gyENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_jCt-YNrnEeal5dJZNvUqew" name="Choice1__doorsOpen__8" guard="_l54t4NrpEeal5dJZNvUqew" source="_bRbzYNrnEeal5dJZNvUqew" target="_7a5GINrGEeahI77Vg4Dl9Q">
+            <ownedRule xmi:id="_l54t4NrpEeal5dJZNvUqew">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_l54t4drpEeal5dJZNvUqew">
+                <language>C++</language>
+                <body>    return tmpInt==locksCount;
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:id="_nKsgYNrnEeal5dJZNvUqew" name="Choice1__WaitAllDoorBeOpened__4" source="_bRbzYNrnEeal5dJZNvUqew" target="_cd7pQNrHEeahI77Vg4Dl9Q"/>
+          <transition xmi:id="_oGyZQEr3EemwNsf3GzmTOg" name="12" source="_bRbzYNrnEeal5dJZNvUqew" target="_oFv3cEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oKXRsEr3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;Choice1&quot;,&quot;WaitAllDoorBeOpened&quot;,&quot;To__WaitAllDoorBeOpened__29&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;Choice1&quot;,&quot;doorsClosed&quot;,&quot;To__doorsClosed__30&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;Choice1&quot;,&quot;WaitAllDoorBeClosed&quot;,&quot;To__WaitAllDoorBeClosed__31&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;Choice1&quot;,&quot;StartingUp&quot;,&quot;To__StartingUp__33&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;Choice1&quot;,&quot;doorsOpen&quot;,&quot;To__doorsOpen__32&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;Choice1&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+          </transition>
+          <transition xmi:id="_oG4f4Er3EemwNsf3GzmTOg" name="13" source="_9fM5sNrmEeal5dJZNvUqew" target="_oFv3cEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oLTs4Er3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;AllDoorClosed&quot;,&quot;WaitAllDoorBeOpened&quot;,&quot;To__WaitAllDoorBeOpened__29&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;AllDoorClosed&quot;,&quot;doorsClosed&quot;,&quot;To__doorsClosed__30&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;AllDoorClosed&quot;,&quot;WaitAllDoorBeClosed&quot;,&quot;To__WaitAllDoorBeClosed__31&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;AllDoorClosed&quot;,&quot;StartingUp&quot;,&quot;To__StartingUp__33&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;AllDoorClosed&quot;,&quot;doorsOpen&quot;,&quot;To__doorsOpen__32&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;AllDoorClosed&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+          </transition>
+          <transition xmi:id="_oHAbsEr3EemwNsf3GzmTOg" name="From__WaitAllDoorBeOpened__14" source="_cd7pQNrHEeahI77Vg4Dl9Q" target="_oFv3cEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oLJU0Er3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeOpened&quot;,&quot;WaitAllDoorBeOpened&quot;,&quot;To__WaitAllDoorBeOpened__29&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeOpened&quot;,&quot;doorsClosed&quot;,&quot;To__doorsClosed__30&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeOpened&quot;,&quot;WaitAllDoorBeClosed&quot;,&quot;To__WaitAllDoorBeClosed__31&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeOpened&quot;,&quot;StartingUp&quot;,&quot;To__StartingUp__33&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeOpened&quot;,&quot;doorsOpen&quot;,&quot;To__doorsOpen__32&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;WaitAllDoorBeOpened&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+            <trigger xmi:id="_oHKzwEr3EemwNsf3GzmTOg" name="PME_Trig15" event="_n_bNAEr3EemwNsf3GzmTOg" port="_oBJrUEr3EemwNsf3GzmTOg"/>
+            <trigger xmi:id="_oHZdQEr3EemwNsf3GzmTOg" name="PME_Trig16" port="_Cey60NrUEeaBAosuR3tfxw">
+              <event xmi:type="uml:CallEvent" href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.common.rts.library_1.0.0.201707181445.jar!/libraries/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:id="_oHiAIEr3EemwNsf3GzmTOg" name="From__doorsClosed__17" source="_BIWYMNrHEeahI77Vg4Dl9Q" target="_oFv3cEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oK-VsEr3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;doorsClosed&quot;,&quot;WaitAllDoorBeOpened&quot;,&quot;To__WaitAllDoorBeOpened__29&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;doorsClosed&quot;,&quot;doorsClosed&quot;,&quot;To__doorsClosed__30&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;doorsClosed&quot;,&quot;WaitAllDoorBeClosed&quot;,&quot;To__WaitAllDoorBeClosed__31&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;doorsClosed&quot;,&quot;StartingUp&quot;,&quot;To__StartingUp__33&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;doorsClosed&quot;,&quot;doorsOpen&quot;,&quot;To__doorsOpen__32&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;doorsClosed&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+            <trigger xmi:id="_oHs_QEr3EemwNsf3GzmTOg" name="PME_Trig18" event="_n_bNAEr3EemwNsf3GzmTOg" port="_oBJrUEr3EemwNsf3GzmTOg"/>
+            <trigger xmi:id="_oH5MgEr3EemwNsf3GzmTOg" name="PME_Trig19" port="_Cey60NrUEeaBAosuR3tfxw">
+              <event xmi:type="uml:CallEvent" href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.common.rts.library_1.0.0.201707181445.jar!/libraries/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:id="_oIDkkEr3EemwNsf3GzmTOg" name="From__WaitAllDoorBeClosed__20" source="_IcetINrHEeahI77Vg4Dl9Q" target="_oFv3cEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oLeE8Er3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeClosed&quot;,&quot;WaitAllDoorBeOpened&quot;,&quot;To__WaitAllDoorBeOpened__29&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeClosed&quot;,&quot;doorsClosed&quot;,&quot;To__doorsClosed__30&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeClosed&quot;,&quot;WaitAllDoorBeClosed&quot;,&quot;To__WaitAllDoorBeClosed__31&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeClosed&quot;,&quot;StartingUp&quot;,&quot;To__StartingUp__33&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;WaitAllDoorBeClosed&quot;,&quot;doorsOpen&quot;,&quot;To__doorsOpen__32&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;WaitAllDoorBeClosed&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+            <trigger xmi:id="_oITcMEr3EemwNsf3GzmTOg" name="PME_Trig21" event="_n_bNAEr3EemwNsf3GzmTOg" port="_oBJrUEr3EemwNsf3GzmTOg"/>
+            <trigger xmi:id="_oId0QEr3EemwNsf3GzmTOg" name="PME_Trig22" port="_Cey60NrUEeaBAosuR3tfxw">
+              <event xmi:type="uml:CallEvent" href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.common.rts.library_1.0.0.201707181445.jar!/libraries/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:id="_oIoMUEr3EemwNsf3GzmTOg" name="From__doorsOpen__23" source="_7a5GINrGEeahI77Vg4Dl9Q" target="_oFv3cEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oKiQ0Er3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;doorsOpen&quot;,&quot;WaitAllDoorBeOpened&quot;,&quot;To__WaitAllDoorBeOpened__29&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;doorsOpen&quot;,&quot;doorsClosed&quot;,&quot;To__doorsClosed__30&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;doorsOpen&quot;,&quot;WaitAllDoorBeClosed&quot;,&quot;To__WaitAllDoorBeClosed__31&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;doorsOpen&quot;,&quot;StartingUp&quot;,&quot;To__StartingUp__33&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;doorsOpen&quot;,&quot;doorsOpen&quot;,&quot;To__doorsOpen__32&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;doorsOpen&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+            <trigger xmi:id="_oI2OwEr3EemwNsf3GzmTOg" name="PME_Trig24" event="_n_bNAEr3EemwNsf3GzmTOg" port="_oBJrUEr3EemwNsf3GzmTOg"/>
+            <trigger xmi:id="_oJERMEr3EemwNsf3GzmTOg" name="PME_Trig25" port="_Cey60NrUEeaBAosuR3tfxw">
+              <event xmi:type="uml:CallEvent" href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.common.rts.library_1.0.0.201707181445.jar!/libraries/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:id="_oJOCMEr3EemwNsf3GzmTOg" name="From__StartingUp__26" source="_0JLVkNrSEeaBAosuR3tfxw" target="_oFv3cEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oKzWkEr3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;StartingUp&quot;,&quot;WaitAllDoorBeOpened&quot;,&quot;To__WaitAllDoorBeOpened__29&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;StartingUp&quot;,&quot;doorsClosed&quot;,&quot;To__doorsClosed__30&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;StartingUp&quot;,&quot;WaitAllDoorBeClosed&quot;,&quot;To__WaitAllDoorBeClosed__31&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;StartingUp&quot;,&quot;StartingUp&quot;,&quot;To__StartingUp__33&quot;,msg->getSignalName());
+this->execContext.addPossibleExecPath(&quot;StartingUp&quot;,&quot;doorsOpen&quot;,&quot;To__doorsOpen__32&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;StartingUp&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+            <trigger xmi:id="_oJaPcEr3EemwNsf3GzmTOg" name="PME_Trig27" event="_n_bNAEr3EemwNsf3GzmTOg" port="_oBJrUEr3EemwNsf3GzmTOg"/>
+            <trigger xmi:id="_oJkAcEr3EemwNsf3GzmTOg" name="PME_Trig28" event="_NUfP0NrFEeahI77Vg4Dl9Q" port="_k3gyENrBEeahI77Vg4Dl9Q"/>
+          </transition>
+          <transition xmi:id="_oJ4wkEr3EemwNsf3GzmTOg" name="To__WaitAllDoorBeOpened__29" guard="_oLhvUUr3EemwNsf3GzmTOg" source="_oFv3cEr3EemwNsf3GzmTOg" target="_cd7pQNrHEeahI77Vg4Dl9Q">
+            <ownedRule xmi:id="_oLhvUUr3EemwNsf3GzmTOg" name="PME_checkDecesion34">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_oLhvUEr3EemwNsf3GzmTOg" name="PME_checkDecesion34">
+                <language>C++</language>
+                <body>return execContext.checkUserDecesion({&quot;To__WaitAllDoorBeOpened__29&quot;,&quot;WaitAllDoorBeOpened&quot;, execContext.getExecLocation().locName});
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:id="_oJ5-sEr3EemwNsf3GzmTOg" name="To__doorsClosed__30" guard="_oLpEEUr3EemwNsf3GzmTOg" source="_oFv3cEr3EemwNsf3GzmTOg" target="_BIWYMNrHEeahI77Vg4Dl9Q">
+            <ownedRule xmi:id="_oLpEEUr3EemwNsf3GzmTOg" name="PME_checkDecesion35">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_oLpEEEr3EemwNsf3GzmTOg" name="PME_checkDecesion35">
+                <language>C++</language>
+                <body>return execContext.checkUserDecesion({&quot;To__doorsClosed__30&quot;,&quot;doorsClosed&quot;, execContext.getExecLocation().locName});
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:id="_oJ_eQEr3EemwNsf3GzmTOg" name="To__WaitAllDoorBeClosed__31" guard="_oLsHYUr3EemwNsf3GzmTOg" source="_oFv3cEr3EemwNsf3GzmTOg" target="_IcetINrHEeahI77Vg4Dl9Q">
+            <ownedRule xmi:id="_oLsHYUr3EemwNsf3GzmTOg" name="PME_checkDecesion36">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_oLsHYEr3EemwNsf3GzmTOg" name="PME_checkDecesion36">
+                <language>C++</language>
+                <body>return execContext.checkUserDecesion({&quot;To__WaitAllDoorBeClosed__31&quot;,&quot;WaitAllDoorBeClosed&quot;, execContext.getExecLocation().locName});
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:id="_oKB6gEr3EemwNsf3GzmTOg" name="To__doorsOpen__32" guard="_oLyOAUr3EemwNsf3GzmTOg" source="_oFv3cEr3EemwNsf3GzmTOg" target="_7a5GINrGEeahI77Vg4Dl9Q">
+            <ownedRule xmi:id="_oLyOAUr3EemwNsf3GzmTOg" name="PME_checkDecesion38">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_oLyOAEr3EemwNsf3GzmTOg" name="PME_checkDecesion38">
+                <language>C++</language>
+                <body>return execContext.checkUserDecesion({&quot;To__doorsOpen__32&quot;,&quot;doorsOpen&quot;, execContext.getExecLocation().locName});
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <transition xmi:id="_oKDIoEr3EemwNsf3GzmTOg" name="To__StartingUp__33" guard="_oLw_4Ur3EemwNsf3GzmTOg" source="_oFv3cEr3EemwNsf3GzmTOg" target="_0JLVkNrSEeaBAosuR3tfxw">
+            <ownedRule xmi:id="_oLw_4Ur3EemwNsf3GzmTOg" name="PME_checkDecesion37">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_oLw_4Er3EemwNsf3GzmTOg" name="PME_checkDecesion37">
+                <language>C++</language>
+                <body>return execContext.checkUserDecesion({&quot;To__StartingUp__33&quot;,&quot;StartingUp&quot;, execContext.getExecLocation().locName});
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_64F7ENrGEeahI77Vg4Dl9Q" name="Initial1"/>
+          <subvertex xmi:type="uml:State" xmi:id="_7a5GINrGEeahI77Vg4Dl9Q" name="doorsOpen">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_2oNS4NrJEeahI77Vg4Dl9Q" name="getLockCommand">
+              <language>C++</language>
+              <body>    std::cout&lt;&lt;&quot;Doors are open&quot;&lt;&lt;std::endl;
+    std::cout&lt;&lt;&quot;Press any key to close doors&quot;&lt;&lt;std::endl;
+    getchar();
+    std::cout&lt;&lt;&quot;Sending Lock message to doors\n&quot;&lt;&lt;std::endl;
+    /// send message to first door
+    lockPort.lock().send(4);
+    tmpInt=1;
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_BIWYMNrHEeahI77Vg4Dl9Q" name="doorsClosed">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_XyQE0NrpEeal5dJZNvUqew">
+              <language>C++</language>
+              <body>    std::cout&lt;&lt;&quot;Doors are closed&quot;&lt;&lt;std::endl;
+    std::cout&lt;&lt;&quot;Press any key to open doors&quot;&lt;&lt;std::endl;
+    getchar();
+    std::cout&lt;&lt;&quot;Sending UnLock message to doors\n&quot;&lt;&lt;std::endl;
+    /// send message to first door
+    lockPort.unlock().send(4);
+    tmpInt=1;
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_IcetINrHEeahI77Vg4Dl9Q" name="WaitAllDoorBeClosed">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_VddNINroEeal5dJZNvUqew">
+              <language>C++</language>
+              <body>    tmpInt++;
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_cd7pQNrHEeahI77Vg4Dl9Q" name="WaitAllDoorBeOpened">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_gW1VANrpEeal5dJZNvUqew">
+              <language>C++</language>
+              <body>    tmpInt++;
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_0JLVkNrSEeaBAosuR3tfxw" name="StartingUp">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_LssqQNrTEeaBAosuR3tfxw" name="startup">
+              <language>C++</language>
+              <body>    startupTimer.informIn(UMLRTTimespec(3,0));
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_9fM5sNrmEeal5dJZNvUqew" name="AllDoorClosed" kind="choice"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_bRbzYNrnEeal5dJZNvUqew" name="Choice1" kind="choice"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_oFv3cEr3EemwNsf3GzmTOg" name="DecesionPoint__11" kind="choice"/>
+        </region>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oDIBQEr3EemwNsf3GzmTOg" name="loadHeap" specification="_oDGzIEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>heap.setVarValue(&quot;this.tmpInt&quot;,this->tmpInt);
+heap.setVarValue(&quot;this.locksCount&quot;,this->locksCount);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oDU1kEr3EemwNsf3GzmTOg" name="unLoadHeap" specification="_oDUOgEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>heap.loadVarFromHeap(&quot;this.tmpInt&quot;,&amp;this->tmpInt);
+heap.loadVarFromHeap(&quot;this.locksCount&quot;,&amp;this->locksCount);
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oEJU8Er3EemwNsf3GzmTOg" name="sendMessage" specification="_oEIt4Er3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>int result=-1;
+ if(message.portName==&quot;lockPort&quot;) {
+  if(message.signal==&quot;unlock&quot;) {
+   if(message.payload.size()==0){
+    lockPort.unlock().sendAt(message.index);
+result=1;
+}
+  }
+  else if(message.signal==&quot;lock&quot;) {
+   if(message.payload.size()==0){
+    lockPort.lock().sendAt(message.index);
+result=1;
+}
+  }
+ }
+return result;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oEkywEr3EemwNsf3GzmTOg" name="sendInternalMessage" specification="_oEkLsEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>// will do it as next work</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oFc8gUr3EemwNsf3GzmTOg" name="initForPMD" specification="_oFc8gEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>execHelper.readExecConfig();
+//this->execHelper.loadExecRules();
+this->execContext.setCapsuleHeap(&amp;this->heap);
+this->execContext.setCapsuleType(this->getTypeName());
+this->execContext.setCapsuleInstanceID(this->getIndex());
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC, this->getCurrentStateString());
+this->execContext.setCallBackMethodSendMessage(std::bind(&amp;Capsule_CentralLock::sendMessage, this,std::placeholders::_1));
+this->execContext.setCallBackMethodSendInternalMessage(std::bind(&amp;Capsule_CentralLock::sendInternalMessage,this,std::placeholders::_1));
+ this->execContext.addOutPutMessages(&quot;lockPort&quot;,&quot;unlock&quot;,{});
+this->execContext.addOutPutMessages(&quot;lockPort&quot;,&quot;lock&quot;,{});
+ this->execContext.addInputMessages(&quot;lockPort&quot;,&quot;lockStatus&quot;,{ {&quot;locked&quot;,&quot;Boolean&quot;}});
+this->execContext.addInputMessages(&quot;startupTimer&quot;,&quot;timeout&quot;,{});
+this->execContext.addInputMessages(&quot;dbgPortForCentralLock&quot;,&quot;dbg&quot;,{});
+</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_oDGzIEr3EemwNsf3GzmTOg" name="loadHeap" visibility="private" method="_oDIBQEr3EemwNsf3GzmTOg"/>
+      <ownedOperation xmi:id="_oDUOgEr3EemwNsf3GzmTOg" name="unLoadHeap" visibility="private" method="_oDU1kEr3EemwNsf3GzmTOg"/>
+      <ownedOperation xmi:id="_oEIt4Er3EemwNsf3GzmTOg" name="sendMessage" visibility="private" method="_oEJU8Er3EemwNsf3GzmTOg">
+        <ownedParameter xmi:id="_oELKIEr3EemwNsf3GzmTOg" name="message">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_oEX-cEr3EemwNsf3GzmTOg" name="result" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_oEkLsEr3EemwNsf3GzmTOg" name="sendInternalMessage" visibility="private" method="_oEkywEr3EemwNsf3GzmTOg">
+        <ownedParameter xmi:id="_oEpEMEr3EemwNsf3GzmTOg" name="message">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_oExAAEr3EemwNsf3GzmTOg" name="result" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_oFc8gEr3EemwNsf3GzmTOg" name="initForPMD" visibility="private" method="_oFc8gUr3EemwNsf3GzmTOg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_LXPSQNrAEeahI77Vg4Dl9Q" name="Locking">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_LXKZwNrAEeahI77Vg4Dl9Q" name="Locking">
+        <interfaceRealization xmi:id="_LXV_8NrAEeahI77Vg4Dl9Q" client="_LXKZwNrAEeahI77Vg4Dl9Q" supplier="_LXSVkNrAEeahI77Vg4Dl9Q" contract="_LXSVkNrAEeahI77Vg4Dl9Q"/>
+        <interfaceRealization xmi:id="_LXfJ4NrAEeahI77Vg4Dl9Q" client="_LXKZwNrAEeahI77Vg4Dl9Q" supplier="_LXcGkNrAEeahI77Vg4Dl9Q" contract="_LXcGkNrAEeahI77Vg4Dl9Q"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_LXSVkNrAEeahI77Vg4Dl9Q" name="Locking">
+        <ownedOperation xmi:id="_WHBOsNrAEeahI77Vg4Dl9Q" name="lock"/>
+        <ownedOperation xmi:id="_Y7LYYNrAEeahI77Vg4Dl9Q" name="unlock"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_LXX1INrAEeahI77Vg4Dl9Q" name="Locking~">
+        <ownedOperation xmi:id="_MKPDMNrFEeahI77Vg4Dl9Q" name="lockStatus">
+          <ownedParameter xmi:id="_P-KAwNrFEeahI77Vg4Dl9Q" name="locked">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+          </ownedParameter>
+        </ownedOperation>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_LXaRYNrAEeahI77Vg4Dl9Q" client="_LXKZwNrAEeahI77Vg4Dl9Q" supplier="_LXX1INrAEeahI77Vg4Dl9Q"/>
+      <packagedElement xmi:type="uml:AnyReceiveEvent" xmi:id="_LXa4cNrAEeahI77Vg4Dl9Q" name="*"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_LXcGkNrAEeahI77Vg4Dl9Q" name="LockingIO"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_LXgYANrAEeahI77Vg4Dl9Q" client="_LXKZwNrAEeahI77Vg4Dl9Q" supplier="_LXcGkNrAEeahI77Vg4Dl9Q"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_XN1s0NrAEeahI77Vg4Dl9Q" operation="_WHBOsNrAEeahI77Vg4Dl9Q"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_Zlrt8NrAEeahI77Vg4Dl9Q" operation="_Y7LYYNrAEeahI77Vg4Dl9Q"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_NUfP0NrFEeahI77Vg4Dl9Q" operation="_MKPDMNrFEeahI77Vg4Dl9Q"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Class" xmi:id="_n9xAIEr3EemwNsf3GzmTOg" name="dbgAgent">
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_n_h6sEr3EemwNsf3GzmTOg" name="timing" visibility="protected">
+        <type xmi:type="uml:Collaboration" href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.common.rts.library_1.0.0.201707181445.jar!/libraries/UMLRT-RTS.uml#_MxQZgGXsEeS_4daqvwyFrg"/>
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_n_jI0Er3EemwNsf3GzmTOg" value="1"/>
+        <upperValue xmi:type="uml:LiteralInteger" xmi:id="_n_jv4Er3EemwNsf3GzmTOg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_oBTcUEr3EemwNsf3GzmTOg" name="dbgPortForCentralLock" visibility="public" type="_n-upcEr3EemwNsf3GzmTOg" isBehavior="true" isConjugated="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oBUDYEr3EemwNsf3GzmTOg" value="1"/>
+        <upperValue xmi:type="uml:LiteralInteger" xmi:id="_oBUDYUr3EemwNsf3GzmTOg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Port" xmi:id="_oMFwAEr3EemwNsf3GzmTOg" name="dbgPortForLock" visibility="public" type="_n-upcEr3EemwNsf3GzmTOg" isBehavior="true" isConjugated="true">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oMG-IEr3EemwNsf3GzmTOg" value="1"/>
+        <upperValue xmi:type="uml:LiteralInteger" xmi:id="_oMG-IUr3EemwNsf3GzmTOg" value="1"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_n-PhQEr3EemwNsf3GzmTOg" name="dbgAgent StateMachine">
+        <region xmi:id="_oQ3iUEr3EemwNsf3GzmTOg" name="mainRegion">
+          <transition xmi:id="_oRLEUEr3EemwNsf3GzmTOg" name="Trans__Init__State__5152" source="_oRDIgEr3EemwNsf3GzmTOg" target="_oQ5XgEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oRhCkEr3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>initForPMD();
+this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;Init__State__51&quot;,&quot;New__State__50&quot;,&quot;To__New__State__50__55&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;Init__State__51&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+          </transition>
+          <transition xmi:id="_oRNgkEr3EemwNsf3GzmTOg" name="From__New__State__50__53" source="_oRAsQEr3EemwNsf3GzmTOg" target="_oQ5XgEr3EemwNsf3GzmTOg">
+            <effect xmi:type="uml:OpaqueBehavior" xmi:id="_oRks8Er3EemwNsf3GzmTOg">
+              <language>C++</language>
+              <body>this->loadHeap();
+this->execContext.clearPossibleExecPath();
+this->execContext.addPossibleExecPath(&quot;New__State__50&quot;,&quot;New__State__50&quot;,&quot;To__New__State__50__55&quot;,msg->getSignalName());
+this->execContext.setlastMsg(msg);
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC,&quot;New__State__50&quot;);
+this->execContext.setPartialityPattern(pmd::PartialityPattern::NOTRIGER);
+execHelper.getUserDecesion(&amp;execContext);
+this->unLoadHeap();
+</body>
+            </effect>
+            <trigger xmi:id="_oRRK8Er3EemwNsf3GzmTOg" name="PME_Trig54" port="_n_h6sEr3EemwNsf3GzmTOg">
+              <event xmi:type="uml:CallEvent" href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.common.rts.library_1.0.0.201707181445.jar!/libraries/UMLRT-RTS.uml#_IaEO8HDxEeSwWKwNKw1iAA"/>
+            </trigger>
+          </transition>
+          <transition xmi:id="_oRaU4Er3EemwNsf3GzmTOg" name="To__New__State__50__55" guard="_oRnJMEr3EemwNsf3GzmTOg" source="_oQ5XgEr3EemwNsf3GzmTOg" target="_oRAsQEr3EemwNsf3GzmTOg">
+            <ownedRule xmi:id="_oRnJMEr3EemwNsf3GzmTOg" name="PME_checkDecesion56">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="_oRmiIEr3EemwNsf3GzmTOg" name="PME_checkDecesion56">
+                <language>C++</language>
+                <body>return execContext.checkUserDecesion({&quot;To__New__State__50__55&quot;,&quot;New__State__50&quot;, execContext.getExecLocation().locName});
+</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_oQ5XgEr3EemwNsf3GzmTOg" name="DecesionPoint__49" kind="choice"/>
+          <subvertex xmi:type="uml:State" xmi:id="_oRAsQEr3EemwNsf3GzmTOg" name="New__State__50">
+            <entry xmi:type="uml:OpaqueBehavior" xmi:id="_oR0kkEr3EemwNsf3GzmTOg" name="New__State__50">
+              <language>C++</language>
+              <body>timing.informIn(UMLRTTimespec(1,0));
+</body>
+            </entry>
+          </subvertex>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_oRDIgEr3EemwNsf3GzmTOg" name="Init__State__51"/>
+        </region>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oPoMMUr3EemwNsf3GzmTOg" name="loadHeap" specification="_oPoMMEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body></body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oPvg8Er3EemwNsf3GzmTOg" name="unLoadHeap" specification="_oPu54Er3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body></body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oQFfMEr3EemwNsf3GzmTOg" name="sendMessage" specification="_oQE4IEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>int result=-1;
+ if(message.portName==&quot;dbgPortForCentralLock&quot;) {
+  if(message.signal==&quot;dbg&quot;) {
+   if(message.payload.size()==0){
+    dbgPortForCentralLock.dbg().sendAt(message.index);
+result=1;
+}
+  }
+ }
+ else if(message.portName==&quot;dbgPortForLock&quot;) {
+  if(message.signal==&quot;dbg&quot;) {
+   if(message.payload.size()==0){
+    dbgPortForLock.dbg().sendAt(message.index);
+result=1;
+}
+  }
+ }
+return result;
+</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oQPQMUr3EemwNsf3GzmTOg" name="sendInternalMessage" specification="_oQPQMEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>// will do it as next work</body>
+      </ownedBehavior>
+      <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_oQl1gUr3EemwNsf3GzmTOg" name="initForPMD" specification="_oQl1gEr3EemwNsf3GzmTOg">
+        <language>C++</language>
+        <body>execHelper.readExecConfig();
+//this->execHelper.loadExecRules();
+this->execContext.setCapsuleHeap(&amp;this->heap);
+this->execContext.setCapsuleType(this->getTypeName());
+this->execContext.setCapsuleInstanceID(this->getIndex());
+this->execContext.setExecLocation(pmd::ExecLocationType::STATELOC, this->getCurrentStateString());
+this->execContext.setCallBackMethodSendMessage(std::bind(&amp;Capsule_dbgAgent::sendMessage, this,std::placeholders::_1));
+this->execContext.setCallBackMethodSendInternalMessage(std::bind(&amp;Capsule_dbgAgent::sendInternalMessage,this,std::placeholders::_1));
+ this->execContext.addOutPutMessages(&quot;dbgPortForCentralLock&quot;,&quot;dbg&quot;,{});
+this->execContext.addOutPutMessages(&quot;dbgPortForLock&quot;,&quot;dbg&quot;,{});
+ this->execContext.addInputMessages(&quot;timing&quot;,&quot;timeout&quot;,{});
+</body>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_oPoMMEr3EemwNsf3GzmTOg" name="loadHeap" visibility="private" method="_oPoMMUr3EemwNsf3GzmTOg"/>
+      <ownedOperation xmi:id="_oPu54Er3EemwNsf3GzmTOg" name="unLoadHeap" visibility="private" method="_oPvg8Er3EemwNsf3GzmTOg"/>
+      <ownedOperation xmi:id="_oQE4IEr3EemwNsf3GzmTOg" name="sendMessage" visibility="private" method="_oQFfMEr3EemwNsf3GzmTOg">
+        <ownedParameter xmi:id="_oQGtUEr3EemwNsf3GzmTOg" name="message">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_oQOCEEr3EemwNsf3GzmTOg" name="result" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_oQPQMEr3EemwNsf3GzmTOg" name="sendInternalMessage" visibility="private" method="_oQPQMUr3EemwNsf3GzmTOg">
+        <ownedParameter xmi:id="_oQQeUEr3EemwNsf3GzmTOg" name="message">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_oQUvwEr3EemwNsf3GzmTOg" name="result" direction="return">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_oQl1gEr3EemwNsf3GzmTOg" name="initForPMD" visibility="private" method="_oQl1gUr3EemwNsf3GzmTOg"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_n-f_8Er3EemwNsf3GzmTOg" name="dbgProtocol">
+      <packagedElement xmi:type="uml:Collaboration" xmi:id="_n-upcEr3EemwNsf3GzmTOg" name="dbgProtocol">
+        <interfaceRealization xmi:id="_n_QN4Er3EemwNsf3GzmTOg" client="_n-upcEr3EemwNsf3GzmTOg" supplier="_n-y64Er3EemwNsf3GzmTOg" contract="_n-y64Er3EemwNsf3GzmTOg"/>
+        <interfaceRealization xmi:id="_n_UfUEr3EemwNsf3GzmTOg" client="_n-upcEr3EemwNsf3GzmTOg" supplier="_n-4acEr3EemwNsf3GzmTOg" contract="_n-4acEr3EemwNsf3GzmTOg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_n-y64Er3EemwNsf3GzmTOg" name="dbgProtocol">
+        <ownedOperation xmi:id="_n_YwwEr3EemwNsf3GzmTOg" name="dbg"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_n-1-MEr3EemwNsf3GzmTOg" name="dbgProtocol~"/>
+      <packagedElement xmi:type="uml:Interface" xmi:id="_n-4acEr3EemwNsf3GzmTOg" name="dbgProtocolIO"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_n-5okEr3EemwNsf3GzmTOg" client="_n-upcEr3EemwNsf3GzmTOg" supplier="_n-1-MEr3EemwNsf3GzmTOg"/>
+      <packagedElement xmi:type="uml:Usage" xmi:id="_n-8r4Er3EemwNsf3GzmTOg" client="_n-upcEr3EemwNsf3GzmTOg" supplier="_n-4acEr3EemwNsf3GzmTOg"/>
+      <packagedElement xmi:type="uml:CallEvent" xmi:id="_n_bNAEr3EemwNsf3GzmTOg" operation="_n_YwwEr3EemwNsf3GzmTOg"/>
+    </packagedElement>
+    <profileApplication xmi:id="_0wPiINq9EeahI77Vg4Dl9Q">
+      <eAnnotations xmi:id="_0wR-YNq9EeahI77Vg4Dl9Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt#/"/>
+      </eAnnotations>
+      <appliedProfile href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.umlrt.profile_1.0.0.201707181432.jar!/umlProfile/uml-rt.profile.uml#_1h74oEeVEeO0lv5O1DTHOQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_LVEcINrNEeahI77Vg4Dl9Q">
+      <eAnnotations xmi:id="_LVFqQNrNEeahI77Vg4Dl9Q" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/cppproperties#/"/>
+      </eAnnotations>
+      <appliedProfile href="jar:file:///Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.codegen.cpp.profile_1.0.0.201707181457.jar!/profiles/RTCppProperties.profile.uml#_vl5LALs8EeSTjNEQkASznQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_yE6TYElDEemUxsIrz51xbw">
+      <eAnnotations xmi:id="_yFErcElDEemUxsIrz51xbw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/statemachine#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_RT_PROFILE/UMLRealTimeSM-addendum.profile.uml#_KLcn0FDtEeOA4ecmvfqvaw"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLRealTime:Capsule xmi:id="_iUqswNq_EeahI77Vg4Dl9Q" base_Class="_iSbRENq_EeahI77Vg4Dl9Q"/>
+  <UMLRealTime:Capsule xmi:id="_ltJEcNq_EeahI77Vg4Dl9Q" base_Class="_ls0UUNq_EeahI77Vg4Dl9Q"/>
+  <UMLRealTime:Capsule xmi:id="_s7p5kNq_EeahI77Vg4Dl9Q" base_Class="_s7aB8Nq_EeahI77Vg4Dl9Q"/>
+  <UMLRealTime:Capsule xmi:id="_xTPk4Nq_EeahI77Vg4Dl9Q" base_Class="_xS9RANq_EeahI77Vg4Dl9Q"/>
+  <UMLRealTime:ProtocolContainer xmi:id="_LXQgYNrAEeahI77Vg4Dl9Q" base_Package="_LXPSQNrAEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:RTMessageSet xmi:id="_LXUKwNrAEeahI77Vg4Dl9Q" base_Interface="_LXSVkNrAEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:RTMessageSet xmi:id="_LXZDQNrAEeahI77Vg4Dl9Q" base_Interface="_LXX1INrAEeahI77Vg4Dl9Q" rtMsgKind="out"/>
+  <UMLRealTime:RTMessageSet xmi:id="_LXdUsNrAEeahI77Vg4Dl9Q" base_Interface="_LXcGkNrAEeahI77Vg4Dl9Q" rtMsgKind="inOut"/>
+  <UMLRealTime:Protocol xmi:id="_LXg_ENrAEeahI77Vg4Dl9Q" base_Collaboration="_LXKZwNrAEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:CapsulePart xmi:id="_GVgBQNrBEeahI77Vg4Dl9Q" base_Property="_GVbv0NrBEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:CapsulePart xmi:id="_LNWhANrBEeahI77Vg4Dl9Q" base_Property="_LNSPkNrBEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:RTPort xmi:id="_WvNaoNrBEeahI77Vg4Dl9Q" base_Port="_WvH7ENrBEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:RTPort xmi:id="_k3m4sNrBEeahI77Vg4Dl9Q" base_Port="_k3gyENrBEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:CapsulePart xmi:id="_yAPi4NrBEeahI77Vg4Dl9Q" base_Property="_yAJcQNrBEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:RTPort xmi:id="_-jPJYNrBEeahI77Vg4Dl9Q" base_Port="_-jLfANrBEeahI77Vg4Dl9Q"/>
+  <UMLRealTime:RTConnector xmi:id="_U4ZNgdrCEeahI77Vg4Dl9Q" base_Connector="_U4X_YNrCEeahI77Vg4Dl9Q"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_QG5zcNrNEeahI77Vg4Dl9Q" headerPreface="#include&lt;stdio.h>&#xA;#include&lt;iostream>&#xA;&#xA;&#xA;#include &quot;ExecContext.hpp&quot; &#xA;#include &quot;PMDTypes.hpp&quot;&#xA;#include &quot;Config.hpp&quot;&#xA;#include &quot;Heap.hpp&quot;&#xA;#include &lt;iostream>&#xA;#include &lt;map>&#xA;#include &lt;functional>&#xA;#include &quot;ExecHelper.hpp&quot;&#xA;#include &lt;boost/any.hpp>&#xA;" base_Class="_s7aB8Nq_EeahI77Vg4Dl9Q" privateDeclarations="pmd::Heap  heap;&#xA;pmd::ExecHelper execHelper;&#xA;Config config;&#xA;UMLRTMessage currentMessage;&#xA;bool runStateCode;&#xA;pmd::ExecContextOfCapsule execContext;&#xA;"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_qaE6YNrPEeay9vzLxQrrvQ" headerPreface="#include&lt;stdio.h>&#xA;#include&lt;iostream>&#xA;#include &quot;ExecContext.hpp&quot; &#xA;#include &quot;PMDTypes.hpp&quot;&#xA;#include &quot;Config.hpp&quot;&#xA;#include &quot;Heap.hpp&quot;&#xA;#include &lt;iostream>&#xA;#include &lt;map>&#xA;#include &lt;functional>&#xA;#include &quot;ExecHelper.hpp&quot;&#xA;#include &lt;boost/any.hpp>&#xA;" base_Class="_xS9RANq_EeahI77Vg4Dl9Q" privateDeclarations="pmd::Heap  heap;&#xA;pmd::ExecHelper execHelper;&#xA;Config config;&#xA;UMLRTMessage currentMessage;&#xA;bool runStateCode;&#xA;pmd::ExecContextOfCapsule execContext;&#xA;"/>
+  <UMLRealTime:RTPort xmi:id="_Ce3MQNrUEeaBAosuR3tfxw" isWired="false" base_Port="_Cey60NrUEeaBAosuR3tfxw"/>
+  <UMLRealTime:RTConnector xmi:id="_-oDOkNraEeal5dJZNvUqew" base_Connector="_-n9H8NraEeal5dJZNvUqew"/>
+  <UMLRealTime:CapsulePart xmi:id="_V8w48NrgEeal5dJZNvUqew" base_Property="_V8mg4NrgEeal5dJZNvUqew"/>
+  <UMLRealTime:RTConnector xmi:id="_bwRvstrgEeal5dJZNvUqew" base_Connector="_bwP6gNrgEeal5dJZNvUqew"/>
+  <UMLRealTime:CapsulePart xmi:id="_5AN0oNrgEeal5dJZNvUqew" base_Property="_5AKKQNrgEeal5dJZNvUqew"/>
+  <UMLRealTime:RTConnector xmi:id="_-3zTEdrgEeal5dJZNvUqew" base_Connector="_-3w20NrgEeal5dJZNvUqew"/>
+  <UMLRealTime:CapsulePart xmi:id="_AVeyANrhEeal5dJZNvUqew" base_Property="_AVcVwNrhEeal5dJZNvUqew"/>
+  <UMLRealTime:RTConnector xmi:id="_EUj2sNrhEeal5dJZNvUqew" base_Connector="_EUhacNrhEeal5dJZNvUqew"/>
+  <UMLRealTime:Capsule xmi:id="_n-Md8Er3EemwNsf3GzmTOg" base_Class="_n9xAIEr3EemwNsf3GzmTOg"/>
+  <UMLRTStateMachines:RTStateMachine xmi:id="_n-fY4Er3EemwNsf3GzmTOg" base_StateMachine="_n-PhQEr3EemwNsf3GzmTOg"/>
+  <UMLRealTime:ProtocolContainer xmi:id="_n-rmIEr3EemwNsf3GzmTOg" base_Package="_n-f_8Er3EemwNsf3GzmTOg"/>
+  <UMLRealTime:Protocol xmi:id="_n-xFsEr3EemwNsf3GzmTOg" base_Collaboration="_n-upcEr3EemwNsf3GzmTOg"/>
+  <UMLRealTime:RTMessageSet xmi:id="_n-_vMEr3EemwNsf3GzmTOg" base_Interface="_n-y64Er3EemwNsf3GzmTOg"/>
+  <UMLRealTime:RTMessageSet xmi:id="_n_JgMEr3EemwNsf3GzmTOg" base_Interface="_n-1-MEr3EemwNsf3GzmTOg" rtMsgKind="out"/>
+  <UMLRealTime:RTMessageSet xmi:id="_n_O_wEr3EemwNsf3GzmTOg" base_Interface="_n-4acEr3EemwNsf3GzmTOg" rtMsgKind="inOut"/>
+  <UMLRealTime:RTPort xmi:id="_n_1csEr3EemwNsf3GzmTOg" base_Port="_n_h6sEr3EemwNsf3GzmTOg"/>
+  <UMLRealTime:RTPort xmi:id="_oBPx8Er3EemwNsf3GzmTOg" isWired="false" base_Port="_oBJrUEr3EemwNsf3GzmTOg"/>
+  <UMLRealTime:RTPort xmi:id="_oBZi8Er3EemwNsf3GzmTOg" isPublish="true" isWired="false" base_Port="_oBTcUEr3EemwNsf3GzmTOg"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_oCvmwEr3EemwNsf3GzmTOg" base_Class="_s7aB8Nq_EeahI77Vg4Dl9Q"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_oC70AEr3EemwNsf3GzmTOg" base_Class="_s7aB8Nq_EeahI77Vg4Dl9Q"/>
+  <RTCppProperties:ParameterProperties xmi:id="_oEUUEEr3EemwNsf3GzmTOg" type="pmd::Message" base_Parameter="_oELKIEr3EemwNsf3GzmTOg"/>
+  <RTCppProperties:ParameterProperties xmi:id="_oEsukEr3EemwNsf3GzmTOg" type="pmd::Message" base_Parameter="_oEpEMEr3EemwNsf3GzmTOg"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_oFzh0Er3EemwNsf3GzmTOg" base_Pseudostate="_oFv3cEr3EemwNsf3GzmTOg"/>
+  <UMLRealTime:RTPort xmi:id="_oL_pYEr3EemwNsf3GzmTOg" isWired="false" base_Port="_oL7X8Er3EemwNsf3GzmTOg"/>
+  <UMLRealTime:RTPort xmi:id="_oMKogEr3EemwNsf3GzmTOg" isPublish="true" isWired="false" base_Port="_oMFwAEr3EemwNsf3GzmTOg"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_oMgmwEr3EemwNsf3GzmTOg" base_Class="_xS9RANq_EeahI77Vg4Dl9Q"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_oMsM8Er3EemwNsf3GzmTOg" base_Class="_xS9RANq_EeahI77Vg4Dl9Q"/>
+  <RTCppProperties:ParameterProperties xmi:id="_oNYJcEr3EemwNsf3GzmTOg" type="pmd::Message" base_Parameter="_oNW7UEr3EemwNsf3GzmTOg"/>
+  <RTCppProperties:ParameterProperties xmi:id="_oNk9wEr3EemwNsf3GzmTOg" type="pmd::Message" base_Parameter="_oNihgEr3EemwNsf3GzmTOg"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_oOI-cEr3EemwNsf3GzmTOg" base_Pseudostate="_oOEtAEr3EemwNsf3GzmTOg"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_oPfpUEr3EemwNsf3GzmTOg" headerPreface="#include &quot;ExecContext.hpp&quot; &#xA;#include &quot;PMDTypes.hpp&quot;&#xA;#include &quot;Config.hpp&quot;&#xA;#include &quot;Heap.hpp&quot;&#xA;#include &lt;iostream>&#xA;#include &lt;map>&#xA;#include &lt;functional>&#xA;#include &quot;ExecHelper.hpp&quot;&#xA;#include &lt;boost/any.hpp>&#xA;" base_Class="_n9xAIEr3EemwNsf3GzmTOg" privateDeclarations="pmd::Heap  heap;&#xA;pmd::ExecHelper execHelper;&#xA;Config config;&#xA;UMLRTMessage currentMessage;&#xA;bool runStateCode;&#xA;pmd::ExecContextOfCapsule execContext;&#xA;"/>
+  <RTCppProperties:CapsuleProperties xmi:id="_oPmXAEr3EemwNsf3GzmTOg" base_Class="_n9xAIEr3EemwNsf3GzmTOg"/>
+  <RTCppProperties:ParameterProperties xmi:id="_oQK-wEr3EemwNsf3GzmTOg" type="pmd::Message" base_Parameter="_oQGtUEr3EemwNsf3GzmTOg"/>
+  <RTCppProperties:ParameterProperties xmi:id="_oQRscEr3EemwNsf3GzmTOg" type="pmd::Message" base_Parameter="_oQQeUEr3EemwNsf3GzmTOg"/>
+  <UMLRTStateMachines:RTRegion xmi:id="_oQ4wcEr3EemwNsf3GzmTOg" base_Region="_oQ3iUEr3EemwNsf3GzmTOg"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_oQ-3EEr3EemwNsf3GzmTOg" base_Pseudostate="_oQ5XgEr3EemwNsf3GzmTOg"/>
+  <UMLRTStateMachines:RTState xmi:id="_oRB6YEr3EemwNsf3GzmTOg" base_State="_oRAsQEr3EemwNsf3GzmTOg"/>
+  <UMLRTStateMachines:RTPseudostate xmi:id="_oRFkwEr3EemwNsf3GzmTOg" base_Pseudostate="_oRDIgEr3EemwNsf3GzmTOg"/>
+  <UMLRealTime:CapsulePart xmi:id="_oRtP0Er3EemwNsf3GzmTOg" base_Property="_oRsBsEr3EemwNsf3GzmTOg"/>
+</xmi:XMI>

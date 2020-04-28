@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+    <extension point="org.eclipse.emf.ecore.uri_mapping">
+        <mapping
+            source="pathmap://UMLRTRTSLIB/"
+            target="platform:/plugin/org.eclipse.papyrusrt.umlrt.common.rts.library/libraries/"/>
+    </extension>
+</plugin>

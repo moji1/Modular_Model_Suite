@@ -1,0 +1,5 @@
+include_directories(${ANTLR4CPP_RUNTIME})
+include_directories(${ANTLR4CPP_GENERATED_SRC_DIR})
+file(GLOB SRCS *.cpp)
+add_executable(TestExecRuleParser ${SRCS})
+target_link_libraries(TestExecRuleParser pmecore ${Boost_LIBRARIES})

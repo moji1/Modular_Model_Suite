@@ -1,0 +1,112 @@
+SET (CMAKE_CXX_STANDARD 11)
+cmake_minimum_required(VERSION 3.5)
+## check for java
+FIND_PACKAGE(Java COMPONENTS Runtime REQUIRED)
+if (NOT ${Java_FOUND})
+message( FATAL_ERROR "Please make sure that Java is installed" )
+endif(NOT ${Java_FOUND})
+
+## set path to UMLRT libraries 
+if (NOT DEFINED UMLRTRTSINC)
+	set(UMLRTRTSINC "/Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.rts_1.0.0.201707181457/umlrts/include" CACHE STRING "")
+endif(NOT DEFINED UMLRTRTSINC)
+if (NOT DEFINED UMLRTRTSLIBLOC)
+	set(UMLRTRTSLIBLOC "/Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/org.eclipse.papyrusrt.rts_1.0.0.201707181457/umlrts/lib/linux.darwin" CACHE STRING "")
+endif(NOT DEFINED UMLRTRTSLIBLOC)
+if (NOT DEFINED UMLRTRTSLIB)
+	set(UMLRTRTSLIB "librts.a" CACHE STRING "")
+endif(NOT DEFINED UMLRTRTSLIB)
+if (NOT DEFINED UMLRTPUGINPATH )
+		set(UMLRTPUGINPATH "/Users/mojtababagherzadeh/Desktop/Papyrus-RT.app/Contents/Eclipse/plugins/" CACHE STRING "")
+endif(NOT DEFINED UMLRTPUGINPATH)
+
+
+set (pme_core_inc ../../pme_core)
+set (util_inc ../../util)
+
+## set path to UMLRTtransfromer, code generator, refinmentscript,  and input model
+set(umlrtgen "/Users/mojtababagherzadeh/git/partialmodels/pmd_helper/tools/umlrtgen.jar" CACHE STRING "")
+set(umlrttransformer "/Users/mojtababagherzadeh/git/partialmodels/pmd_helper/tools/umlrttransformer.jar"  CACHE STRING "")
+set(refinmentscript "/Users/mojtababagherzadeh/git/EpsilonCLIForUMLRT/UMLRTTransformer/samples/TestScript.eol" CACHE STRING "")
+set(input_model "/Users/mojtababagherzadeh/git/EpsilonCLIForUMLRT/UMLRTTransformer/samples/ping-pong-partial.uml" CACHE STRING "")
+set(output_model "/Users/mojtababagherzadeh/git/EpsilonCLIForUMLRT/UMLRTTransformer/samples/ping-pong-partial.uml")
+
+
+## path for the model and dir for generated code
+set(model_dir "Counter")
+set(GENERATED_SRC_DIR "gen")
+
+
+
+
+### set top capsule 
+set(topCapsule "Counter")
+## make sure java is installed
+
+	
+
+foreach(umlfile ${uml_files})
+	get_filename_component(umlfile_name  ${umlfile} NAME)
+  	string(REPLACE "\.uml" ""  umlfile_name_without_prefix ${umlfile_name})
+  	#message("umlfile_name_without_prefix " ${umlfile_name_without_prefix})
+  	set (generated_cc_file_name "${umlfile_name_without_prefix}.cc")
+  	set (generated_header_file_name "${umlfile_name_without_prefix}.hh")
+	set (gen_cmd "${Java_JAVA_EXECUTABLE}" -jar "${umlrtgen}"  ${umlfile} -t ${topCapsule} -c ${umlfile_name_without_prefix} -p ${UMLRTPUGINPATH}  -o "${GENERATED_SRC_DIR}/")
+	if (${umlfile_name_without_prefix} STREQUAL ${topCapsule})
+		list(APPEND gen_result  "${GENERATED_SRC_DIR}/src/${generated_cc_file_name}")
+		list(APPEND gen_result  "${GENERATED_SRC_DIR}/src/${topCapsule}Controllers.cc") 
+		list(APPEND gen_result  "${GENERATED_SRC_DIR}/src/${topCapsule}Controllers.hh") 
+		list(APPEND gen_result  "${GENERATED_SRC_DIR}/src/${topCapsule}Main.cc")
+		list(APPEND gen_result  "${GENERATED_SRC_DIR}/src/${generated_header_file_name}")
+	else(${umlfile_name_without_prefix} STREQUAL ${topCapsule})
+		list(APPEND gen_result "${GENERATED_SRC_DIR}/src/${generated_cc_file_name}")
+		list(APPEND gen_result  "${GENERATED_SRC_DIR}/src/${generated_header_file_name}")
+	endif(${umlfile_name_without_prefix} STREQUAL ${topCapsule})
+	
+ADD_CUSTOM_COMMAND(OUTPUT ${gen_result} #"${GENERATED_SRC_DIR}/${generated_cc_file_name}" " ${GENERATED_SRC_DIR}/${topCapsule}Controllers.cc" " ${GENERATED_SRC_DIR}/${topCapsule}Main.cc"
+                COMMAND ${gen_cmd}
+                    DEPENDS ${umlfile}
+                    ##lets discuss later to see how get dependency list, it would be great to add a command in umlrt gen to do that, 
+                    ## and the only dependency is protocol
+                    COMMENT "Generating source code from umlfile " ${umlfile} )
+    list(APPEND generated_src_cc_files "${gen_result}")
+endforeach(umlfile uml_files)
+
+### create config file if not exist 
+
+
+add_executable("${topCapsule}System" ${generated_src_cc_files})
+include_directories(${UMLRTRTSINC})
+link_directories(${UMLRTRTSLIB})
+include_directories(${pme_core_inc})
+include_directories(${util_inc})
+include_directories(${ANTLR4CPP_RUNTIME})
+include_directories(${ANTLR4CPP_GENERATED_SRC_DIR})
+target_link_libraries("${topCapsule}System" ${UMLRTRTSLIBLOC}/${UMLRTRTSLIB})
+target_link_libraries("${topCapsule}System" pmecore)
+
+if(Boost_FOUND)
+target_link_libraries("${topCapsule}System" ${Boost_LIBRARIES})
+endif()
+
+### create config file if not exist 
+
+message("CMAKE_CONFIGURATION_TYPES = " ${CMAKE_CONFIGURATION_TYPES})
+message("CMAKE_CONFIGURATION_TYPES = " ${CMAKE_CFG_INTDIR})
+message("CMAKE_CONFIGURATION_TYPES = " ${CMAKE_DEBUG_POSTFIX})
+set(config_file  "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/${CMAKE_CFG_INTDIR}/config")
+
+
+
+#configure_file("${util_inc}/config" "${config_file}" COPYONLY)
+
+add_custom_command(OUTPUT ${config_file}
+  COMMAND cp "${CMAKE_CURRENT_SOURCE_DIR}/../../util/config" "${config_file}"
+  DEPENDS "${CMAKE_CURRENT_SOURCE_DIR}/../../util/config"
+  COMMENT "create default configuration file"
+  VERBATIM)
+
+add_custom_target(configure_files ALL
+  DEPENDS ${config_file})	
+
+

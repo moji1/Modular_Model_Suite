@@ -1,0 +1,66 @@
+1- Codegen time (ms)
+
+Case                            Standard        Ours
+----------------------------------------------------
+Digital Watch                   885             920         
+Parcel Router                   1140            1098    
+Rover                           1109            1187
+Car Door Central Lock           1063            1056
+FailOver                        1197            1274
+Debuggable FailOver             43623           46692
+
+2- Hot-Patching Operations on the FailOver (ms)
+
+- Average incremental code generation time:  113ms
+- Average incremental build time:  398ms
+- Average time to detect changes: 1115ms (again this should be ignored)
+- Average loading time: 97ms (this could be even larger if deployment target != development target)         
+
+
+- Average incremental code generation time:  319ms
+- Average incremental build time:  512ms
+- Average time to detect changes: 1034ms
+- Average loading time: 361ms (this could be even larger if deployment target != development target) 
+
+3- Debugger Operations
+
+- Average time to add a state: 1.3ms
+- Average time to add a transition: 1.8ms
+- Average time to delete a state: 1.5ms
+- Average time to delete a transition: 1.8ms
+- Average time to add an attribute: 1.3ms   
+
+4- Execution Performance
+
+N is the number of transitions in the SM
+Time is the average of finding and executing each of the N transitions in ns
+Memory is the peak memory usage by the process in bytes
+Binary size is useless, ignore it :P
+
+                                                Our                                             Standard
+                                --------------------------------------          ---------------------------------------
+N                               Time        memory          Binary size         Time        memory          Binary Size
+-----------------------------------------------------------------------------------------------------------------------
+1                               917         1679360         337576              226         1409024         326216
+100                             914         1753088         386736              241         1413120         330336
+1000                            1131        2465792         865968              608         1417216         354920
+10000                           1094        9715712         5724568             716         1417216         617064
+
+
+536.54 real       519.33 user        10.71 sys  161030144
+
+528.52 real       514.01 user         9.00 sys  2478080
+
+
+Non-Instrumented
+									  Standard								Our
+								--------------------				--------------------
+Case                            LOC 			Size 				LOC 			Size (bytes)
+---------------------------------------------------------------------------------------------------------
+Digital Watch                   930       		306564				852				323896
+Parcel Router                   6389			390684				6043			411208   
+Rover                           3936			can't build			3527			can't build
+Car Door Central Lock           2230			343900				2015			358036
+FailOver                        6314			475988				5746			493396
+Debuggable FailOver             53122			4004601				38518			4151058
+

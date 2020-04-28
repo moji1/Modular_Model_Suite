@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.eclipse.papyrusrt.codegen.cpp.structure;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.papyrusrt.codegen;bundle-version="[1.0.0,2.0.0)",
+ org.eclipse.papyrusrt.codegen.cpp;bundle-version="[1.0.0,2.0.0)",
+ org.eclipse.papyrusrt.codegen.cpp.rts;bundle-version="[1.0.0,2.0.0)",
+ org.eclipse.papyrusrt.codegen.lang.cpp;bundle-version="[1.0.0,2.0.0)",
+ org.eclipse.papyrusrt.codegen.utils;bundle-version="[1.0.0,2.0.0)",
+ org.eclipse.papyrusrt.xtumlrt.aexpr.uml,
+ org.eclipse.papyrusrt.xtumlrt.common.model;bundle-version="[1.0.0,2.0.0)",
+ org.eclipse.papyrusrt.xtumlrt.util;bundle-version="[1.0.0,2.0.0)",
+ org.eclipse.xtend.lib;bundle-version="[2.12.0,3.0.0)"
+Export-Package: org.eclipse.papyrusrt.codegen.cpp.structure
+

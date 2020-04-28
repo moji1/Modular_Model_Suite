@@ -1,0 +1,44 @@
+/*
+    Copyright (c) 2016 Queen's University.
+    
+    Developers:
+	Mojtaba Bagherzadeh(mojtaba@cs.queensu.ca)
+
+*/
+
+// the following variables needs to be defined globally
+var  Off:Integer=0;
+var  Fatal:Integer=1;	
+var  Error:Integer=2;	
+var  Warn:Integer=3;	
+var  Info:Integer=4;	
+var  Debug:Integer=5;	
+var  Trace:Integer=6;		
+var  CURRENTLOGLEVEL=TRACE;
+
+
+
+
+
+
+operation Integer  log(logContext:String,logMessage:String) {
+	if ((self<=CurrentLogLevel) and (CurrentLogLevel<>0) and (logMessage<>PreviousLogMsg)){
+		PreviousLogMsg=logMessage;
+		if (logMessage.length()>78)
+			logMessage=logMessage.substring(0,77)+"......";
+		logMessage.println(logContext + " : " );	
+	}	
+}
+
+operation Integer  logWithoutTrim(logContext:String,logMessage:String) {
+	if ((self<=CurrentLogLevel) and (CurrentLogLevel<>0) and (logMessage<>PreviousLogMsg)){
+		PreviousLogMsg=logMessage;
+		logMessage.println(logContext + " : " );	
+	}	
+}
+
+operation Integer  log(logMessage:String) {
+	if ((self<=CurrentLogLevel) and (CurrentLogLevel<>0))
+		logMessage.println();		
+}
+

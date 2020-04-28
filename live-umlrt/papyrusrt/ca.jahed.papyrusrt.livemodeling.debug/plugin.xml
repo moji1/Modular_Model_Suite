@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+	    <launchConfigurationType
+	        name="Start live modeling session"
+	        delegate="ca.jahed.papyrusrt.livemodeling.debug.PapyrusrtLaunchConfigurationDelegate"
+	        modes="run"
+	        extension="uml"
+	        default= "true"
+	        id="ca.jahed.papyrusrt.livemodeling.debug.launchConfigurationType">
+	    </launchConfigurationType>
+	</extension>
+
+	<extension point="org.eclipse.debug.ui.launchShortcuts">
+	    <shortcut
+	        class="ca.jahed.papyrusrt.livemodeling.debug.PapyrusrtLaunchShortcut"
+	        id="ca.jahed.papyrusrt.livemodeling.debug.shortcut"
+	        label="Start live modeling session"
+	        modes="run">
+	        <contextualLaunch>
+	            <enablement>
+	                <with
+	                    variable="selection">
+	                    <count
+	                        value="+">
+	                    </count>
+	                </with>
+	            </enablement>
+	        </contextualLaunch>
+	    </shortcut>
+	</extension>
+
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        class="ca.jahed.papyrusrt.livemodeling.debug.PapyrusrtLaunchTabGroup"
+	        id="ca.jahed.papyrusrt.livemodeling.debug.launchConfigurationTabGroup"
+	        type="ca.jahed.papyrusrt.livemodeling.debug.launchConfigurationType">
+	    </launchConfigurationTabGroup>
+	</extension>
+
+   
+   
+   
+</plugin>

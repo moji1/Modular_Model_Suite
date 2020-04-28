@@ -1,0 +1,109 @@
+/*
+    Copyright (c) 2016 Queen's University.
+    
+    Developers:
+	Mojtaba Bagherzadeh(mojtaba@cs.queensu.ca)
+
+*/
+
+
+
+
+import "PartialDetection.eol";
+import "PartialityFixer.eol";
+import "UMLRTElementOperations.eol";
+import "LogUtil.eol";
+import "PMDPreparation.eol";
+//import "test.eol";
+//var s="\\.";
+//"test.test".matches(".*\\.test").println();
+// intialize tests
+
+//UMLRTModel!Package.all.println("Refine ");
+/*for (p in UMLRTModel!Package){
+	p.name.println("Package Name: ");
+	p.packagedElement.println("Package in root");
+	}*/    
+
+// init logging , globall variables started with an  uppercase letter
+var  Off:Integer=0;
+var  Fatal:Integer=1;	
+var  Error:Integer=2;	
+var  Warn:Integer=3;	
+var  Info:Integer=4;	
+var  Debug:Integer=5;	
+var  Trace:Integer=6;	
+var UniqueID=0;
+var EndLine="\n";
+var ModelRoot;
+var AllClasses;
+var AllCapsules;
+var CurrentLogLevel=Error;
+var PreviousLogMsg="";
+var UMLIntegerType; 
+var UMLBooleanType; 
+var UMLRealType;  
+var UMLStringType;
+var UMLUnlimitedNaturalType;
+var AllPrimitiveType; 
+var AllPrimitiveTypeExceptString;
+var configMap;
+var clevels:Set=Set{"partial","full-partial","complete"};
+var TimingProtocol;
+var TcpProtocol;
+var PossibleEvents; //used to cash possible events of each capsule
+//clevels=Set;
+//////// End of global varibles
+    
+var  logContext:String="RefineForPMD";
+    
+ var params="congih:gjg";
+// loading config, models and intialize global vraibles
+if (params.isDefined())
+	configMap=loadConfig(params); 
+
+Info.log(logContext, "Transformation is started");
+ModelRoot=UMLRTModel!Package.all.select(c|c.type.name="Model").first();
+Info.log(logContext, "UMLRTModel  '"+ ModelRoot.name + "' is loaded" );
+Trace.log(logContext, "Number of Classes inside the model "+ AllCapsules.size());
+Trace.log(logContext, "Classes inside the model "+ AllCapsules );
+var AllCapsules:Set=ModelRoot.getAllOwnedCapsules();
+Trace.log(logContext, "Number of Capsules inside the model "+ AllCapsules.size());
+Trace.log(logContext, "Capsules inside the model "+ AllCapsules );
+ 
+/// load UMLPrimitiveType 
+var UMLPrimitiveTypes=UMLRTModel!Package.all.select(c|c.name="PrimitiveTypes").first();
+UMLIntegerType=UMLPrimitiveTypes.packagedElement.selectOne(t|t.name="Integer");
+UMLBooleanType=UMLPrimitiveTypes.packagedElement.selectOne(t|t.name="Boolean");
+
+
+UMLRealType=UMLPrimitiveTypes.packagedElement.selectOne(t|t.name="Real");
+UMLStringType=UMLPrimitiveTypes.packagedElement.selectOne(t|t.name="String");
+UMLUnlimitedNaturalType=UMLPrimitiveTypes.packagedElement.selectOne(t|t.name="UnlimitedNatural");
+AllPrimitiveType=Set{UMLIntegerType,UMLBooleanType,UMLStringType,UMLUnlimitedNaturalType,UMLRealType};
+AllPrimitiveTypeExceptString=Set{UMLIntegerType,UMLBooleanType,UMLUnlimitedNaturalType,UMLRealType};
+// load Timing protocl
+TimingProtocol=UMLRTModel!Package.all.select(c|c.name="Timing").first().packagedElement.first();
+TcpProtocol=UMLRTModel!Package.all.select(c|c.name="TCP").first().packagedElement.first();
+// prepare models bu adding methods and variable
+
+
+//ModelRoot.prepareModelForPMD();
+//ModelRoot.fixPartialities();
+//ModelRoot.makeModelExecutable();    
+ModelRoot.refineModel();
+//ModelRoot.makeModelExecutable(); 
+
+
+       
+
+/*var allRegion:Set=modelroot.getAllStateMachines().getAllRegions();
+var allTrans:Set=allRegion.getAllTransitions();
+var allStates=allRegion.getAllStates();
+var allStateMachine:Set=modelroot.getAllStateMachines();
+var allCapsules:Set=modelroot.getAllOwnedCapsules();
+var UniqueID=0;
+var EndLine="\n";
+*/
+
+

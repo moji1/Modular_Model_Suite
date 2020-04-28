@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.papyrus.infra.core.modelListener">
+      <listener
+            name="ca.jahed.papyrusrt.livemodeling.listener"
+            realization="ca.jahed.papyrusrt.livemodeling.PapyrusListener">
+      </listener>
+   </extension>
+   <extension
+         point="org.eclipse.papyrus.infra.core.model">
+      <model
+            classname="ca.jahed.papyrusrt.livemodeling.LiveModel"
+            fileExtension="uml"
+            required="true">
+      </model>
+   </extension>
+
+</plugin>

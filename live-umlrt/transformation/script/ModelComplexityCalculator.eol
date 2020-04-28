@@ -1,0 +1,116 @@
+import "UMLRTQuery.eol";
+import "UMLRTProfileOperations.eol";
+import "ExecutionAnalysis.eol";
+import "LogUtil.eol";
+//Non-takable Transitions (NTT).
+var  Off:Integer=0;
+var  Fatal:Integer=1;	
+var  Error:Integer=2;	
+var  Warn:Integer=3;	
+var  Info:Integer=4;	
+var  Debug:Integer=5;	
+var  Trace:Integer=6;
+var CurrentLogLevel=Error;
+
+var ModelRoot=UMLRTModel!Package.all.select(c|c.type.name="Model").first();
+//ModelRoot.println();
+ModelRoot.analyzeModel();
+//ModelRoot.println();
+
+operation Model analyzeModel(){
+	//  create mocking agent
+	var logContext="PartialityDetection:analyzeModel";
+	//Info.log(logContext, "Analyze Model " + self.name +  " for the partiality");
+	var topCapsule=self.getAllOwnedCapsules().select(c|c.name=self.getTopCapsule()).first();
+	if (not topCapsule.isDefined()){
+		Error.log(logContext, "Top Capsule of " + self.name +  " is not defined, refinement is terminating");
+		abort;
+	}
+	var allCapsule=(self.getAllOwnedCapsules());//.select(c|c.name<>self.getTopCapsule());
+	for (capsule in allCapsule){ // capsule with an HSM is ignored, we have to make sure the capulse supposed to include behaviour
+		if (capsule.alphaStm().isDefined()){
+			var allState=capsule.alphaStm().alphaSts();
+			var allTrs=capsule.alphaStm().alphaTrs();
+			(args+","+ModelRoot.name+","+capsule.name+","+allState.size()+","+allTrs.size()).println();	
+		}
+		else {
+			(args+","+ModelRoot.name+","+capsule.name+","+"0"+","+"0").println();
+		}
+	}
+	
+}
+/////
+
+
+
+//Non-effective Execution Step (NES).
+operation UMLRTModel!StateMachine NoEffectExecSteps() : Set {
+	var hasNoEffect:Boolean;
+	var NoEffectSet=Set{};
+	for (stp in self.alphaStps()){
+		hasNoEffect=true;
+		for (t in stp){
+			if (t.act()<>"None" or t.src().exit()<>"None" or t.targ().entry()<>"None"){
+				hasNoEffect=false;
+				break;
+			}
+		if (hasNoEffect)
+			NoEffectSet.add(stp);
+		}
+	}
+	return NoEffectSet;
+	
+}
+
+
+//// Missing Guard (MG) States
+
+operation UMLRTModel!StateMachine missingGuardStates() : Set {
+	var MissingGuardStates=Set{};
+	var tempTrans=self.alphaTrs();
+	var Boolean:hasGuard=false;
+	for (s in self.alphaSts().select(s|s.pKind()=="Ch")){
+		outGoingTrans=tempTrans.select(t|t.target==s); // later check for two transition from choice point
+		for (t in outGoingTrans)
+			if (t.guard()<>"None")
+				hasGuard=true;
+		if (not hasGuard)
+			MissingGuardStates.add(self);
+		hasGuard=false;
+		}
+	return MissingGuardStates;
+}
+
+//// Un-handled Input Messages (UIM). // test it later
+operation UMLRTModel!Class UnhandledInMessage() : Set {
+	var UnhandledMessage=Set{};
+	if (self.alphaStm().isUndefined())
+		return UnhandledMessage;
+	var inMessages=self.messageIn();
+	var handledMessages=self.handledInMessages();
+	return inMessages.excludingAll(handledMessages);
+}
+
+/// Missing Output messages
+operation UMLRTModel!Class UnhandledOutMessage() : Set {
+	var UnhandledOutMessage=Set{};
+	if (self.alphaStm().isUndefined())
+		return UnhandledOutMessage;
+	var outMessages=self.messageOut();
+	var handledOutMessages=self.handledOutMessages();
+	return outMessages.excludingAll(handledOutMessages);
+}
+
+/// Full Partiality (FP) // need to be tested 
+operation UMLRTModel!Class hasFullPartiality() : Set {
+	
+	if (self.alphaStm().isUndefined() and (self.messageOut().notEmpty() or self.messageIn().notEmpty()))
+		return true;
+	if (self.alphaStm().isDefined() and self.alphaStm().sts().isEmpty() and (self.messageOut().notEmpty() or self.messageIn().notEmpty()))
+		return true;
+}
+
+/// Environment Partiality (ENVP) lets do it this weekend along with test
+
+
+

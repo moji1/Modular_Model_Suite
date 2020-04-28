@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:RTCppProperties="http://www.eclipse.org/papyrus/umlrt/cppproperties" xmlns:UMLRealTime="http://www.eclipse.org/papyrus/umlrt" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML">
+  <uml:Model xmi:id="_lYTBoAggEea_md0mpENoqg" name="Replication">
+    <eAnnotations xmi:id="_4HZrcAgoEea_md0mpENoqg" source="UMLRT_Default_top">
+      <details xmi:id="_4Ha5kAgoEea_md0mpENoqg" key="top_name" value="Simulator"/>
+    </eAnnotations>
+    <profileApplication xmi:id="_lcu1sAggEea_md0mpENoqg">
+      <eAnnotations xmi:id="_lcwq4AggEea_md0mpENoqg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_RT_PROFILE/uml-rt.profile.uml#_1h74oEeVEeO0lv5O1DTHOQ"/>
+    </profileApplication>
+    <profileApplication xmi:id="_0p1pUAgxEea_md0mpENoqg">
+      <eAnnotations xmi:id="_0p1pUQgxEea_md0mpENoqg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#_Kv8EIKFXEeS_KNX0nfvIVQ"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://PAPYRUS_ACTIONLANGUAGE_PROFILE/ActionLanguage-Profile.profile.uml#ActionLanguage"/>
+    </profileApplication>
+    <profileApplication xmi:id="_iMahwAifEea_md0mpENoqg">
+      <eAnnotations xmi:id="_iMbv4AifEea_md0mpENoqg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/statemachine#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UML_RT_PROFILE/UMLRealTimeSM-addendum.profile.uml#_KLcn0FDtEeOA4ecmvfqvaw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_iMeMIAifEea_md0mpENoqg">
+      <eAnnotations xmi:id="_iMgBUAifEea_md0mpENoqg" source="PapyrusVersion">
+        <details xmi:id="_iMgBUQifEea_md0mpENoqg" key="Version" value="0.0.11"/>
+        <details xmi:id="_iMgBUgifEea_md0mpENoqg" key="Comment" value=""/>
+        <details xmi:id="_iMgBUwifEea_md0mpENoqg" key="Copyright" value=""/>
+        <details xmi:id="_iMgBVAifEea_md0mpENoqg" key="Date" value="2015-12-10"/>
+        <details xmi:id="_iMgBVQifEea_md0mpENoqg" key="Author" value=""/>
+      </eAnnotations>
+      <eAnnotations xmi:id="_iMeMIQifEea_md0mpENoqg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="http://www.eclipse.org/papyrus/umlrt/cppproperties#/"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLRT_CPP/RTCppProperties.profile.uml#_vl5LALs8EeSTjNEQkASznQ"/>
+    </profileApplication>
+  </uml:Model>
+</xmi:XMI>
